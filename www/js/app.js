@@ -7,11 +7,11 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives','app.services',])
 
-.config(function($ionicConfigProvider, $sceDelegateProvider){
-
-  $sceDelegateProvider.resourceUrlWhitelist([ 'self','*://www.youtube.com/**', '*://player.vimeo.com/video/**']);
-
-})
+// .config(function($ionicConfigProvider, $sceDelegateProvider){
+//
+//   $sceDelegateProvider.resourceUrlWhitelist([ 'self','*://www.youtube.com/**', '*://player.vimeo.com/video/**']);
+//
+// })
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -28,13 +28,15 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
   });
 })
 
+//  CAN POSSIBLY DELETE DIRECTIVES BELOW
+
 /*
   This directive is used to disable the "drag to open" functionality of the Side-Menu
   when you are dragging a Slider component.
 */
 .directive('disableSideMenuDrag', ['$ionicSideMenuDelegate', '$rootScope', function($ionicSideMenuDelegate, $rootScope) {
     return {
-        restrict: "A",  
+        restrict: "A",
         controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
 
             function stopDrag(){
@@ -69,7 +71,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
       attrs.$observe('hrefInappbrowser', function(val){
         href = val;
       });
-      
+
       element.bind('click', function (event) {
 
         window.open(href, '_system', 'location=yes');
