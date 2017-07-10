@@ -1,3 +1,38 @@
 <ion-view title="Shopping List" cache-view="false" id="page3">
-  <ion-content padding="true" class="has-header"></ion-content>
+  <ion-content padding="true" class="has-header">
+
+  <div class="container well panel">
+    <p>I'm a paragraph in a container div</p>
+    <p>{{$ctrl.stuff}}</p>
+  </div>
+
+  <div class="todolistdiv">
+      <div class="col-md-10 col-md-offset-1 text-center todo-section">
+          <div>
+              <form id="form-list" class="form form-inline" action="index.html" method="post">
+                  <input id="todo-input" type="text" name="todo-item" value="" placeholder="Task...">
+                  <input class="button button-stable" type="submit" name="" value="Add Task">
+              </form>
+          </div>
+      </div>
+  </div>
+  <div class="todo-list-master" ng-repeat="item in stuff">
+      <div class="licontainer">
+            <button class="btn-check button button-stable" type="button" name="button"><span class="check"></span></button>
+            <div class="list-title">
+              {{item.item}}
+            </div>
+            <div class="drop" ng-class="{'drop-active': clicked}" ng-click="clicked = !clicked">
+              <div class="arrow"></div>
+            </div>
+      </div>
+      <div class="li-info" ng-class="{'li-info-active': clicked}">
+          I'm Back Bitches!!!
+      </div>
+
+    </div>
+  </div>
+
+
+  </ion-content>
 </ion-view>

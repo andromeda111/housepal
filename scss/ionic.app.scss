@@ -22,5 +22,91 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 $stable:                          #11c1f3 !default;
 
+#todo-input {
+  display: inline;
+  min-width: 200px;
+  // height: 41px;
+  height: 48px;
+  // padding-bottom: 4px;
+  /*padding-top: 4px;*/
+  border: 1px solid black;
+}
+
+// .todolistmaster {
+//   max-width: 100%;
+// }
+.licontainer {
+  margin-top: 10px;
+  width: 100%;
+}
+.shopitem {
+  padding-top: 10px;
+  margin-left: 10px;
+  border: 1px solid red;
+}
+
+.btn-check {
+  display: inline;
+}
+
+.list-title {
+  display: inline;
+  line-height: 48px;
+  padding-left: 10px;
+  width: auto;
+  overflow: hidden;
+}
+
+.check {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 20px;
+  transform: rotate(45deg);
+  height: 20px;
+  width: 10px;
+}
+.arrow {
+  content: '';
+  position: relative;
+  border-color: #000;
+  border-style: solid;
+  border-width: 0 1px 1px 0;
+  top: 8px;
+  left: 11px;
+  transform: rotate(45deg);
+  height: 14px;
+  width: 14px;
+}
+
+.drop {
+  // display: inline;
+  margin-top: 6px;
+  width: 36px;
+  height: 36px;
+  float: right;
+  border: 1px solid black;
+  border-radius: 45px;
+  background-color: #33cd5f;
+}
+
+.drop-active {
+
+  background-color: red;
+}
+
+.li-info {
+  height: 0px;
+  transition: all 0.25s ease-in-out;
+  border: 1px solid white;
+  overflow: hidden;
+}
+.li-info-active {
+  border: 1px solid black;
+  height: 60px;
+}
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
