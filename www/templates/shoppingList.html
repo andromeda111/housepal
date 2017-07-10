@@ -9,8 +9,8 @@
   <div class="todolistdiv">
       <div class="col-md-10 col-md-offset-1 text-center todo-section">
           <div>
-              <form id="form-list" class="form form-inline" action="index.html" method="post">
-                  <input id="todo-input" type="text" name="todo-item" value="" placeholder="Task...">
+              <form id="form-list" class="form form-inline" ng-submit="addItem(newItem)">
+                  <input id="todo-input" type="text" name="todo-item" value="" placeholder="Task..." ng-model="newItem.item">
                   <input class="button button-stable" type="submit" name="" value="Add Task">
               </form>
           </div>
@@ -18,7 +18,7 @@
   </div>
   <div class="todo-list-master" ng-repeat="item in stuff">
       <div class="licontainer">
-            <button class="btn-check button button-stable" type="button" name="button"><span class="check"></span></button>
+            <button class="btn-check button button-stable" type="button" name="button" ng-click="deleteItem(item)"><span class="check"></span></button>
             <div class="list-title">
               {{item.item}}
             </div>
@@ -31,18 +31,18 @@
             </div>
       </div>
       <div class="li-info" ng-class="{'li-info-active': clicked}">
-        <form class="form-buyer">
+        <form class="form-buyer" ng-submit="updateItem(item)">
             <label for="">Who plans to buy?</label>
-            <select class="" name="buyer-select">
-              <option value="any" selected>Anyone</option>
+            <select class="" name="buyerselect" ng-model="item.buyer">
+              <option value="" selected>Anyone</option>
               <option value="john">John</option>
             </select>
             <div class="list-update">
-              <input class="button button-small button-balanced" type="submit" name="" value="Update">
+              <input class="button button-small button-balanced" type="submit" name="buyer" value="Update">
             </div>
         </form>
         <div class="list-delete">
-          <button class="button button-small button-assertive" type="button" name="button">Delete</button>
+          <button class="button button-small button-assertive" type="button" name="button" ng-click="deleteItem(item)">Delete</button>
         </div>
       </div>
 
