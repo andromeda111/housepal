@@ -73,18 +73,46 @@ function ($scope, $stateParams) {
 
 }])
 
-.controller('loginCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('loginCtrl', ['$scope', '$state', '$stateParams', '$http',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+function ($scope, $state, $stateParams, $http) {
 
+  $scope.loginFormData = {
+    'email': '',
+    'password': ''
+}
+
+$scope.login = function(){
+    $scope.error = '';
+    const user = $scope.loginFormData
+    console.log(user);
+    $http.post('http://localhost:9000/login', user).then(()=> {
+    })
+    $state.go('tabsController.messageBoard')
+}
 
 }])
 
-.controller('signupCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('signupCtrl', ['$scope', '$state', '$stateParams', '$http', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+function ($scope, $state, $stateParams, $http) {
 
+  $scope.signupFormData = {
+          'name': '',
+          'email': '',
+          'password': ''
+      }
+
+      $scope.signup = function(){
+
+        $scope.error = '';
+        const newUser = $scope.signupFormData
+        console.log(newUser);
+        // $http.post('http://localhost:9000/login/new', newUser).then(()=> {
+        // })
+        // $state.go('tabsController.messageBoard')
+      }
 
 }])
