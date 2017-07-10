@@ -38,6 +38,12 @@ $stable:                          #11c1f3 !default;
 .licontainer {
   margin-top: 10px;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filler {
+  flex-grow: 1;
 }
 .shopitem {
   padding-top: 10px;
@@ -46,14 +52,14 @@ $stable:                          #11c1f3 !default;
 }
 
 .btn-check {
-  display: inline;
+  // display: inline;
 }
 
 .list-title {
-  display: inline;
+  // display: inline;
   line-height: 48px;
   padding-left: 10px;
-  width: auto;
+  // width: auto;
   overflow: hidden;
 }
 
@@ -80,22 +86,33 @@ $stable:                          #11c1f3 !default;
   transform: rotate(45deg);
   height: 14px;
   width: 14px;
+  transition: all 0.1s linear;
+}
+
+.arrow-active {
+  transform: rotate(-135deg);
+  top: 14px;
+}
+
+.buyer-show {
+  color: #999;
+  margin-top: 14px;
+  margin-right: 20px;
+  text-align: center;
 }
 
 .drop {
-  // display: inline;
   margin-top: 6px;
   width: 36px;
   height: 36px;
-  float: right;
+  // float: right;
   border: 1px solid black;
   border-radius: 45px;
   background-color: #33cd5f;
 }
 
 .drop-active {
-
-  background-color: red;
+  background-color: #387ef5;
 }
 
 .li-info {
@@ -103,10 +120,33 @@ $stable:                          #11c1f3 !default;
   transition: all 0.25s ease-in-out;
   border: 1px solid white;
   overflow: hidden;
+  line-height: 60px;
 }
 .li-info-active {
   border: 1px solid black;
   height: 60px;
+  line-height: 60px;
 }
+
+.form-buyer {
+  display: inline-block;
+  width: auto;
+  padding-left: 16px;
+}
+
+.list-delete {
+display: inline-flex;
+margin-top: 14px;
+margin-right: 4px;
+float: right;
+}
+
+.list-update {
+  display: inline-flex;
+  margin-top: 14px;
+  margin-left: 4px;
+
+}
+
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";

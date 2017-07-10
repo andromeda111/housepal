@@ -22,12 +22,28 @@
             <div class="list-title">
               {{item.item}}
             </div>
+            <div class="filler"></div>
+            <div class="buyer-show">
+              {{item.buyer}}
+            </div>
             <div class="drop" ng-class="{'drop-active': clicked}" ng-click="clicked = !clicked">
-              <div class="arrow"></div>
+              <div class="arrow" ng-class="{'arrow-active': clicked}"></div>
             </div>
       </div>
       <div class="li-info" ng-class="{'li-info-active': clicked}">
-          I'm Back Bitches!!!
+        <form class="form-buyer">
+            <label for="">Who plans to buy?</label>
+            <select class="" name="buyer-select">
+              <option value="any" selected>Anyone</option>
+              <option value="john">John</option>
+            </select>
+            <div class="list-update">
+              <input class="button button-small button-balanced" type="submit" name="" value="Update">
+            </div>
+        </form>
+        <div class="list-delete">
+          <button class="button button-small button-assertive" type="button" name="button">Delete</button>
+        </div>
       </div>
 
     </div>
