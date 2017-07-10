@@ -57,12 +57,25 @@ function ($scope, $stateParams, $http) {
   // End Controller
 }])
 
-.controller('messageBoardCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('messageBoardCtrl', ['$scope', '$state', '$stateParams', '$http', 'AuthService', 'API_ENDPOINT', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+function ($scope, $state, $stateParams, $http, AuthService, API_ENDPOINT) {
 
+  $scope.destroySession = function() {
+    AuthService.logout();
+  };
 
+  $scope.getInfo = function() {
+    $http.get('http://localhost:9000/memberinfo').then(function(result) {
+      $scope.memberinfo = result.data;
+    });
+  };
+
+  $scope.logout = function() {
+    AuthService.logout();
+    $state.go('login');
+  };
 }])
 
 .controller('menuCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -73,31 +86,42 @@ function ($scope, $stateParams) {
 
 }])
 
-.controller('loginCtrl', ['$scope', '$state', '$stateParams', '$http',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('loginCtrl', ['$scope', '$state', '$stateParams', '$http', 'AuthService', '$ionicPopup',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $state, $stateParams, $http) {
+function ($scope, $state, $stateParams, $http, AuthService, $ionicPopup) {
 
   $scope.loginFormData = {
     'email': '',
     'password': ''
 }
 
-$scope.login = function(){
-    $scope.error = '';
-    const user = $scope.loginFormData
-    console.log(user);
-    $http.post('http://localhost:9000/login', user).then(()=> {
-    })
-    $state.go('tabsController.messageBoard')
-}
+  $scope.login = function() {
+    AuthService.login($scope.loginFormData).then(function(msg) {
+      $state.go('tabsController.messageBoard');
+    }, function(errMsg) {
+      var alertPopup = $ionicPopup.alert({
+        title: 'Login failed!',
+        template: errMsg
+      });
+    });
+  };
+// ORIGINAL
+// $scope.login = function(){
+//     $scope.error = '';
+//     const user = $scope.loginFormData
+//     console.log(user);
+//     $http.post('http://localhost:9000/auth/login', user).then(()=> {
+//     })
+//     $state.go('tabsController.messageBoard')
+// }
 
 }])
 
-.controller('signupCtrl', ['$scope', '$state', '$stateParams', '$http', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('signupCtrl', ['$scope', '$state', '$stateParams', '$http', 'AuthService', '$ionicPopup', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $state, $stateParams, $http) {
+function ($scope, $state, $stateParams, $http, AuthService, $ionicPopup) {
 
   $scope.signupFormData = {
           'name': '',
@@ -105,14 +129,30 @@ function ($scope, $state, $stateParams, $http) {
           'password': ''
       }
 
-      $scope.signup = function(){
+  $scope.signup = function() {
+    AuthService.register($scope.signupFormData).then(function(msg) {
+      $state.go('login');
+      var alertPopup = $ionicPopup.alert({
+        title: 'Registration successful!',
+        template: msg
+      });
+    }, function(errMsg) {
+      var alertPopup = $ionicPopup.alert({
+        title: 'Registration failed!',
+        template: errMsg
+      });
+    });
+  };
 
-        $scope.error = '';
-        const newUser = $scope.signupFormData
-        console.log(newUser);
-        // $http.post('http://localhost:9000/login/new', newUser).then(()=> {
-        // })
-        // $state.go('tabsController.messageBoard')
-      }
+  // ORIGINAL
+  // $scope.signup = function(){
+  //
+  //   $scope.error = '';
+  //   const newUser = $scope.signupFormData
+  //   console.log(newUser);
+  //   $http.post('http://localhost:9000/auth/signup', newUser).then(()=> {
+  //   })
+  //   $state.go('tabsController.messageBoard')
+  // }
 
 }])
