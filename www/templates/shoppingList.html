@@ -1,11 +1,6 @@
 <ion-view title="Shopping List" cache-view="false" id="page3">
   <ion-content padding="true" class="has-header">
 
-  <div class="container well panel">
-    <p>I'm a paragraph in a container div</p>
-    <p>{{$ctrl.stuff}}</p>
-  </div>
-
   <div class="todolistdiv">
       <div class="col-md-10 col-md-offset-1 text-center todo-section">
           <div>
@@ -16,7 +11,7 @@
           </div>
       </div>
   </div>
-  <div class="todo-list-master" ng-repeat="item in stuff">
+  <div class="todo-list-master" ng-repeat="item in listItems | orderBy:'created_at'">
       <div class="licontainer">
             <button class="btn-check button button-stable" type="button" name="button" ng-click="deleteItem(item)"><span class="check"></span></button>
             <div class="list-title">
@@ -31,11 +26,10 @@
             </div>
       </div>
       <div class="li-info" ng-class="{'li-info-active': clicked}">
-        <form class="form-buyer" ng-submit="updateItem(item)">
+        <form class="form-buyer" ng-submit="updateItem(item, buyer)">
             <label for="">Who plans to buy?</label>
-            <select class="" name="buyerselect" ng-model="item.buyer">
+            <select name="buyerselect" ng-model="buyer" ng-options="person as person.name for person in houseUsers | orderBy:'name'">
               <option value="" selected>Anyone</option>
-              <option value="john">John</option>
             </select>
             <div class="list-update">
               <input class="button button-small button-balanced" type="submit" name="buyer" value="Update">
