@@ -59,7 +59,6 @@ angular.module('app.routes', [])
 
 $urlRouterProvider.otherwise('/login')
 
-
 })
 
 .run(function ($rootScope, $state, AuthService, AUTH_EVENTS) {

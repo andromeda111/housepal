@@ -106,15 +106,6 @@ function ($scope, $state, $stateParams, $http, AuthService, $ionicPopup) {
       });
     });
   };
-// ORIGINAL
-// $scope.login = function(){
-//     $scope.error = '';
-//     const user = $scope.loginFormData
-//     console.log(user);
-//     $http.post('http://localhost:9000/auth/login', user).then(()=> {
-//     })
-//     $state.go('tabsController.messageBoard')
-// }
 
 }])
 
@@ -144,15 +135,15 @@ function ($scope, $state, $stateParams, $http, AuthService, $ionicPopup) {
     });
   };
 
-  // ORIGINAL
-  // $scope.signup = function(){
-  //
-  //   $scope.error = '';
-  //   const newUser = $scope.signupFormData
-  //   console.log(newUser);
-  //   $http.post('http://localhost:9000/auth/signup', newUser).then(()=> {
-  //   })
-  //   $state.go('tabsController.messageBoard')
-  // }
-
 }])
+
+.controller('AppCtrl', function($scope, $state, $ionicPopup, AuthService, AUTH_EVENTS) {
+  $scope.$on(AUTH_EVENTS.notAuthenticated, function(event) {
+    AuthService.logout();
+    $state.go('login');
+    var alertPopup = $ionicPopup.alert({
+      title: 'Session Lost!',
+      template: 'Sorry, You have to login again.'
+    });
+  });
+});
