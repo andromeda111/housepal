@@ -13,11 +13,13 @@ angular.module('app.auth.services', [])
     }
 
     function storeUserCredentials(token) {
+      console.log('getting to storeUserCredentials');
       window.localStorage.setItem(LOCAL_TOKEN_KEY, token);
       useCredentials(token);
     }
 
     function useCredentials(token) {
+      console.log('getting to useCredentials');
       isAuthenticated = true;
       authToken = token;
 
@@ -67,6 +69,7 @@ angular.module('app.auth.services', [])
       login: login,
       register: register,
       logout: logout,
+      storeUserCredentials: storeUserCredentials,
       isAuthenticated: function() {
         return isAuthenticated;
       },
