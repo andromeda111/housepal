@@ -9,7 +9,10 @@ angular.module('app.auth.controllers', [])
 
     $scope.login = function() {
       AuthService.login($scope.loginFormData).then(function(msg) {
-        $state.go('tabsController.messageBoard');
+        $http.get('http://localhost:9000/users/current').then(function(result) {
+          console.log(result.data[0].house_id);
+          !result.data[0].house_id ? $state.go('houseSetup') : $state.go('tabsController.messageBoard')
+        });
       }, function(errMsg) {
         var alertPopup = $ionicPopup.alert({
           title: 'Login failed!',
