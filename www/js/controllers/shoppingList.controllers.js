@@ -22,6 +22,15 @@ angular.module('app.shoppingList.controllers', [])
       console.log(id);
     };
 
+    $scope.addItem = function(newItem) {
+      console.log(newItem);
+      $http.post(`${api}/list`, {newItem}).then(() => {
+        $http.get(`${api}/list`).then(result => {
+          $scope.listItems = result.data
+        })
+      })
+    }
+
     $scope.updateItem = function(item, buyer) {
       const id = item.id
 
