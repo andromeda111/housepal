@@ -1,5 +1,11 @@
 angular.module('app.chores.controllers', [])
 
-  .controller('choresCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+  .controller('choresCtrl', ['$scope', '$stateParams', '$http', function($scope, $stateParams, $http) {
+
+    $scope.getChores = function () {
+      $http.get('http://localhost:9000/chores').then(function(result) {
+        $scope.result = result.data
+      });
+    }
 
   }])

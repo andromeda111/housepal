@@ -58,12 +58,6 @@ angular.module('app.routes', [])
         controller: 'houseSetupCtrl'
       })
 
-      .state('join', {
-        url: '/join',
-        templateUrl: 'templates/houseSetup.join.html',
-        controller: 'houseSetupCtrl'
-      })
-
     $urlRouterProvider.otherwise('/login')
 
   })

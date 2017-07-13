@@ -1,3 +1,13 @@
 <ion-view title="Chores" cache-view="false" id="page2">
-  <ion-content padding="true" class="has-header"></ion-content>
+  <ion-content padding="true" class="has-header">
+
+    <button class="button button-full button-balanced" ng-click="getChores()">
+      Get chore info
+    </button>
+
+    <div ng-repeat="chore in result">
+      <p>{{chore}}</p>
+    </div>
+
+  </ion-content>
 </ion-view>
