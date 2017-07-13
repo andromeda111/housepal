@@ -12,6 +12,12 @@ angular.module('app.board.controllers', [])
       });
     };
 
+    $scope.deltest = function() {
+      $http.get('http://localhost:9000/deleteHouse').then(function(result) {
+        $scope.memberinfo = 'deleted house 1';
+      });
+    };
+
     $scope.logout = function() {
       AuthService.logout();
       $state.go('login');

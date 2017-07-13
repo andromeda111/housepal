@@ -22,9 +22,7 @@ angular.module('app.houseSetup.controllers', [])
           AuthService.storeUserCredentials(result.data.newToken);
           $state.go('tabsController.messageBoard')
         }).catch(err => {
-          console.log(err);
-          console.log(err.status, err.data.msg, err.data.err);
-          $scope.joinError = {text: 'try again, house doesnt exist', msg: err.data.msg, err: err.data.err.detail}
+          $scope.joinError = {text: 'try again, house doesnt exist', msg: err.data.msg}
         })
       }
 
