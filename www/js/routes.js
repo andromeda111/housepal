@@ -4,6 +4,16 @@ angular.module('app.routes', [])
 
     $stateProvider
 
+      .state('tabsController.newChore', {
+        url: '/chores/newChore',
+        views: {
+          'tab2': {
+            templateUrl: 'templates/newChore.html',
+            controller: 'newChoreCtrl'
+          }
+        }
+      })
+      
       .state('tabsController.chores', {
         url: '/chores',
         views: {
@@ -14,15 +24,6 @@ angular.module('app.routes', [])
         }
       })
 
-      .state('tabsController.newChore', {
-        url: '/chores/newChore',
-        views: {
-          'tab2': {
-            templateUrl: 'templates/newChore.html',
-            controller: 'newChoreCtrl'
-          }
-        }
-      })
 
       .state('tabsController.shoppingList', {
         url: '/shopping-list',

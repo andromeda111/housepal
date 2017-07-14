@@ -1,6 +1,6 @@
 angular.module('app.newChore.controllers', [])
 
-  .controller('newChoreCtrl', ['$scope', '$stateParams', '$http', function($scope, $stateParams, $http) {
+  .controller('newChoreCtrl', ['$scope', '$stateParams', '$http', '$state', function($scope, $stateParams, $http, $state) {
 
     $scope.$on('$ionicView.enter', function(e) {
 
@@ -18,7 +18,9 @@ angular.module('app.newChore.controllers', [])
       console.log(newChore);
 
       $http.post(`http://localhost:9000/chores/new`, newChore).then(result => {
+        console.log('success');
         console.log(result);
+        $state.go('tabsController.chores')
       })
     }
 
