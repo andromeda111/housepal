@@ -13,7 +13,7 @@ angular.module('app.routes', [])
           }
         }
       })
-      
+
       .state('tabsController.chores', {
         url: '/chores',
         views: {
@@ -74,7 +74,7 @@ angular.module('app.routes', [])
   })
 
   // Authentication check on state change
-  .run(function($rootScope, $state, AuthService, AUTH_EVENTS) {
+  .run(function($rootScope, $state, AuthService, AUTH_EVENTS, $ionicHistory) {
     $rootScope.$on('$stateChangeStart', function(event, next, nextParams, fromState) {
       if (!AuthService.isAuthenticated()) {
         console.log(next.name);
@@ -82,6 +82,10 @@ angular.module('app.routes', [])
           event.preventDefault();
           $state.go('login');
         }
+      }
+      // !!! Clears Chore Tab history when leaving Add Chore page - (decide on this later...)
+      if (fromState.name === 'tabsController.newChore') {
+        $ionicHistory.clearHistory();
       }
     });
   });

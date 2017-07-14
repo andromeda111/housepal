@@ -1,6 +1,6 @@
 angular.module('app.newChore.controllers', [])
 
-  .controller('newChoreCtrl', ['$scope', '$stateParams', '$http', '$state', function($scope, $stateParams, $http, $state) {
+  .controller('newChoreCtrl', ['$scope', '$stateParams', '$http', '$state', '$ionicHistory', function($scope, $stateParams, $http, $state, $ionicHistory) {
 
     $scope.$on('$ionicView.enter', function(e) {
 
@@ -23,5 +23,10 @@ angular.module('app.newChore.controllers', [])
         $state.go('tabsController.chores')
       })
     }
+
+    // $scope.$on("$ionicView.leave", function () {
+    //    $ionicHistory.clearCache();
+    //    $ionicHistory.clearHistory();
+    // });
 
   }])
