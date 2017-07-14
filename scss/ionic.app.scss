@@ -148,5 +148,27 @@ float: right;
 
 }
 
+/* Checkbox Hack */
+
+.check-bubble {
+    display: inline-block;
+    background-color: gray;
+    padding: 10px;
+    margin: 2px;
+    cursor: pointer;
+    border-radius: 45px;
+    font-size: 10px;
+}
+
+.checkbox-hide {
+  display: none;
+}
+.checkbox-hide:checked + .check-bubble {
+  background-color: blue;
+}
+
+
+
+
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";

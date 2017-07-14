@@ -115,6 +115,22 @@ $dark:                            #444 !default;
   margin-top: 14px;
   margin-left: 4px; }
 
+/* Checkbox Hack */
+.check-bubble {
+  display: inline-block;
+  background-color: gray;
+  padding: 10px;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 45px;
+  font-size: 10px; }
+
+.checkbox-hide {
+  display: none; }
+
+.checkbox-hide:checked + .check-bubble {
+  background-color: blue; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/

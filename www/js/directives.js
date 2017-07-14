@@ -1,5 +1,40 @@
 angular.module('app.directives', [])
 
+  .directive('checkList', function() {
+    return {
+      scope: {
+        list: '=checkList',
+        value: '@'
+      },
+      link: function(scope, elem, attrs) {
+        var handler = function(setup) {
+          var checked = elem.prop('checked');
+          var index = scope.list.indexOf(scope.value);
+
+          if (checked && index == -1) {
+            if (setup) elem.prop('checked', false);
+            else scope.list.push(scope.value);
+          } else if (!checked && index != -1) {
+            if (setup) elem.prop('checked', true);
+            else scope.list.splice(index, 1);
+          }
+        };
+
+        var setupHandler = handler.bind(null, true);
+        var changeHandler = handler.bind(null, false);
+
+        elem.on('change', function() {
+          scope.$apply(changeHandler);
+        });
+        scope.$watch('list', setupHandler, true);
+      }
+    };
+  })
+
+
+
+
+
   // Moved from app. If something breaks, move back?
   /*
     This directive is used to disable the "drag to open" functionality of the Side-Menu
