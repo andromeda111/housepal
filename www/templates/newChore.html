@@ -9,22 +9,22 @@
 
         <div class="spacer" style="width: 290px; height: 10px;"></div>
 
+        <ion-label for="">Day(s) Due:</ion-label>
         <div class="">
-
           <input type="checkbox" id="Sun" class="checkbox-hide" name="Sun" ng-model="newChore.due_Sun">
           <label for="Sun" class="check-bubble">Sun</label>
 
           <input type="checkbox" id="Mon" class="checkbox-hide" name="Mon" ng-model="newChore.due_Mon">
           <label for="Mon" class="check-bubble">Mon</label>
 
-          <input type="checkbox" id="Tues"class="checkbox-hide"  name="Tues" ng-model="newChore.due_Tues">
-          <label for="Tues" class="check-bubble">Tues</label>
+          <input type="checkbox" id="Tue"class="checkbox-hide"  name="Tue" ng-model="newChore.due_Tue">
+          <label for="Tue" class="check-bubble">Tue</label>
 
           <input type="checkbox" id="Wed" class="checkbox-hide" name="Wed" ng-model="newChore.due_Wed">
           <label for="Wed" class="check-bubble">Wed</label>
 
-          <input type="checkbox" id="Thurs" class="checkbox-hide" name="Thurs" ng-model="newChore.due_Thurs">
-          <label for="Thurs" class="check-bubble">Thurs</label>
+          <input type="checkbox" id="Thu" class="checkbox-hide" name="Thu" ng-model="newChore.due_Thu">
+          <label for="Thu" class="check-bubble">Thu</label>
 
           <input type="checkbox" id="Fri" class="checkbox-hide" name="Fri" ng-model="newChore.due_Fri">
           <label for="Fri" class="check-bubble">Fri</label>
@@ -34,30 +34,21 @@
 
         </div>
 
-        <div class="spacer" style="width: 290px; height: 10px;"></div>
+        <!-- <div class="spacer" style="width: 290px; height: 10px;"></div> -->
 
-        <div class="">
-
-
-            <!-- <label for="">Cycle with:</label>
-            <select name="cycle" ng-model="newChore.cycle" multiple="true" ng-options="person as person.name for person in houseUsers track by id | orderBy:'name'">
-
-            </select> -->
-          <!-- <span ng-repeat="fruit in fruits">
-            <input type='checkbox' value="{{fruit}}" check-list='checked_fruits'>       {{fruit}}<br />
-          </span>
-
-        <div>The following fruits are checked: {{checked_fruits | json}}</div> -->
-
-          <div>
-            <label class="check-bubble" ng-repeat="housemate in houseUsers">
-            <input type="checkbox" class="checkbox-hide" value="{{housemate.id}}" ng-model="newChore.name">
-                                    {{housemate.name}}
-            </label>
+        <div>
+          <ion-label for="">Assign To:</ion-label>
+          <div class="checklist-row" ng-repeat="person in houseUsers">
+            <input type='checkbox' class="checkbox-hide" id="choreUser{{person.id}}" value="{{person.id}}" name="choreUser" check-list='checked_housemates'>
+            <label for="choreUser{{person.id}}" class="check-bubble">{{person.name}}</label>
           </div>
+          <div style="color: gray">Cycle Order: <span style="color: gray" ng-repeat="name in checked_housemates">{{name}} </span></div>
 
+        </div>
 
-        <button type="submit" class="button button-positive button-balanced" style="width: 100%;">Create</button>
+        <div class="spacer" style="width: 290px; height: 10px;"></div>
+        <hr>
+        <button type="submit" class="button button-positive button-balanced" style="width: 100%;">Create Chore</button>
 
       </form>
 

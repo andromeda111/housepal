@@ -118,18 +118,24 @@ $dark:                            #444 !default;
 /* Checkbox Hack */
 .check-bubble {
   display: inline-block;
-  background-color: gray;
+  border: 1px solid #11c1f3;
   padding: 10px;
   margin: 2px;
   cursor: pointer;
   border-radius: 45px;
-  font-size: 10px; }
+  font-size: 10px;
+  color: #11c1f3;
+  font-weight: bold; }
 
 .checkbox-hide {
   display: none; }
 
 .checkbox-hide:checked + .check-bubble {
-  background-color: blue; }
+  background-color: #11c1f3;
+  color: white; }
+
+.checklist-row {
+  display: inline-block; }
 
 /*!
   Ionicons, v2.0.1
