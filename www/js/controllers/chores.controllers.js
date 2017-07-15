@@ -4,19 +4,30 @@ angular.module('app.chores.controllers', [])
 
     $scope.$on('$ionicView.enter', function(e) {
       $scope.allChores = []
+      $scope.houseUsers = [];
+      $scope.currentDay = 'tuesday'
+
+      $http.get(`http://localhost:9000/users`).then(users => {
+        $scope.houseUsers = users.data
+        console.log('house users: ', $scope.houseUsers);
+      })
       $http.get(`http://localhost:9000/chores/house`).then(result => {
         $scope.allChores = result.data
         $scope.oneChore = result.data[0]
       })
 
 
-      $scope.currentDay = 'Sunday'
-      $scope.weekArr = [true, false, false, false, false, false, false]
-      // $scope.dueDays = [false, false, true, false, false, false, false]
-      // $scope.setDay()
 
-    
+
+
+
     });
+
+    $scope.findUserName = function (index) {
+      return $scope.houseUsers.filter(user => {
+        return user.id === index
+      })[0].name
+    }
 
     $scope.setDay = function () {
 

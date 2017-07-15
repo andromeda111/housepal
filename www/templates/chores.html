@@ -1,15 +1,15 @@
 <ion-view title="Chores" cache-view="false" id="page2">
   <ion-content padding="true" class="has-header">
   <p>{{currentDay}}</p>
-  <p>{{test}}</p>
-    <p>{{oneChore}}</p>
-    <!-- <div ng-repeat="chore in allChores">
+  <!-- <p>{{test}}</p>
+    <p>{{oneChore}}</p> -->
+    <div ng-repeat="choreData in allChores">
       <div class="choreCard">
-        <h4>{{chore.chore}}</h4>
-        <p>{{chore.cycle.cycleList[0]}}</p>
-        <p>Due:</p>
+        <h5>{{choreData.chore}}</h5>
+        <p>Assigned To: {{findUserName(choreData.cycle.cycleList[choreData.currentAssigned])}}</p>
+        <p>Due: {{choreData.currentDueDay}}</p>
       </div>
-    </div> -->
+    </div>
     <div class="">
       <a ui-sref="tabsController.newChore()" class="button button-calm button-block button-outline">Add New Chore</a>
     </div>

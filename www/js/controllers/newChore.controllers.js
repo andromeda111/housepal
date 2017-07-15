@@ -17,26 +17,45 @@ angular.module('app.newChore.controllers', [])
 
     $scope.createChore = function (newChore) {
 
+      console.log(newChore);
+      let daysDue = []
 
-      let daysArr = [newChore.sunday, newChore.monday, newChore.tuesday, newChore.wednesday, newChore.thursday, newChore.friday, newChore.saturday].map(el => {
-        if (!el) {
-          el = false
-        }
-        return el
-      })
+      if (newChore.daysDue.sunday === true) {
+        daysDue.push('sunday')
+      }
+      if (newChore.daysDue.monday === true) {
+        daysDue.push('monday')
+      }
+      if (newChore.daysDue.tuesday === true) {
+        daysDue.push('tuesday')
+      }
+      if (newChore.daysDue.wednesday === true) {
+        daysDue.push('wednesday')
+      }
+      if (newChore.daysDue.thursday === true) {
+        daysDue.push('thursday')
+      }
+      if (newChore.daysDue.friday === true) {
+        daysDue.push('friday')
+      }
+      if (newChore.daysDue.saturday === true) {
+        daysDue.push('saturday')
+      }
 
       newChore = {
         chore: newChore.chore,
-        daysDue: {daysDue: daysArr},
-        cycle: {cycleList: $scope.cycleList}
+        daysDue: {daysDue: daysDue},
+        cycle: {cycleList: $scope.cycleList},
+        currentAssigned: 0
       }
+
+
       console.log(newChore);
-      //
-      // $http.post(`http://localhost:9000/chores/new`, newChore).then(result => {
-      //   console.log('success');
-      //   console.log(result);
-      //   $state.go('tabsController.chores')
-      // })
+      $http.post(`http://localhost:9000/chores/new`, newChore).then(result => {
+        console.log('success');
+        console.log(result);
+        $state.go('tabsController.chores')
+      })
     }
 
 
