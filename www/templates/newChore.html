@@ -11,25 +11,25 @@
 
         <ion-label for="">Day(s) Due:</ion-label>
         <div class="">
-          <input type="checkbox" id="Sun" class="checkbox-hide" name="Sun" ng-model="newChore.due_Sun">
+          <input type="checkbox" id="Sun" class="checkbox-hide" name="Sun" ng-model="newChore.sunday">
           <label for="Sun" class="check-bubble">Sun</label>
 
-          <input type="checkbox" id="Mon" class="checkbox-hide" name="Mon" ng-model="newChore.due_Mon">
+          <input type="checkbox" id="Mon" class="checkbox-hide" name="Mon" ng-model="newChore.monday">
           <label for="Mon" class="check-bubble">Mon</label>
 
-          <input type="checkbox" id="Tue"class="checkbox-hide"  name="Tue" ng-model="newChore.due_Tue">
+          <input type="checkbox" id="Tue"class="checkbox-hide"  name="Tue" ng-model="newChore.tuesday">
           <label for="Tue" class="check-bubble">Tue</label>
 
-          <input type="checkbox" id="Wed" class="checkbox-hide" name="Wed" ng-model="newChore.due_Wed">
+          <input type="checkbox" id="Wed" class="checkbox-hide" name="Wed" ng-model="newChore.wednesday">
           <label for="Wed" class="check-bubble">Wed</label>
 
-          <input type="checkbox" id="Thu" class="checkbox-hide" name="Thu" ng-model="newChore.due_Thu">
+          <input type="checkbox" id="Thu" class="checkbox-hide" name="Thu" ng-model="newChore.thursday">
           <label for="Thu" class="check-bubble">Thu</label>
 
-          <input type="checkbox" id="Fri" class="checkbox-hide" name="Fri" ng-model="newChore.due_Fri">
+          <input type="checkbox" id="Fri" class="checkbox-hide" name="Fri" ng-model="newChore.friday">
           <label for="Fri" class="check-bubble">Fri</label>
 
-          <input type="checkbox" id="Sat" class="checkbox-hide" name="Sat" ng-model="newChore.due_Sat">
+          <input type="checkbox" id="Sat" class="checkbox-hide" name="Sat" ng-model="newChore.saturday" ng-value="saturday">
           <label for="Sat" class="check-bubble">Sat</label>
 
         </div>
@@ -39,7 +39,7 @@
         <div>
           <ion-label for="">Assign To:</ion-label>
           <div class="checklist-row" ng-repeat="person in houseUsers">
-            <input type='checkbox' class="checkbox-hide" id="choreUser{{person.id}}" value="{{person.id}}" name="choreUser" check-list='checked_housemates'>
+            <input type='checkbox' class="checkbox-hide" id="choreUser{{person.id}}" value="{{person.id}}" name="choreUser{{person.id}}" check-list='checked_housemates' cycle-list='cycleList' house-list="houseUsers">
             <label for="choreUser{{person.id}}" class="check-bubble">{{person.name}}</label>
           </div>
           <div style="color: gray">Cycle Order: <span style="color: gray" ng-repeat="name in checked_housemates">{{name}} </span></div>

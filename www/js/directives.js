@@ -3,20 +3,32 @@ angular.module('app.directives', [])
   .directive('checkList', function() {
     return {
       scope: {
-        list: '=checkList',
+        list: '=cycleList',
+        list2:'=checkList',
+        list3:'=houseList',
         value: '@'
       },
       link: function(scope, elem, attrs) {
         var handler = function(setup) {
           var checked = elem.prop('checked');
           var index = scope.list.indexOf(parseInt(scope.value));
+          let newName = ''
 
           if (checked && index == -1) {
             if (setup) elem.prop('checked', false);
-            else scope.list.push(parseInt(scope.value));
+            else {
+              scope.list.push(parseInt(scope.value));
+              newName = scope.list3.filter(obj => {
+                  return obj.id == scope.value
+                })[0].name
+              scope.list2.push(newName);
+            }
           } else if (!checked && index != -1) {
             if (setup) elem.prop('checked', true);
-            else scope.list.splice(index, 1);
+            else {
+              scope.list.splice(index, 1);
+              scope.list2.splice(index, 1);
+            }
           }
         };
 
@@ -30,9 +42,6 @@ angular.module('app.directives', [])
       }
     };
   })
-
-
-
 
 
   // Moved from app. If something breaks, move back?

@@ -84,8 +84,8 @@ angular.module('app.routes', [])
         }
       }
       // !!! Clears Chore Tab history when leaving Add Chore page - (decide on this later...)
-      if (fromState.name === 'tabsController.newChore') {
-        $ionicHistory.clearHistory();
-      }
+      // if (fromState.name === 'tabsController.newChore') {
+      //   $ionicHistory.clearHistory();
+      // }
     });
   });

@@ -137,6 +137,10 @@ $dark:                            #444 !default;
 .checklist-row {
   display: inline-block; }
 
+.choreCard {
+  border: 1px solid black;
+  margin: 10px 0; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/

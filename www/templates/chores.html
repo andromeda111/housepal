@@ -1,16 +1,22 @@
 <ion-view title="Chores" cache-view="false" id="page2">
   <ion-content padding="true" class="has-header">
-
-    <button class="button button-full button-balanced" ng-click="getChores()">
-      Get chore info
-    </button>
-
-    <div ng-repeat="chore in result">
-      <p>{{chore}}</p>
-    </div>
+  <p>{{currentDay}}</p>
+  <p>{{test}}</p>
+    <p>{{oneChore}}</p>
+    <!-- <div ng-repeat="chore in allChores">
+      <div class="choreCard">
+        <h4>{{chore.chore}}</h4>
+        <p>{{chore.cycle.cycleList[0]}}</p>
+        <p>Due:</p>
+      </div>
+    </div> -->
     <div class="">
       <a ui-sref="tabsController.newChore()" class="button button-calm button-block button-outline">Add New Chore</a>
     </div>
+
+    <button class="button button-full button-balanced" ng-click="changeDay()">
+      Change Day
+    </button>
 
   </ion-content>
 </ion-view>
