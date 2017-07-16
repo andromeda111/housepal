@@ -21,25 +21,34 @@ angular.module('app.newChore.controllers', [])
       let daysDue = []
 
       if (newChore.daysDue.sunday === true) {
-        daysDue.push('sunday')
+        daysDue.push(0)
       }
       if (newChore.daysDue.monday === true) {
-        daysDue.push('monday')
+        daysDue.push(1)
       }
       if (newChore.daysDue.tuesday === true) {
-        daysDue.push('tuesday')
+        daysDue.push(2)
       }
       if (newChore.daysDue.wednesday === true) {
-        daysDue.push('wednesday')
+        daysDue.push(3)
       }
       if (newChore.daysDue.thursday === true) {
-        daysDue.push('thursday')
+        daysDue.push(4)
       }
       if (newChore.daysDue.friday === true) {
-        daysDue.push('friday')
+        daysDue.push(5)
       }
       if (newChore.daysDue.saturday === true) {
-        daysDue.push('saturday')
+        daysDue.push(6)
+      }
+
+      let actualDue;
+        if (moment(moment().add(1, 'day')).isAfter(moment(moment().add(1, 'day')).day(daysDue[0], 'day')) && daysDue.length > 1) {
+          actualDue = daysDue[1]
+        } else if (moment(moment().add(1, 'day')).isSame(moment(moment().add(1, 'day')).day(daysDue[0], 'day')) && daysDue.length > 1) {
+        actualDue = daysDue[1]
+      } else {
+        actualDue = daysDue[0]
       }
 
       newChore = {
@@ -47,7 +56,7 @@ angular.module('app.newChore.controllers', [])
         daysDue: {daysDue: daysDue},
         cycle: {cycleList: $scope.cycleList},
         currentAssigned: 0,
-        currentDueDay: {currentDueDay: 6}
+        currentDueDay: {currentDueDay: actualDue}
       }
 
 

@@ -4,7 +4,25 @@
   <!-- <p>{{test}}</p>
     <p>{{oneChore}}</p> -->
     <div ng-repeat="choreData in allChores">
-      <div class="choreCard">
+
+      <div class="choreCard late" ng-if="choreData.dueToday === true && choreData.late === true">
+        <p>LATE</p>
+        <h5>{{choreData.chore}}</h5>
+        <p>Assigned To: {{findUserName(choreData.cycle.cycleList[choreData.currentAssigned])}}</p>
+        <p>Due: {{choreData.currentDueDay.currentDueDay}}</p>
+        <p>reading: {{format(choreData.currentDueDay.currentDueDay)}}</p>
+      </div>
+
+      <div class="choreCard due" ng-if="choreData.dueToday === true && choreData.late === false">
+        <p>DUE TODAY</p>
+        <h5>{{choreData.chore}}</h5>
+        <p>Assigned To: {{findUserName(choreData.cycle.cycleList[choreData.currentAssigned])}}</p>
+        <p>Due: {{choreData.currentDueDay.currentDueDay}}</p>
+        <p>reading: {{format(choreData.currentDueDay.currentDueDay)}}</p>
+      </div>
+
+      <div class="choreCard"  ng-if="choreData.dueToday === false">
+        <p>NOT DUE TODAY</p>
         <h5>{{choreData.chore}}</h5>
         <p>Assigned To: {{findUserName(choreData.cycle.cycleList[choreData.currentAssigned])}}</p>
         <p>Due: {{choreData.currentDueDay.currentDueDay}}</p>

@@ -22,6 +22,15 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 $stable:                          #11c1f3 !default;
 
+
+.due {
+  background-color: lightYellow;
+}
+
+.late {
+  background-color: red;
+}
+
 #todo-input {
   display: inline;
   min-width: 200px;
