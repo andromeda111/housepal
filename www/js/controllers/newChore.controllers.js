@@ -46,7 +46,8 @@ angular.module('app.newChore.controllers', [])
         chore: newChore.chore,
         daysDue: {daysDue: daysDue},
         cycle: {cycleList: $scope.cycleList},
-        currentAssigned: 0
+        currentAssigned: 0,
+        currentDueDay: {currentDueDay: 6}
       }
 
 

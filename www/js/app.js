@@ -1,4 +1,4 @@
-angular.module('app', ['ionic', 'app.menu.controllers', 'app.auth.controllers', 'app.houseSetup.controllers', 'app.chores.controllers', 'app.newChore.controllers', 'app.shoppingList.controllers', 'app.board.controllers', 'app.routes', 'app.directives', 'app.services', 'app.auth.services', 'app.constants'])
+angular.module('app', ['ionic', 'app.menu.controllers', 'app.auth.controllers', 'app.houseSetup.controllers', 'app.chores.controllers', 'app.newChore.controllers', 'app.shoppingList.controllers', 'app.board.controllers', 'app.routes', 'app.directives', 'app.services', 'app.auth.services', 'app.constants', 'angularMoment'])
 
   // COMMENTED OUT -- Initial config from app setup - may or may not need. Keep for now.
   // .config(function($ionicConfigProvider, $sceDelegateProvider){
