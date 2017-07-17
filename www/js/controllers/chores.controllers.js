@@ -26,25 +26,25 @@ angular.module('app.chores.controllers', [])
       })[0].name
     }
 
-    $scope.format = function (due) {
-      console.log('moment weekday: ', moment().day(due));
-      let result;
-      // if we haven't yet passed the day of the week that I need:
-      if (moment(moment().add(1, 'day')).isSame(moment().day(due, 'day'))) {
-        console.log('same day');
-        result = moment()
-      } else if (moment(moment().add(1, 'day')).isBefore(moment().day(due))) {
-        // then just give me this week's instance of that day
-        console.log(moment().weekday(due));
-        console.log('before');
-         result = moment().weekday(due);
-      } else {
-        console.log('after');
-        // otherwise, give me next week's instance of that day
-        result = moment().add(1, 'weeks').weekday(due);
-      }
-      return result.format("dddd, MMMM Do").toString()
-    }
+    // $scope.format = function (due) {
+    //   console.log('moment weekday: ', moment().day(due));
+    //   let result;
+    //   // if we haven't yet passed the day of the week that I need:
+    //   if (moment(moment().add(1, 'day')).isSame(moment().day(due, 'day'))) {
+    //     console.log('same day');
+    //     result = moment()
+    //   } else if (moment(moment().add(1, 'day')).isBefore(moment().day(due))) {
+    //     // then just give me this week's instance of that day
+    //     console.log(moment().weekday(due));
+    //     console.log('before');
+    //      result = moment().weekday(due);
+    //   } else {
+    //     console.log('after');
+    //     // otherwise, give me next week's instance of that day
+    //     result = moment().add(1, 'weeks').weekday(due);
+    //   }
+    //   return result.format("dddd, MMMM Do").toString()
+    // }
 
     // WORKING
     // $scope.format = function (due) {
