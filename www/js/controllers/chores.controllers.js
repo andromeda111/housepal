@@ -26,6 +26,41 @@ angular.module('app.chores.controllers', [])
       })[0].name
     }
 
+    $scope.markDone = function (chore) {
+
+      // let resetChore = chore
+      //
+      // // Cycle to Next Due day
+      // if (resetChore.daysDue.daysDue.length > 1) {
+      //   if (resetChore.currentDueDay.) {
+      //
+      //   }
+      // }
+      // id: 1,
+      // chore: 'Clean Kitchen Counters',
+      // daysDue: {daysDue: [true, false, false, false, false, false, false]},
+      // cycle: {cycleList: [1]},
+      // currentDueDay: {null: null},
+      // currentAssigned: 0,
+      // dueToday: false,
+      // done: false,
+      // late: false,
+      // house_id: 1
+
+
+
+      // $http.put(`http://localhost:9000/chores/done/${id}`).then(result => {
+      //   console.log(result);
+      //   // var delIdx = $scope.allChores.map(obj => obj.id).indexOf(id);
+      //   // $scope.allChores.splice(delIdx, 1)
+      //
+      // })
+    }
+
+
+
+
+
     // $scope.format = function (due) {
     //   console.log('moment weekday: ', moment().day(due));
     //   let result;
