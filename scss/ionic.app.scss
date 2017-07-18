@@ -35,6 +35,58 @@ $stable:                          #11c1f3 !default;
   background-color: lightGreen;
 }
 
+// CHAT
+.module {
+}
+
+.discussion {
+  list-style: none;
+  // background: #eee;
+  margin: 0;
+  padding: 0;
+}
+.discussion li {
+  padding: 0.25rem;
+  overflow: hidden;
+  display: flex;
+}
+
+.msgSelf {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.msgSelf .messages {
+  order: 1;
+  border-bottom-right-radius: 0;
+  background: #B1D9FF;
+}
+
+.messages {
+  background: #FBFFEF;
+  padding: 10px;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  max-width: 90%;
+}
+.messages p {
+  font-size: 0.8rem;
+  margin: 0 0 0.2rem 0;
+}
+.messages span {
+  font-size: 0.7rem;
+  color: #ccc;
+}
+
+
+//
+
+.postMessageForm {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+}
+
 #todo-input {
   display: inline;
   min-width: 200px;

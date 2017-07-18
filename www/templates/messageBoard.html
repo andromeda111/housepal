@@ -1,20 +1,41 @@
 <ion-view title="Message Board" cache-view="false" id="page4">
   <ion-content padding="true" class="has-header">
-    <div class="card">
-      <div class="item item-text-wrap">
-        User Info:
-        {{memberinfo.msg}}
+
+      <h6 ng-if="!allMessages">No messages to display.</h6>
+
+      <div class="messageContainer">
+
+        <ol class="discussion" ng-if="allMessages" ng-repeat="message in allMessages | orderBy: 'created_at'">
+          <div ng-if="message.posterId !== currentUser.id">
+            <li class="msgOther">
+              <div class="messages">
+                <h6>{{message.posterName}}</h6>
+                <p>{{message.content}}</p>
+                <span>{{message.postTime.postTime}}</span>
+              </div>
+            </li>
+          </div>
+          <div ng-if="message.posterId === currentUser.id">
+            <li class="msgSelf">
+              <div class="messages">
+                <h6>{{message.posterName}}</h6>
+                <p>{{message.content}}</p>
+                <span>{{message.postTime.postTime}}</span>
+              </div>
+            </li>
+          </div>
+        </ol>
+
       </div>
-    </div>
-    <button class="button button-full button-assertive" ng-click="destroySession()">
-      Destroy token
-    </button>
-    <button class="button button-full button-balanced" ng-click="getInfo()">
-      Get Member info
-    </button>
-    <button class="button button-full button-balanced" ng-click="deltest()">
-      Delete House 1
-    </button>
-    <button id="menu-button4" ng-click="logout()" class="button button-positive button-block" data-componentid="button4">Log Out</button>
+      <a id="msgBottom" href="#msgBottom"></a>
+
   </ion-content>
+
+    <form class="postMessageForm" ng-submit="postMessage(msgText)">
+      <label class="item item-input">
+        <input type="text" ng-model="msgText" placeholder="Comments"></input>
+      </label>
+      <button class="button button-positive button-block">Post</button>
+    </form>
+
 </ion-view>

@@ -1,25 +1,37 @@
 angular.module('app.board.controllers', [])
 
-  .controller('messageBoardCtrl', ['$scope', '$state', '$stateParams', '$http', 'AuthService', 'API_ENDPOINT', function($scope, $state, $stateParams, $http, AuthService, API_ENDPOINT) {
+  .controller('messageBoardCtrl', ['$scope', '$state', '$stateParams', '$http', 'AuthService', 'API_ENDPOINT', 'moment', '$location', '$anchorScroll', function($scope, $state, $stateParams, $http, AuthService, API_ENDPOINT, moment, $location, $anchorScroll) {
 
-    $scope.destroySession = function() {
-      AuthService.logout();
-    };
-
-    $scope.getInfo = function() {
-      $http.get('http://localhost:9000/memberinfo').then(function(result) {
-        $scope.memberinfo = result.data;
+    $scope.$on('$ionicView.enter', function(e) {
+      $scope.allMessages = []
+      $scope.currentUser;
+      $http.get('http://localhost:9000/users/user').then(function(result) {
+        $scope.currentUser = {name: result.data[0].name, id: result.data[0].id}
       });
-    };
 
-    $scope.deltest = function() {
-      $http.get('http://localhost:9000/deleteHouse').then(function(result) {
-        $scope.memberinfo = 'deleted house 1';
-      });
-    };
+      $http.get(`http://localhost:9000/messageboard`).then(messages => {
+        $scope.allMessages = messages.data
+        $scope.allMessages.forEach(msg => {
+          msg.postTime.postTime = moment(msg.postTime.postTime).format('dddd, MMMM do, YYYY h:mma')
+          return msg.postTime.postTime
+        })
+        $location.hash('msgBottom')
+        $anchorScroll();
+      })
 
-    $scope.logout = function() {
-      AuthService.logout();
-      $state.go('login');
-    };
+    });
+
+    $scope.postMessage = function (msgText) {
+      let newMsg = {content: msgText, postTime: moment.utc()}
+      $http.post(`http://localhost:9000/messageboard`, newMsg).then(result => {
+        $http.get(`http://localhost:9000/messageboard`).then(messages => {
+          $scope.allMessages = messages.data
+          $scope.allMessages.forEach(msg => {
+            msg.postTime.postTime = moment(msg.postTime.postTime).format('dddd, MMMM do, YYYY h:mma')
+            return msg.postTime.postTime
+          })
+        })
+      })
+    }
+
   }])
