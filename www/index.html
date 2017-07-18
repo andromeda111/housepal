@@ -56,7 +56,24 @@
           <div class="title">Menu</div>
         </ion-header-bar>
         <ion-content ng-controller="menuCtrl" padding="false" class="side-menu-left has-header">
+
+          <div class="card">
+            <div class="item item-text-wrap">
+              User Info:
+              {{memberinfo.msg}}
+            </div>
+          </div>
+          <button class="button button-full button-assertive" ng-click="destroySession()">
+            Destroy token
+          </button>
+          <button class="button button-full button-balanced" ng-click="getInfo()">
+            Get Member info
+          </button>
+          <button class="button button-full button-balanced" ng-click="deltest()">
+            Delete House 1
+          </button>
           <button id="menu-button4" ng-click="logout()" class="button button-positive button-block" data-componentid="button4">Log Out</button>
+
         </ion-content>
       </ion-side-menu>
     </ion-side-menus>
