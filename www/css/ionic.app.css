@@ -21,6 +21,9 @@ $dark:                            #444 !default;
 .late {
   background-color: red; }
 
+.complete {
+  background-color: lightGreen; }
+
 #todo-input {
   display: inline;
   min-width: 200px;

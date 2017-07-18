@@ -31,6 +31,10 @@ $stable:                          #11c1f3 !default;
   background-color: red;
 }
 
+.complete {
+  background-color: lightGreen;
+}
+
 #todo-input {
   display: inline;
   min-width: 200px;
