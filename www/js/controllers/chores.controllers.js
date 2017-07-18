@@ -1,6 +1,6 @@
 angular.module('app.chores.controllers', [])
 
-  .controller('choresCtrl', ['$scope', '$stateParams', '$http', 'moment', function($scope, $stateParams, $http, moment) {
+  .controller('choresCtrl', ['$scope', '$state', '$stateParams', '$http', 'moment', function($scope, $state, $stateParams, $http, moment) {
 
     $scope.$on('$ionicView.enter', function(e) {
       $scope.allChores = []
@@ -32,6 +32,11 @@ angular.module('app.chores.controllers', [])
       })
     }
 
+    $scope.editChore = function (chore) {
+      let id = chore.id
+      $state.go('tabsController.editChore', {id})
+    }
+
     $scope.deleteChore = function (chore) {
       console.log(chore);
       $http.delete(`http://localhost:9000/chores/delete/${chore.id}`).then(result => {
@@ -39,13 +44,5 @@ angular.module('app.chores.controllers', [])
       })
     }
 
-
-    $scope.setDay = function () {
-
-    }
-
-    $scope.changeDay = function () {
-
-    }
 
   }])

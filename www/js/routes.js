@@ -14,6 +14,16 @@ angular.module('app.routes', [])
         }
       })
 
+      .state('tabsController.editChore', {
+        url: '/chores/editChore/{id}',
+        views: {
+          'tab2': {
+            templateUrl: 'templates/editChore.html',
+            controller: 'editChoreCtrl'
+          }
+        }
+      })
+
       .state('tabsController.chores', {
         url: '/chores',
         views: {
