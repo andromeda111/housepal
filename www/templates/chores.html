@@ -7,26 +7,29 @@
 
       <div class="choreCard late" ng-if="choreData.dueToday === true && choreData.late === true">
         <p>LATE</p>
+        <p style="background-color: green" ng-show="choreData.done === true">DONE</p>
         <h5>{{choreData.chore}}</h5>
         <p>Assigned To: {{findUserName(choreData.cycle.cycleList[choreData.currentAssigned])}}</p>
         <p>Due: {{choreData.currentDueDay.currentDueDay}}</p>
-        <button type="button" name="button" ng-click="markDone(choreData.choreData)">Mark Done</button>
+        <button type="button" name="button" ng-click="markDone(choreData)">Mark Done</button>
       </div>
 
       <div class="choreCard due" ng-if="choreData.dueToday === true && choreData.late === false">
         <p>DUE TODAY</p>
+        <p style="background-color: green" ng-show="choreData.done === true">DONE</p>
         <h5>{{choreData.chore}}</h5>
         <p>Assigned To: {{findUserName(choreData.cycle.cycleList[choreData.currentAssigned])}}</p>
         <p>Due: {{choreData.currentDueDay.currentDueDay}}</p>
-        <button type="button" name="button" ng-click="markDone(choreData.choreData)">Mark Done</button>
+        <button type="button" name="button" ng-click="markDone(choreData)">Mark Done</button>
       </div>
 
       <div class="choreCard"  ng-if="choreData.dueToday === false">
         <p>NOT DUE TODAY</p>
+        <p style="background-color: green" ng-show="choreData.done === true">DONE</p>
         <h5>{{choreData.chore}}</h5>
         <p>Assigned To: {{findUserName(choreData.cycle.cycleList[choreData.currentAssigned])}}</p>
         <p>Due: {{choreData.currentDueDay.currentDueDay}}</p>
-        <button type="button" name="button" ng-click="markDone(choreData.choreData)">Mark Done</button>
+        <button type="button" name="button" ng-click="markDone(choreData)">Mark Done</button>
       </div>
     </div>
     <div class="">
