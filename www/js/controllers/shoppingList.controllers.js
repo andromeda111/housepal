@@ -84,7 +84,7 @@ angular.module('app.shoppingList.controllers', [])
       let sysMsg = {
         posterId: 0,
         posterName: 'App Notification',
-        content: `${$scope.currentUser.name} bought "${item.item}"! Thanks, ${$scope.currentUser.name}!`,
+        content: `${$scope.currentUser.name} bought "${item.item}". Thanks, ${$scope.currentUser.name}!`,
         postTime: {postTime: moment.utc()}
       }
       $http.post(`http://localhost:9000/messageboard/system`, sysMsg).then(result => {
