@@ -56,7 +56,7 @@ $dark:                            #444 !default;
 
 .messages span {
   font-size: 0.7rem;
-  color: #ccc; }
+  color: #555; }
 
 .postMessageForm {
   position: absolute;

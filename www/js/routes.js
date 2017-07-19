@@ -55,6 +55,16 @@ angular.module('app.routes', [])
         }
       })
 
+      .state('tabsController.houseSettings', {
+        url: '/houseSettings',
+        views: {
+          'tab9': {
+            templateUrl: 'templates/houseSettings.html',
+            controller: 'houseSettingsCtrl'
+          }
+        }
+      })
+
       .state('tabsController', {
         url: '/tabs',
         templateUrl: 'templates/tabsController.html',
