@@ -1,6 +1,6 @@
 angular.module('app.board.controllers', [])
 
-  .controller('messageBoardCtrl', ['$scope', '$state', '$stateParams', '$http', 'AuthService', 'API_ENDPOINT', 'moment', '$location', '$anchorScroll', function($scope, $state, $stateParams, $http, AuthService, API_ENDPOINT, moment, $location, $anchorScroll) {
+  .controller('messageBoardCtrl', ['$scope', '$state', '$stateParams', '$http', 'AuthService', 'API_ENDPOINT', 'moment', function($scope, $state, $stateParams, $http, AuthService, API_ENDPOINT, moment) {
 
     $scope.$on('$ionicView.enter', function(e) {
       $scope.allMessages = []
@@ -15,10 +15,8 @@ angular.module('app.board.controllers', [])
           msg.postTime.postTime = moment(msg.postTime.postTime).format('dddd, MMMM do, YYYY h:mma')
           return msg.postTime.postTime
         })
-        $location.hash('msgBottom')
-        $anchorScroll();
-      })
 
+      })
     });
 
     $scope.postMessage = function (msgText) {

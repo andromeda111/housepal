@@ -1,11 +1,16 @@
 <ion-view title="Message Board" cache-view="false" id="page4">
   <ion-content padding="true" class="has-header">
-
+  <script type="text/javascript">
+        window.onload=function () {
+         var objDiv = document.getElementById("msgBottom");
+         objDiv.scrollTop = objDiv.scrollHeight;
+      }
+  </script>
       <h6 ng-if="!allMessages">No messages to display.</h6>
 
-      <div class="messageContainer">
+      <div class="messageContainer" scroll-bottom="bottom">
 
-        <ol class="discussion" ng-if="allMessages" ng-repeat="message in allMessages | orderBy: 'created_at'">
+        <ol id="bottom" class="discussion" ng-if="allMessages" ng-repeat="message in allMessages | orderBy: '-created_at'">
           <div ng-if="message.posterId !== currentUser.id">
             <li class="msgOther">
               <div class="messages">
@@ -27,7 +32,7 @@
         </ol>
 
       </div>
-      <a id="msgBottom" href="#msgBottom"></a>
+      <a id="msgBottom" href="msgBottom"></a>
 
   </ion-content>
 

@@ -13,7 +13,7 @@
   </div>
   <div class="todo-list-master" ng-repeat="item in listItems | orderBy:'created_at'">
       <div class="licontainer">
-            <button class="btn-check button button-stable" type="button" name="button" ng-click="deleteItem(item)"><span class="check"></span></button>
+            <button class="btn-check button button-stable" type="button" name="button" ng-click="purchasedItem(item)"><span class="check"></span></button>
             <div class="list-title">
               {{item.item}}
             </div>
