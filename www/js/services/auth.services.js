@@ -1,6 +1,6 @@
 angular.module('app.auth.services', [])
 
-  .service('AuthService', function($q, $http, API_ENDPOINT) {
+  .service('AuthService', function($q, $http, API_ENDPOINT, $ionicPush) {
     var LOCAL_TOKEN_KEY = 'yourTokenKey';
     var isAuthenticated = false;
     var authToken;
@@ -60,6 +60,7 @@ angular.module('app.auth.services', [])
     };
 
     var logout = function() {
+      $ionicPush.unregister().then(() => {})
       destroyUserCredentials();
     };
 

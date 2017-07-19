@@ -1,6 +1,6 @@
 {
   "name": "houseshare-app",
-  "app_id": "",
+  "app_id": "80989ab2",
   "type": "ionic1",
   "watchPatterns": [
     "scss/**/*"

@@ -19,6 +19,11 @@ angular.module('app.board.controllers', [])
       })
     });
 
+    $scope.$on('cloud:push:notification', function(event, data) {
+      var msg = data.message;
+      alert(msg.title + ': ' + msg.text);
+    });
+
     $scope.postMessage = function (msgText) {
       let newMsg = {content: msgText, postTime: moment.utc()}
       $http.post(`http://localhost:9000/messageboard`, newMsg).then(result => {

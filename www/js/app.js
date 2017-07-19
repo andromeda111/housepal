@@ -1,4 +1,4 @@
-angular.module('app', ['ionic', 'app.menu.controllers', 'app.auth.controllers', 'app.houseSetup.controllers', 'app.chores.controllers', 'app.newChore.controllers', 'app.editChore.controllers', 'app.shoppingList.controllers', 'app.board.controllers', 'app.houseSettings.controllers', 'app.routes', 'app.directives', 'app.services', 'app.auth.services', 'app.constants', 'angularMoment'])
+angular.module('app', ['ionic', 'ionic.cloud', 'app.menu.controllers', 'app.auth.controllers', 'app.houseSetup.controllers', 'app.chores.controllers', 'app.newChore.controllers', 'app.editChore.controllers', 'app.shoppingList.controllers', 'app.board.controllers', 'app.houseSettings.controllers', 'app.routes', 'app.directives', 'app.services', 'app.auth.services', 'app.constants', 'angularMoment'])
 
   // COMMENTED OUT -- Initial config from app setup - may or may not need. Keep for now.
   // .config(function($ionicConfigProvider, $sceDelegateProvider){
@@ -6,6 +6,25 @@ angular.module('app', ['ionic', 'app.menu.controllers', 'app.auth.controllers', 
   //   $sceDelegateProvider.resourceUrlWhitelist([ 'self','*://www.youtube.com/**', '*://player.vimeo.com/video/**']);
   //
   // })
+  .config(function($ionicCloudProvider) {
+    $ionicCloudProvider.init({
+      "core": {
+        "app_id": "80989ab2"
+      },
+      "push": {
+      "sender_id": "770128073589",
+      "pluginConfig": {
+        "ios": {
+          "badge": true,
+          "sound": true
+        },
+        "android": {
+          "iconColor": "#343434"
+        }
+      }
+    }
+    });
+  })
 
   .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {

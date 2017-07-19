@@ -1,6 +1,6 @@
 angular.module('app.auth.controllers', [])
 
-  .controller('loginCtrl', ['$scope', '$state', '$stateParams', '$http', 'AuthService', '$ionicPopup', function($scope, $state, $stateParams, $http, AuthService, $ionicPopup) {
+  .controller('loginCtrl', ['$scope', '$state', '$stateParams', '$http', 'AuthService', '$ionicPopup', '$ionicPush', function($scope, $state, $stateParams, $http, AuthService, $ionicPopup, $ionicPush) {
 
     $scope.loginFormData = {
       'email': '',
@@ -9,6 +9,11 @@ angular.module('app.auth.controllers', [])
 
     $scope.login = function() {
       AuthService.login($scope.loginFormData).then(function(msg) {
+        $ionicPush.register().then(function(t) {
+          return $ionicPush.saveToken(t);
+        }).then(function(t) {
+          console.log('Token saved:', t.token);
+        });
         $http.get('http://localhost:9000/users/current').then(function(result) {
           console.log(result.data[0].house_id);
           !result.data[0].house_id ? $state.go('houseSetup') : $state.go('tabsController.messageBoard')
