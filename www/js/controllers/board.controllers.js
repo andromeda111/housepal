@@ -40,18 +40,35 @@ angular.module('app.board.controllers', [])
     });
 
     $scope.pushHouse = function () {
-      let testMessage = {
-        "tokens": $scope.housePushList,
-        "profile": "capstone",
-        "notification": {
-            "message": "Hello World!"
-          }
-        }
 
-      console.log(testMessage);
-      // $http.post(`https://push.ionic.io/api/v1/push/notifications`, testMessage).then(result => {
-      //   console.log(result);
-      // })
+      let req = {
+           method: 'POST',
+           url: 'https://api.ionic.io/push/notifications',
+           headers: {
+             'Content-Type': 'application/json',
+             'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJiNjVlYzE2YS04N2VmLTQ3YjQtOGJlYy1mY2ZmZWJmMjc0ZTQifQ.aqtWe4lI7BmoSqAZCl0VD-H3Ceo1BVAOFgtpLhHD8OM'
+           },
+           data: {
+              "tokens": $scope.housePushList,
+              "profile": "capstone",
+              "notification": {
+                "title": "Hi",
+                "message": "Hello world!",
+                "android": {
+                  "title": "Hey",
+                  "message": "Hello Android!"
+                },
+                "ios": {
+                  "title": "Howdy",
+                  "message": "Hello iOS!"
+                }
+              }
+            }
+          }
+
+      $http(req).then(result => {
+        console.log(result);
+      })
     }
 
 

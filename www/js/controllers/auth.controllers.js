@@ -11,7 +11,7 @@ angular.module('app.auth.controllers', [])
       AuthService.login($scope.loginFormData).then(function(msg) {
         $ionicPush.register().then(function(t) {
           console.log('token? ', t);
-          $http.put('https://g48cap.herokuapp.com/users/updateDeviceToken', t.token).then(() => {
+          $http.put('https://g48cap.herokuapp.com/users/updateDeviceToken', t).then(() => {
             console.log('updated user, back in controller');
           })
           return $ionicPush.saveToken(t);

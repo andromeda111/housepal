@@ -7,6 +7,15 @@ angular.module('app.menu.controllers', [])
       $state.go('tabsController.houseSettings');
     }
 
+    $scope.test = function () {
+      let test = {token: 'lol'}
+      $http.put('https://g48cap.herokuapp.com/users/updateDeviceToken', test).then((result) => {
+        console.log('updated user, back in controller');
+        console.log(result);
+      }).catch(err =>{
+        console.log(err);
+      })
+    }
 
     // $scope.destroySession = function() {
     //   AuthService.logout();
