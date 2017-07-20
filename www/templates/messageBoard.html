@@ -1,11 +1,16 @@
 <ion-view title="Message Board" cache-view="false" id="page4">
   <ion-content padding="true" class="has-header">
-  <script type="text/javascript">
-        window.onload=function () {
-         var objDiv = document.getElementById("msgBottom");
-         objDiv.scrollTop = objDiv.scrollHeight;
-      }
-  </script>
+    <button class="button button-full button-balanced" ng-click="pushHouse()">
+      Send Push to House
+    </button>
+    <div class="panel well">
+    <p>Token: {{currentUser.deviceId}}</p>
+    </div>
+
+    <div class="">
+      Repeat in case obj:
+      <p ng-repeat="key in currentUser.deviceId">{{key}}</p>
+    </div>
       <h6 ng-if="!allMessages">No messages to display.</h6>
 
       <div class="messageContainer" scroll-bottom="bottom">

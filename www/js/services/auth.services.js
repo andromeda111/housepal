@@ -60,7 +60,6 @@ angular.module('app.auth.services', [])
     };
 
     var logout = function() {
-      $ionicPush.unregister().then(() => {})
       destroyUserCredentials();
     };
 
