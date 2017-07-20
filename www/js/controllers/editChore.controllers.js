@@ -10,11 +10,11 @@ angular.module('app.editChore.controllers', [])
       $scope.cycleList = [];
       $scope.houseUsers = [];
 
-      $http.get(`http://localhost:9000/users`).then(users => {
+      $http.get(`https://g48cap.herokuapp.com/users`).then(users => {
         $scope.houseUsers = users.data
         console.log('house users: ', $scope.houseUsers);
       })
-      $http.get(`http://localhost:9000/chores/getById/${$scope.choreId}`).then(chore => {
+      $http.get(`https://g48cap.herokuapp.com/chores/getById/${$scope.choreId}`).then(chore => {
         $scope.editChore.chore = chore.data.chore
         console.log('chore to edit: ', $scope.editChore);
       })
@@ -85,7 +85,7 @@ angular.module('app.editChore.controllers', [])
 
 
 
-          $http.put(`http://localhost:9000/chores/updateChore/${$scope.choreId}`, editChore).then(result => {
+          $http.put(`https://g48cap.herokuapp.com/chores/updateChore/${$scope.choreId}`, editChore).then(result => {
             console.log('success');
             console.log(result);
             $state.go('tabsController.chores')

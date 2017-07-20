@@ -2,14 +2,14 @@ angular.module('app.shoppingList.controllers', [])
 
   .controller('shoppingListCtrl', ['$scope', '$stateParams', '$http', 'moment', function($scope, $stateParams, $http, moment) {
 
-    const api = 'http://localhost:9000'
+    const api = 'https://g48cap.herokuapp.com'
 
     $scope.$on('$ionicView.enter', function(e) {
       console.log('on init');
       $scope.listItems = []
 
       $scope.currentUser;
-      $http.get('http://localhost:9000/users/user').then(function(result) {
+      $http.get('https://g48cap.herokuapp.com/users/user').then(function(result) {
         $scope.currentUser = {name: result.data[0].name, id: result.data[0].id}
       });
 
@@ -75,7 +75,7 @@ angular.module('app.shoppingList.controllers', [])
         content: `${$scope.currentUser.name} added "${item}" to the communal shopping list.`,
         postTime: {postTime: moment.utc()}
       }
-      $http.post(`http://localhost:9000/messageboard/system`, sysMsg).then(result => {
+      $http.post(`https://g48cap.herokuapp.com/messageboard/system`, sysMsg).then(result => {
         console.log(result);
       })
     }
@@ -87,7 +87,7 @@ angular.module('app.shoppingList.controllers', [])
         content: `${$scope.currentUser.name} bought "${item.item}". Thanks, ${$scope.currentUser.name}!`,
         postTime: {postTime: moment.utc()}
       }
-      $http.post(`http://localhost:9000/messageboard/system`, sysMsg).then(result => {
+      $http.post(`https://g48cap.herokuapp.com/messageboard/system`, sysMsg).then(result => {
         console.log(result);
       })
     }

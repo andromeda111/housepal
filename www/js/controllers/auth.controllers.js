@@ -14,7 +14,7 @@ angular.module('app.auth.controllers', [])
         }).then(function(t) {
           console.log('Token saved:', t.token);
         });
-        $http.get('http://localhost:9000/users/current').then(function(result) {
+        $http.get('https://g48cap.herokuapp.com/users/current').then(function(result) {
           console.log(result.data[0].house_id);
           !result.data[0].house_id ? $state.go('houseSetup') : $state.go('tabsController.messageBoard')
         });

@@ -8,7 +8,7 @@ angular.module('app.newChore.controllers', [])
       $scope.cycleList = [];
       $scope.houseUsers = [];
 
-      $http.get(`http://localhost:9000/users`).then(users => {
+      $http.get(`https://g48cap.herokuapp.com/users`).then(users => {
         $scope.houseUsers = users.data
         console.log('house users: ', $scope.houseUsers);
       })
@@ -79,7 +79,7 @@ angular.module('app.newChore.controllers', [])
 
 
 
-          $http.post(`http://localhost:9000/chores/new`, newChore).then(result => {
+          $http.post(`https://g48cap.herokuapp.com/chores/new`, newChore).then(result => {
             console.log('success');
             console.log(result);
             $state.go('tabsController.chores')
@@ -133,7 +133,7 @@ angular.module('app.newChore.controllers', [])
     //
     //
     //   console.log(newChore);
-    //   $http.post(`http://localhost:9000/chores/new`, newChore).then(result => {
+    //   $http.post(`https://g48cap.herokuapp.com/chores/new`, newChore).then(result => {
     //     console.log('success');
     //     console.log(result);
     //     $state.go('tabsController.chores')

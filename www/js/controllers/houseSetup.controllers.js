@@ -18,7 +18,7 @@ angular.module('app.houseSetup.controllers', [])
       }
 
       $scope.joinFormSubmit = function (joinFormData) {
-        $http.post('http://localhost:9000/houses/join', joinFormData).then(result => {
+        $http.post('https://g48cap.herokuapp.com/houses/join', joinFormData).then(result => {
           AuthService.storeUserCredentials(result.data.newToken);
           $state.go('tabsController.messageBoard')
         }).catch(err => {
@@ -27,7 +27,7 @@ angular.module('app.houseSetup.controllers', [])
       }
 
       $scope.createFormSubmit = function (createFormData) {
-        $http.post('http://localhost:9000/houses/create', createFormData).then(result => {
+        $http.post('https://g48cap.herokuapp.com/houses/create', createFormData).then(result => {
           AuthService.storeUserCredentials(result.data.newToken);
           $state.go('tabsController.messageBoard')
         }).catch(err => {

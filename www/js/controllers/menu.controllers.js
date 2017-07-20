@@ -13,13 +13,13 @@ angular.module('app.menu.controllers', [])
     // };
     //
     // $scope.getInfo = function() {
-    //   $http.get('http://localhost:9000/memberinfo').then(function(result) {
+    //   $http.get('https://g48cap.herokuapp.com/memberinfo').then(function(result) {
     //     $scope.memberinfo = result.data;
     //   });
     // };
     //
     // $scope.deltest = function() {
-    //   $http.get('http://localhost:9000/deleteHouse').then(function(result) {
+    //   $http.get('https://g48cap.herokuapp.com/deleteHouse').then(function(result) {
     //     $scope.memberinfo = 'deleted house 1';
     //   });
     // };
