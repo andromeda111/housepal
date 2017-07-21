@@ -79,11 +79,7 @@ angular.module('app.editChore.controllers', [])
             currentDueDay: {currentDueDay: actualDue.format("YYYY-MM-DD"), currentDueIdx: actualIdx}
           }
 
-
           console.log(editChore);
-
-
-
 
           $http.put(`http://localhost:9000/chores/updateChore/${$scope.choreId}`, editChore).then(result => {
             console.log('success');

@@ -11,7 +11,7 @@ angular.module('app.routes', [])
     templateUrl: 'templates/tabs.html'
   })
 
-  // Each tab has its own nav history stack:
+  // Tabs
 
   .state('tab.chores', {
     url: '/chores',
@@ -99,8 +99,6 @@ angular.module('app.routes', [])
     controller: 'houseSetupCtrl'
   })
 
-
-
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
 
@@ -116,9 +114,5 @@ angular.module('app.routes', [])
         $state.go('login');
       }
     }
-    // !!! Clears Chore Tab history when leaving Add Chore page - (decide on this later...)
-    // if (fromState.name === 'tabsController.newChore') {
-    //   $ionicHistory.clearHistory();
-    // }
   });
 });

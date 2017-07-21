@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'ionic.cloud', 'app.menu.controllers', 'app.auth.controllers', 'app.houseSetup.controllers', 'app.chores.controllers', 'app.newChore.controllers', 'app.editChore.controllers', 'app.shoppingList.controllers', 'app.board.controllers', 'app.settings.controllers', 'app.laundry.controllers', 'app.routes', 'app.directives', 'app.services', 'app.auth.services', 'app.constants', 'angularMoment'])
+angular.module('app', ['ionic', 'ionic.cloud', 'app.auth.controllers', 'app.houseSetup.controllers', 'app.chores.controllers', 'app.newChore.controllers', 'app.editChore.controllers', 'app.shoppingList.controllers', 'app.board.controllers', 'app.settings.controllers', 'app.laundry.controllers', 'app.routes', 'app.directives', 'app.services', 'app.auth.services', 'app.constants', 'angularMoment'])
 
 .config(function($ionicCloudProvider, $ionicConfigProvider) {
   $ionicCloudProvider.init({

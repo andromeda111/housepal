@@ -71,7 +71,6 @@ angular.module('app.board.controllers', [])
       })
     }
 
-
     $scope.postMessage = function (msgText) {
       let newMsg = {content: msgText, postTime: moment.utc()}
       $http.post(`http://localhost:9000/messageboard`, newMsg).then(result => {

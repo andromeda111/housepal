@@ -23,7 +23,7 @@ angular.module('app.auth.services', [])
       isAuthenticated = true;
       authToken = token;
 
-      // Set the token as header for your requests!
+      // Sets the token as header for requests
       $http.defaults.headers.common.Authorization = authToken;
     }
 

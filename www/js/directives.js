@@ -43,35 +43,6 @@ angular.module('app.directives', [])
     };
   })
 
-
-  // Moved from app. If something breaks, move back?
-  /*
-    This directive is used to disable the "drag to open" functionality of the Side-Menu
-    when you are dragging a Slider component.
-  */
-  .directive('disableSideMenuDrag', ['$ionicSideMenuDelegate', '$rootScope', function($ionicSideMenuDelegate, $rootScope) {
-    return {
-      restrict: "A",
-      controller: ['$scope', '$element', '$attrs', function($scope, $element, $attrs) {
-
-        function stopDrag() {
-          $ionicSideMenuDelegate.canDragContent(false);
-        }
-
-        function allowDrag() {
-          $ionicSideMenuDelegate.canDragContent(true);
-        }
-
-        $rootScope.$on('$ionicSlides.slideChangeEnd', allowDrag);
-        $element.on('touchstart', stopDrag);
-        $element.on('touchend', allowDrag);
-        $element.on('mousedown', stopDrag);
-        $element.on('mouseup', allowDrag);
-
-      }]
-    };
-  }])
-
   /*
     This directive is used to open regular and dynamic href links inside of inappbrowser.
   */
