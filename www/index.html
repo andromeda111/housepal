@@ -30,6 +30,10 @@
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
+    <!-- Additional Plugins -->
+    <script src="lib/moment.min.js"></script>
+    <script src="lib/angular-moment.min.js"></script>
+
     <!-- your app's js -->
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
@@ -42,6 +46,9 @@
     <ion-nav-bar class="bar-stable">
       <ion-nav-back-button>
       </ion-nav-back-button>
+      <ion-nav-buttons side="right">
+      <a class="button button-icon icon ion-gear-b"></a>
+    </ion-nav-buttons>
     </ion-nav-bar>
     <!--
       The views will be rendered in the <ion-nav-view> directive below

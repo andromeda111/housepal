@@ -5,7 +5,27 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'ionic.cloud', 'starter.controllers', 'starter.services'])
+
+.config(function($ionicCloudProvider) {
+  $ionicCloudProvider.init({
+    "core": {
+      "app_id": "80989ab2"
+    },
+    "push": {
+    "sender_id": "770128073589",
+    "pluginConfig": {
+      "ios": {
+        "badge": true,
+        "sound": true
+      },
+      "android": {
+        "iconColor": "#343434"
+      }
+    }
+  }
+  });
+})
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
