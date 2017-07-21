@@ -4,82 +4,82 @@ angular.module('app.routes', [])
 
     $stateProvider
 
-      .state('tabsController.newChore', {
-        url: '/chores/newChore',
-        views: {
-          'tab2': {
-            templateUrl: 'templates/newChore.html',
-            controller: 'newChoreCtrl'
-          }
-        }
-      })
+      // .state('tabsController.newChore', {
+      //   url: '/chores/newChore',
+      //   views: {
+      //     'tab2': {
+      //       templateUrl: 'templates/newChore.html',
+      //       controller: 'newChoreCtrl'
+      //     }
+      //   }
+      // })
 
-      .state('tabsController.editChore', {
-        url: '/chores/editChore/{id}',
-        views: {
-          'tab2': {
-            templateUrl: 'templates/editChore.html',
-            controller: 'editChoreCtrl'
-          }
-        }
-      })
+      // .state('tabsController.editChore', {
+      //   url: '/chores/editChore/{id}',
+      //   views: {
+      //     'tab2': {
+      //       templateUrl: 'templates/editChore.html',
+      //       controller: 'editChoreCtrl'
+      //     }
+      //   }
+      // })
+      //
+      // .state('tabsController.chores', {
+      //   url: '/chores',
+      //   views: {
+      //     'tab2': {
+      //       templateUrl: 'templates/chores.html',
+      //       controller: 'choresCtrl'
+      //     }
+      //   }
+      // })
 
-      .state('tabsController.chores', {
-        url: '/chores',
-        views: {
-          'tab2': {
-            templateUrl: 'templates/chores.html',
-            controller: 'choresCtrl'
-          }
-        }
-      })
 
+      // .state('tabsController.shoppingList', {
+      //   url: '/shopping-list',
+      //   views: {
+      //     'tab3': {
+      //       templateUrl: 'templates/shoppingList.html',
+      //       controller: 'shoppingListCtrl'
+      //     }
+      //   }
+      // })
 
-      .state('tabsController.shoppingList', {
-        url: '/shopping-list',
-        views: {
-          'tab3': {
-            templateUrl: 'templates/shoppingList.html',
-            controller: 'shoppingListCtrl'
-          }
-        }
-      })
+      // .state('tabsController.messageBoard', {
+      //   url: '/board',
+      //   views: {
+      //     'tab1': {
+      //       templateUrl: 'templates/messageBoard.html',
+      //       controller: 'messageBoardCtrl'
+      //     }
+      //   }
+      // })
 
-      .state('tabsController.messageBoard', {
-        url: '/board',
-        views: {
-          'tab1': {
-            templateUrl: 'templates/messageBoard.html',
-            controller: 'messageBoardCtrl'
-          }
-        }
-      })
-
-      .state('tabsController.laundry', {
-        url: '/laundry',
-        views: {
-          'tab4': {
-            templateUrl: 'templates/laundry.html',
-            controller: 'laundryCtrl'
-          }
-        }
-      })
-
-      .state('tabsController.houseSettings', {
-        url: '/houseSettings',
-        views: {
-          'tab9': {
-            templateUrl: 'templates/houseSettings.html',
-            controller: 'houseSettingsCtrl'
-          }
-        }
-      })
-
-      .state('tabsController', {
-        url: '/tabs',
-        templateUrl: 'templates/tabsController.html',
-        abstract: true
-      })
+      // .state('tabsController.laundry', {
+      //   url: '/laundry',
+      //   views: {
+      //     'tab4': {
+      //       templateUrl: 'templates/laundry.html',
+      //       controller: 'laundryCtrl'
+      //     }
+      //   }
+      // })
+      //
+      // .state('tabsController.houseSettings', {
+      //   url: '/houseSettings',
+      //   views: {
+      //     'tab9': {
+      //       templateUrl: 'templates/houseSettings.html',
+      //       controller: 'houseSettingsCtrl'
+      //     }
+      //   }
+      // })
+      //
+      // .state('tabsController', {
+      //   url: '/tabs',
+      //   templateUrl: 'templates/tabsController.html',
+      //   abstract: true
+      // })
 
       .state('login', {
         url: '/login',
