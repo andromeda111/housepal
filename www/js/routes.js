@@ -55,6 +55,16 @@ angular.module('app.routes', [])
         }
       })
 
+      .state('tabsController.laundry', {
+        url: '/laundry',
+        views: {
+          'tab4': {
+            templateUrl: 'templates/laundry.html',
+            controller: 'laundryCtrl'
+          }
+        }
+      })
+
       .state('tabsController.houseSettings', {
         url: '/houseSettings',
         views: {

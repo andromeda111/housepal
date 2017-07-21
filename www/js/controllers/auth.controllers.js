@@ -11,14 +11,14 @@ angular.module('app.auth.controllers', [])
       AuthService.login($scope.loginFormData).then(function(msg) {
         $ionicPush.register().then(function(t) {
           console.log('token? ', t);
-          $http.put('https://g48cap.herokuapp.com/users/updateDeviceToken', t).then(() => {
+          $http.put('http://localhost:9000/users/updateDeviceToken', t).then(() => {
             console.log('updated user, back in controller');
           })
           return $ionicPush.saveToken(t);
         }).then(function(t) {
           console.log('Token saved:', t.token);
         });
-        $http.get('https://g48cap.herokuapp.com/users/current').then(function(result) {
+        $http.get('http://localhost:9000/users/current').then(function(result) {
           console.log(result.data[0].house_id);
           !result.data[0].house_id ? $state.go('houseSetup') : $state.go('tabsController.messageBoard')
         });

@@ -11,10 +11,10 @@ angular.module('app.board.controllers', [])
         test: 'A',
         test2: 'b'
       }
-      $http.get('https://g48cap.herokuapp.com/users/user').then(function(result) {
+      $http.get('http://localhost:9000/users/user').then(function(result) {
         $scope.currentUser = {name: result.data[0].name, id: result.data[0].id}
       });
-      $http.get(`https://g48cap.herokuapp.com/users`).then(users => {
+      $http.get(`http://localhost:9000/users`).then(users => {
         $scope.houseUsers = users.data
 
         $scope.houseUsers.forEach(user => {
@@ -24,7 +24,7 @@ angular.module('app.board.controllers', [])
         console.log($scope.housePushList);
 
       })
-      $http.get(`https://g48cap.herokuapp.com/messageboard`).then(messages => {
+      $http.get(`http://localhost:9000/messageboard`).then(messages => {
         $scope.allMessages = messages.data
         $scope.allMessages.forEach(msg => {
           msg.postTime.postTime = moment(msg.postTime.postTime).format('dddd, MMMM do, YYYY h:mma')
@@ -74,8 +74,8 @@ angular.module('app.board.controllers', [])
 
     $scope.postMessage = function (msgText) {
       let newMsg = {content: msgText, postTime: moment.utc()}
-      $http.post(`https://g48cap.herokuapp.com/messageboard`, newMsg).then(result => {
-        $http.get(`https://g48cap.herokuapp.com/messageboard`).then(messages => {
+      $http.post(`http://localhost:9000/messageboard`, newMsg).then(result => {
+        $http.get(`http://localhost:9000/messageboard`).then(messages => {
           $scope.allMessages = messages.data
           $scope.allMessages.forEach(msg => {
             msg.postTime.postTime = moment(msg.postTime.postTime).format('dddd, MMMM do, YYYY h:mma')

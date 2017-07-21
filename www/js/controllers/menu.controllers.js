@@ -9,7 +9,7 @@ angular.module('app.menu.controllers', [])
 
     $scope.test = function () {
       let test = {token: 'lol'}
-      $http.put('https://g48cap.herokuapp.com/users/updateDeviceToken', test).then((result) => {
+      $http.put('http://localhost:9000/users/updateDeviceToken', test).then((result) => {
         console.log('updated user, back in controller');
         console.log(result);
       }).catch(err =>{
@@ -22,13 +22,13 @@ angular.module('app.menu.controllers', [])
     // };
     //
     // $scope.getInfo = function() {
-    //   $http.get('https://g48cap.herokuapp.com/memberinfo').then(function(result) {
+    //   $http.get('http://localhost:9000/memberinfo').then(function(result) {
     //     $scope.memberinfo = result.data;
     //   });
     // };
     //
     // $scope.deltest = function() {
-    //   $http.get('https://g48cap.herokuapp.com/deleteHouse').then(function(result) {
+    //   $http.get('http://localhost:9000/deleteHouse').then(function(result) {
     //     $scope.memberinfo = 'deleted house 1';
     //   });
     // };

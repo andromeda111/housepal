@@ -2,14 +2,14 @@ angular.module('app.shoppingList.controllers', [])
 
   .controller('shoppingListCtrl', ['$scope', '$stateParams', '$http', 'moment', function($scope, $stateParams, $http, moment) {
 
-    const api = 'https://g48cap.herokuapp.com'
+    const api = 'http://localhost:9000'
 
     $scope.$on('$ionicView.enter', function(e) {
       console.log('on init');
       $scope.listItems = []
 
       $scope.currentUser;
-      $http.get('https://g48cap.herokuapp.com/users/user').then(function(result) {
+      $http.get('http://localhost:9000/users/user').then(function(result) {
         $scope.currentUser = {name: result.data[0].name, id: result.data[0].id}
       });
 
@@ -36,6 +36,7 @@ angular.module('app.shoppingList.controllers', [])
         })
       })
       $scope.postSysMsgAdd(newItem)
+      $scope.pushMsgNotifyAdd(newItem)
     }
 
     $scope.updateItem = function(item, buyer) {
@@ -75,7 +76,7 @@ angular.module('app.shoppingList.controllers', [])
         content: `${$scope.currentUser.name} added "${item}" to the communal shopping list.`,
         postTime: {postTime: moment.utc()}
       }
-      $http.post(`https://g48cap.herokuapp.com/messageboard/system`, sysMsg).then(result => {
+      $http.post(`http://localhost:9000/messageboard/system`, sysMsg).then(result => {
         console.log(result);
       })
     }
@@ -87,7 +88,44 @@ angular.module('app.shoppingList.controllers', [])
         content: `${$scope.currentUser.name} bought "${item.item}". Thanks, ${$scope.currentUser.name}!`,
         postTime: {postTime: moment.utc()}
       }
-      $http.post(`https://g48cap.herokuapp.com/messageboard/system`, sysMsg).then(result => {
+      $http.post(`http://localhost:9000/messageboard/system`, sysMsg).then(result => {
+        console.log(result);
+      })
+    }
+
+
+    /*************
+    Push Notifications
+    *************/
+    $scope.pushMsgNotifyAdd = function (newItem) {
+      let pushSendList = []
+      $scope.houseUsers.forEach(user => {
+        if (user.id != $scope.currentUser.id) {
+          pushSendList.push(user.deviceId)
+        }
+      })
+
+      let req = {
+           method: 'POST',
+           url: 'https://api.ionic.io/push/notifications',
+           headers: {
+             'Content-Type': 'application/json',
+             'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJiNjVlYzE2YS04N2VmLTQ3YjQtOGJlYy1mY2ZmZWJmMjc0ZTQifQ.aqtWe4lI7BmoSqAZCl0VD-H3Ceo1BVAOFgtpLhHD8OM'
+           },
+           data: {
+              "tokens": pushSendList,
+              "profile": "capstone",
+              "notification": {
+                "android": {
+                  "title": "Communal Shopping List",
+                  "message": `"${newItem}" added to shopping list.`,
+                  "priority": "normal"
+                }
+              }
+            }
+          }
+
+      $http(req).then(result => {
         console.log(result);
       })
     }

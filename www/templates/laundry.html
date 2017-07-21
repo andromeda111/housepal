@@ -1,0 +1,37 @@
+<ion-view title="Shopping List" cache-view="false" id="page3">
+  <ion-content padding="true" class="has-header">
+
+
+
+  <div class="">
+    <h4>Washer</h4>
+    <label class="toggle">
+      <input type="checkbox" ng-checked="laundryData.washer_status" ng-if="laundryData.washer_status === false" ng-click="toggleWasherOn()">
+      <input type="checkbox" ng-checked="laundryData.washer_status" ng-if="laundryData.washer_status === true" ng-click="toggleWasherOff()">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+    </label>
+    <div class="" ng-if="laundryData.washer_status === true">
+      <h5>Currently in use by {{laundryData.washer_current_user.name}} as of {{washerTimeAgo}}</h5>
+      <button type="button" class="button button-positive" name="button" ng-click="notifyMeWasher()">Notify Me When Available</button>
+    </div>
+  </div>
+<hr>
+<div class="">
+  <h4>Dryer</h4>
+  <label class="toggle">
+    <input type="checkbox" ng-checked="laundryData.dryer_status" ng-if="laundryData.dryer_status === false" ng-click="toggleDryerOn()">
+    <input type="checkbox" ng-checked="laundryData.dryer_status" ng-if="laundryData.dryer_status === true" ng-click="toggleDryerOff()">
+    <div class="track">
+      <div class="handle"></div>
+    </div>
+  </label>
+  <div class="" ng-if="laundryData.dryer_status === true">
+    <h5>Currently in use by {{laundryData.dryer_current_user.name}} as of {{dryerTimeAgo}}</h5>
+    <button type="button" class="button button-positive" name="button" ng-click="notifyMeDryer()">Notify Me When Available</button>
+  </div>
+</div>
+
+  </ion-content>
+</ion-view>

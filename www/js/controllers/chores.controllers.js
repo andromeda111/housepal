@@ -9,14 +9,14 @@ angular.module('app.chores.controllers', [])
       $scope.working = false
       $scope.currentUser;
 
-      $http.get('https://g48cap.herokuapp.com/users/user').then(function(result) {
+      $http.get('http://localhost:9000/users/user').then(function(result) {
         $scope.currentUser = {name: result.data[0].name, id: result.data[0].id}
       });
-      $http.get(`https://g48cap.herokuapp.com/users`).then(users => {
+      $http.get(`http://localhost:9000/users`).then(users => {
         $scope.houseUsers = users.data
         console.log('house users: ', $scope.houseUsers);
       })
-      $http.get(`https://g48cap.herokuapp.com/chores/house`).then(result => {
+      $http.get(`http://localhost:9000/chores/house`).then(result => {
         $scope.allChores = result.data
         $scope.oneChore = result.data[0]
       })
@@ -32,7 +32,7 @@ angular.module('app.chores.controllers', [])
     }
 
     $scope.markDone = function (chore) {
-      $http.put(`https://g48cap.herokuapp.com/chores/done`, chore).then(result => {
+      $http.put(`http://localhost:9000/chores/done`, chore).then(result => {
         console.log(result);
       })
       $scope.postSysMsgComplete(chore)
@@ -45,7 +45,7 @@ angular.module('app.chores.controllers', [])
 
     $scope.deleteChore = function (chore) {
       console.log(chore);
-      $http.delete(`https://g48cap.herokuapp.com/chores/delete/${chore.id}`).then(result => {
+      $http.delete(`http://localhost:9000/chores/delete/${chore.id}`).then(result => {
         console.log(result);
       })
     }
@@ -57,7 +57,7 @@ angular.module('app.chores.controllers', [])
         content: `${$scope.currentUser.name} completed: "${chore.chore}"`,
         postTime: {postTime: moment.utc()}
       }
-      $http.post(`https://g48cap.herokuapp.com/messageboard/system`, sysMsg).then(result => {
+      $http.post(`http://localhost:9000/messageboard/system`, sysMsg).then(result => {
         console.log(result);
       })
     }
