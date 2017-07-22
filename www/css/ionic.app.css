@@ -31,24 +31,16 @@ ion-content {
 .complete {
   background-color: lightGreen; }
 
-.discussion {
-  list-style: none;
-  margin: 0;
-  padding: 0; }
+/***************
+MESSAGE BOARD
+****************/
+.messageContainer {
+  padding-bottom: 80px; }
 
 .discussion li {
   padding: 0.25rem;
   overflow: hidden;
   display: flex; }
-
-.msgSelf {
-  justify-content: flex-end;
-  align-items: flex-end; }
-
-.msgSelf .messages {
-  order: 1;
-  border-bottom-right-radius: 0;
-  background: #FFF; }
 
 .messages {
   background: #FBFFEF;
@@ -65,11 +57,46 @@ ion-content {
   font-size: 0.7rem;
   color: #555; }
 
+.msgSelf {
+  justify-content: flex-end;
+  align-items: flex-end; }
+
+.msgSelf .messages {
+  order: 1;
+  border-bottom-right-radius: 0;
+  background: #FFF; }
+
 .postMessageForm {
   position: absolute;
   bottom: 0;
   width: 100%;
-  background-color: white; }
+  background-color: #F5F5F5;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px 10px 10px; }
+
+.postMessageForm label {
+  width: 82%;
+  height: 100%; }
+
+.send {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom right, #2B618C, #6EABC7); }
+
+.send:active {
+  background: linear-gradient(to bottom right, #3A85BF, #B6DDFA);
+  box-shadow: 0 5px 15px rgba(19, 44, 63, 0.7); }
+
+.send i {
+  color: #F8F8F8;
+  position: relative;
+  top: 12px;
+  left: 12px;
+  font-size: 25px; }
 
 #todo-input {
   display: inline;

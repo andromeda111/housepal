@@ -1,21 +1,11 @@
-<ion-view title="Message Board" cache-view="false" id="page4">
+<ion-view title="Message Board" cache-view="false">
   <ion-content padding="true" class="has-header">
-    <button class="button button-full button-balanced" ng-click="pushHouse()">
-      Send Push to House
-    </button>
-    <div class="panel well">
-    <p>Token: {{currentUser.deviceId}}</p>
-    </div>
 
-    <div class="">
-      Repeat in case obj:
-      <p ng-repeat="key in currentUser.deviceId">{{key}}</p>
-    </div>
       <h6 ng-if="!allMessages">No messages to display.</h6>
 
-      <div class="messageContainer" scroll-bottom="bottom">
+      <div class="messageContainer">
 
-        <ol id="bottom" class="discussion" ng-if="allMessages" ng-repeat="message in allMessages | orderBy: '-created_at'">
+        <ol class="discussion" ng-if="allMessages" ng-repeat="message in allMessages | orderBy: 'created_at'">
           <div ng-if="message.posterId !== currentUser.id">
             <li class="msgOther">
               <div class="messages">
@@ -37,15 +27,22 @@
         </ol>
 
       </div>
-      <a id="msgBottom" href="msgBottom"></a>
 
   </ion-content>
 
-    <form class="postMessageForm" ng-submit="postMessage(msgText)">
+  <form class="postMessageForm" ng-submit="postMessage(msgText)">
+
       <label class="item item-input">
-        <input type="text" ng-model="msgText" placeholder="Comments"></input>
+        <input class="postMessageInput" type="text" ng-model="msgText" placeholder="Post message"></input>
       </label>
-      <button class="button button-positive button-block">Post</button>
-    </form>
+      <div class="send"><i class="icon ion-paper-airplane"></i></div>
+
+  </form>
+  <!-- <form class="postMessageForm" ng-submit="postMessage(msgText)">
+    <label class="item item-input">
+      <input type="text" ng-model="msgText" placeholder="Comments"></input>
+    </label>
+    <button class="button button-positive button-block">Post</button>
+  </form> -->
 
 </ion-view>

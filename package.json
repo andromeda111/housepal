@@ -14,6 +14,7 @@
   "dependencies": {
     "@ionic/cloud": "^0.16.0",
     "angular-moment": "^1.0.1",
+    "angularjs-scroll-glue": "^2.2.0",
     "cordova-android": "^6.2.3",
     "cordova-plugin-console": "^1.0.5",
     "cordova-plugin-device": "^1.1.4",

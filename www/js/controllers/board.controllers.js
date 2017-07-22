@@ -1,8 +1,9 @@
 angular.module('app.board.controllers', [])
 
-  .controller('messageBoardCtrl', ['$scope', '$state', '$stateParams', '$http', 'AuthService', 'API_URL', 'moment', function($scope, $state, $stateParams, $http, AuthService, API_URL, moment) {
-
+  .controller('messageBoardCtrl', ['$scope', '$state', '$stateParams', '$http', 'AuthService', 'API_URL', 'moment', '$ionicScrollDelegate', function($scope, $state, $stateParams, $http, AuthService, API_URL, moment, $ionicScrollDelegate) {
     $scope.$on('$ionicView.enter', function(e) {
+
+
       $scope.allMessages = []
       $scope.houseUsers = [];
       $scope.housePushList = [];
@@ -28,6 +29,7 @@ angular.module('app.board.controllers', [])
         $scope.allMessages = messages.data
         $scope.allMessages.forEach(msg => {
           msg.postTime.postTime = moment(msg.postTime.postTime).format('dddd, MMMM do, YYYY h:mma')
+          $ionicScrollDelegate.scrollBottom()
           return msg.postTime.postTime
         })
 
@@ -78,6 +80,7 @@ angular.module('app.board.controllers', [])
           $scope.allMessages = messages.data
           $scope.allMessages.forEach(msg => {
             msg.postTime.postTime = moment(msg.postTime.postTime).format('dddd, MMMM do, YYYY h:mma')
+            $ionicScrollDelegate.scrollBottom()
             return msg.postTime.postTime
           })
         })
