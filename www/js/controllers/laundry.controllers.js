@@ -1,8 +1,6 @@
 angular.module('app.laundry.controllers', [])
 
-  .controller('laundryCtrl', ['$scope', '$stateParams', '$http', 'moment', function($scope, $stateParams, $http, moment) {
-
-    const api = 'http://localhost:9000'
+  .controller('laundryCtrl', ['$scope', '$stateParams', '$http', 'moment', 'API_URL', function($scope, $stateParams, $http, moment, API_URL) {
 
     $scope.$on('$ionicView.enter', function(e) {
       console.log('on init');
@@ -11,13 +9,13 @@ angular.module('app.laundry.controllers', [])
       $scope.currentUser;
       $scope.washerTimeAgo;
       $scope.dryerTimeAgo;
-      $http.get('http://localhost:9000/users/user').then(function(result) {
+      $http.get(API_URL.url + `/users/user`).then(function(result) {
         $scope.currentUser = {name: result.data[0].name, id: result.data[0].id, house_id: result.data[0].house_id, deviceId: result.data[0].deviceId}
       });
 
       $scope.laundryData;
 
-      $http.get('http://localhost:9000/laundry').then(function(result) {
+      $http.get(API_URL.url + `/laundry`).then(function(result) {
         $scope.laundryData = result.data[0]
         if ($scope.laundryData.washer_start_time.time) {
           $scope.washerTimeAgo = moment($scope.laundryData.washer_start_time.time).fromNow()
@@ -29,7 +27,7 @@ angular.module('app.laundry.controllers', [])
     });
 
     $scope.$on('cloud:push:notification', function(event, data) {
-      var msg = data.message;
+      let msg = data.message;
       alert(msg.title + ': ' + msg.text);
     });
 
@@ -42,9 +40,9 @@ angular.module('app.laundry.controllers', [])
         washer_current_user: {id: $scope.currentUser.id, name: $scope.currentUser.name},
         washer_start_time: {time: moment.utc()}
       }
-      $http.put(`http://localhost:9000/laundry/on/${$scope.currentUser.house_id}`, washerToggleOn).then(result => {
+      $http.put(API_URL.url + `/laundry/on/${$scope.currentUser.house_id}`, washerToggleOn).then(result => {
         console.log(result);
-        $http.get('http://localhost:9000/laundry').then(function(result) {
+        $http.get(API_URL.url + `/laundry`).then(function(result) {
           $scope.laundryData = result.data[0]
           $scope.washerTimeAgo = moment($scope.laundryData.washer_start_time.time).fromNow()
         });
@@ -58,16 +56,16 @@ angular.module('app.laundry.controllers', [])
         washer_start_time: {time: null},
         washer_notify: {users: null}
       }
-      $http.get('http://localhost:9000/laundry').then(function(result) {
+      $http.get(API_URL.url + `/laundry`).then(function(result) {
         let washerNotifyList = result.data[0].washer_notify.users
         if (washerNotifyList.length > 0) {
           $scope.pushMsgNotifyWasher(washerNotifyList)
         }
       })
 
-      $http.put(`http://localhost:9000/laundry/on/${$scope.currentUser.house_id}`, washerToggleOff).then(result => {
+      $http.put(API_URL.url + `/laundry/on/${$scope.currentUser.house_id}`, washerToggleOff).then(result => {
         console.log(result);
-        $http.get('http://localhost:9000/laundry').then(function(result) {
+        $http.get(API_URL.url + `/laundry`).then(function(result) {
           $scope.laundryData = result.data[0]
           $scope.washerTimeAgo = null
         });
@@ -76,7 +74,7 @@ angular.module('app.laundry.controllers', [])
 
     $scope.notifyMeWasher = function() {
 
-      $http.get('http://localhost:9000/laundry').then(function(result) {
+      $http.get(API_URL.url + `/laundry`).then(function(result) {
         let notifyList = result.data[0].washer_notify.users
         let user = $scope.currentUser.deviceId
         let notifyObj = {}
@@ -86,7 +84,7 @@ angular.module('app.laundry.controllers', [])
             notifyObj = {
               washer_notify: {users: notifyList}
             }
-            $http.put(`http://localhost:9000/laundry/notify/${$scope.currentUser.id}`, notifyObj).then(result => {
+            $http.put(API_URL.url + `/laundry/notify/${$scope.currentUser.id}`, notifyObj).then(result => {
               console.log(result);
             })
           }
@@ -95,7 +93,7 @@ angular.module('app.laundry.controllers', [])
           notifyObj = {
             washer_notify: {users: notifyList}
           }
-          $http.put(`http://localhost:9000/laundry/notify/${$scope.currentUser.id}`, notifyObj).then(result => {
+          $http.put(API_URL.url + `/laundry/notify/${$scope.currentUser.id}`, notifyObj).then(result => {
             console.log(result);
           })
         }
@@ -113,9 +111,9 @@ angular.module('app.laundry.controllers', [])
         dryer_current_user: {id: $scope.currentUser.id, name: $scope.currentUser.name},
         dryer_start_time: {time: moment.utc()}
       }
-      $http.put(`http://localhost:9000/laundry/on/${$scope.currentUser.house_id}`, dryerToggleOn).then(result => {
+      $http.put(API_URL.url + `/laundry/on/${$scope.currentUser.house_id}`, dryerToggleOn).then(result => {
         console.log(result);
-        $http.get('http://localhost:9000/laundry').then(function(result) {
+        $http.get(API_URL.url + `/laundry`).then(function(result) {
           $scope.laundryData = result.data[0]
           $scope.dryerTimeAgo = moment($scope.laundryData.dryer_start_time.time).fromNow()
         });
@@ -129,16 +127,16 @@ angular.module('app.laundry.controllers', [])
         dryer_start_time: {time: null},
         dryer_notify: {users: null}
       }
-      $http.get('http://localhost:9000/laundry').then(function(result) {
+      $http.get(API_URL.url + `/laundry`).then(function(result) {
         let dryerNotifyList = result.data[0].dryer_notify.users
         if (dryerNotifyList) {
           $scope.pushMsgNotifyDryer(dryerNotifyList)
         }
       })
 
-      $http.put(`http://localhost:9000/laundry/on/${$scope.currentUser.house_id}`, dryerToggleOff).then(result => {
+      $http.put(API_URL.url + `/laundry/on/${$scope.currentUser.house_id}`, dryerToggleOff).then(result => {
         console.log(result);
-        $http.get('http://localhost:9000/laundry').then(function(result) {
+        $http.get(API_URL.url + `/laundry`).then(function(result) {
           $scope.laundryData = result.data[0]
           $scope.dryerTimeAgo = null
         });
@@ -147,7 +145,7 @@ angular.module('app.laundry.controllers', [])
 
     $scope.notifyMeDryer = function() {
 
-      $http.get('http://localhost:9000/laundry').then(function(result) {
+      $http.get(API_URL.url + `/laundry`).then(function(result) {
         let notifyList = result.data[0].dryer_notify.users
         let user = $scope.currentUser.deviceId
         let notifyObj = {}
@@ -157,7 +155,7 @@ angular.module('app.laundry.controllers', [])
             notifyObj = {
               dryer_notify: {users: notifyList}
             }
-            $http.put(`http://localhost:9000/laundry/notify/${$scope.currentUser.id}`, notifyObj).then(result => {
+            $http.put(API_URL.url + `/laundry/notify/${$scope.currentUser.id}`, notifyObj).then(result => {
               console.log(result);
             })
           }
@@ -166,7 +164,7 @@ angular.module('app.laundry.controllers', [])
           notifyObj = {
             dryer_notify: {users: notifyList}
           }
-          $http.put(`http://localhost:9000/laundry/notify/${$scope.currentUser.id}`, notifyObj).then(result => {
+          $http.put(API_URL.url + `/laundry/notify/${$scope.currentUser.id}`, notifyObj).then(result => {
             console.log(result);
           })
         }

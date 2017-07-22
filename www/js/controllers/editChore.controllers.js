@@ -1,6 +1,6 @@
 angular.module('app.editChore.controllers', [])
 
-  .controller('editChoreCtrl', ['$scope', '$stateParams', '$http', '$state', function($scope, $stateParams, $http, $state) {
+  .controller('editChoreCtrl', ['$scope', '$stateParams', '$http', '$state', 'API_URL', function($scope, $stateParams, $http, $state, API_URL) {
 
     $scope.$on('$ionicView.enter', function(e) {
 
@@ -10,11 +10,11 @@ angular.module('app.editChore.controllers', [])
       $scope.cycleList = [];
       $scope.houseUsers = [];
 
-      $http.get(`http://localhost:9000/users`).then(users => {
+      $http.get(API_URL.url + `/users`).then(users => {
         $scope.houseUsers = users.data
         console.log('house users: ', $scope.houseUsers);
       })
-      $http.get(`http://localhost:9000/chores/getById/${$scope.choreId}`).then(chore => {
+      $http.get(API_URL.url + `/chores/getById/${$scope.choreId}`).then(chore => {
         $scope.editChore.chore = chore.data.chore
         console.log('chore to edit: ', $scope.editChore);
       })
@@ -81,7 +81,7 @@ angular.module('app.editChore.controllers', [])
 
           console.log(editChore);
 
-          $http.put(`http://localhost:9000/chores/updateChore/${$scope.choreId}`, editChore).then(result => {
+          $http.put(API_URL.url + `/chores/updateChore/${$scope.choreId}`, editChore).then(result => {
             console.log('success');
             console.log(result);
             $state.go('tab.chores')

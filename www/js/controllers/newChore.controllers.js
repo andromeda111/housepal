@@ -1,6 +1,6 @@
 angular.module('app.newChore.controllers', [])
 
-  .controller('newChoreCtrl', ['$scope', '$stateParams', '$http', '$state', function($scope, $stateParams, $http, $state) {
+  .controller('newChoreCtrl', ['$scope', '$stateParams', '$http', '$state', 'API_URL', function($scope, $stateParams, $http, $state, API_URL) {
 
     $scope.$on('$ionicView.enter', function(e) {
 
@@ -8,7 +8,7 @@ angular.module('app.newChore.controllers', [])
       $scope.cycleList = [];
       $scope.houseUsers = [];
 
-      $http.get(`http://localhost:9000/users`).then(users => {
+      $http.get(API_URL.url + `/users`).then(users => {
         $scope.houseUsers = users.data
         console.log('house users: ', $scope.houseUsers);
       })
@@ -73,7 +73,7 @@ angular.module('app.newChore.controllers', [])
 
           console.log(newChore);
 
-          $http.post(`http://localhost:9000/chores/new`, newChore).then(result => {
+          $http.post(API_URL.url + `/chores/new`, newChore).then(result => {
             console.log('success');
             console.log(result);
             $state.go('tab.chores')

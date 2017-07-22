@@ -1,12 +1,12 @@
 angular.module('app.auth.services', [])
 
-  .service('AuthService', function($q, $http, API_ENDPOINT, $ionicPush) {
-    var LOCAL_TOKEN_KEY = 'yourTokenKey';
-    var isAuthenticated = false;
-    var authToken;
+  .service('AuthService', function($q, $http, API_URL, $ionicPush) {
+    let LOCAL_TOKEN_KEY = 'yourTokenKey';
+    let isAuthenticated = false;
+    let authToken;
 
     function loadUserCredentials() {
-      var token = window.localStorage.getItem(LOCAL_TOKEN_KEY);
+      let token = window.localStorage.getItem(LOCAL_TOKEN_KEY);
       if (token) {
         useCredentials(token);
       }
@@ -34,9 +34,9 @@ angular.module('app.auth.services', [])
       window.localStorage.removeItem(LOCAL_TOKEN_KEY);
     }
 
-    var register = function(newUser) {
+    let register = function(newUser) {
       return $q(function(resolve, reject) {
-        $http.post(API_ENDPOINT.url + '/signup', newUser).then(function(result) {
+        $http.post(API_URL.url + '/auth/signup', newUser).then(function(result) {
           if (result.data.success) {
             resolve(result.data.msg);
           } else {
@@ -46,9 +46,9 @@ angular.module('app.auth.services', [])
       });
     };
 
-    var login = function(user) {
+    let login = function(user) {
       return $q(function(resolve, reject) {
-        $http.post(API_ENDPOINT.url + '/login', user).then(function(result) {
+        $http.post(API_URL.url + '/auth/login', user).then(function(result) {
           if (result.data.success) {
             storeUserCredentials(result.data.token);
             resolve(result.data.msg);
@@ -59,7 +59,7 @@ angular.module('app.auth.services', [])
       });
     };
 
-    var logout = function() {
+    let logout = function() {
       destroyUserCredentials();
     };
 

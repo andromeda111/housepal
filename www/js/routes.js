@@ -4,14 +4,14 @@ angular.module('app.routes', [])
 
   $stateProvider
 
-  // setup an abstract state for the tabs directive
+  // Setup an abstract state for the tabs directive
     .state('tab', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
   })
 
-  // Tabs
+  // Tabs, Pages
 
   .state('tab.chores', {
     url: '/chores',
@@ -23,25 +23,25 @@ angular.module('app.routes', [])
     }
   })
     .state('tab.newChore', {
-      url: '/chores/newChore',
+      url: '/chores/new-chore',
       views: {
         'tab-chores': {
-          templateUrl: 'templates/newChore.html',
+          templateUrl: 'templates/new-chore.html',
           controller: 'newChoreCtrl'
         }
       }
     })
     .state('tab.editChore', {
-      url: '/chores/editChore/{id}',
+      url: '/chores/edit-chore/{id}',
       views: {
         'tab-chores': {
-          templateUrl: 'templates/editChore.html',
+          templateUrl: 'templates/edit-chore.html',
           controller: 'editChoreCtrl'
         }
       }
     })
 
-  .state('tab.shopping-list', {
+  .state('tab.shoppingList', {
       url: '/shopping-list',
       views: {
         'tab-shopping-list': {
@@ -55,7 +55,7 @@ angular.module('app.routes', [])
     url: '/board',
     views: {
       'tab-board': {
-        templateUrl: 'templates/messageBoard.html',
+        templateUrl: 'templates/board.html',
         controller: 'messageBoardCtrl'
       }
     }
@@ -95,7 +95,7 @@ angular.module('app.routes', [])
 
   .state('houseSetup', {
     url: '/house-setup',
-    templateUrl: 'templates/houseSetup.html',
+    templateUrl: 'templates/house-setup.html',
     controller: 'houseSetupCtrl'
   })
 

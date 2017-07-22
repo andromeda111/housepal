@@ -9,9 +9,9 @@ angular.module('app.directives', [])
         value: '@'
       },
       link: function(scope, elem, attrs) {
-        var handler = function(setup) {
-          var checked = elem.prop('checked');
-          var index = scope.list.indexOf(parseInt(scope.value));
+        let handler = function(setup) {
+          let checked = elem.prop('checked');
+          let index = scope.list.indexOf(parseInt(scope.value));
           let newName = ''
 
           if (checked && index == -1) {
@@ -32,8 +32,8 @@ angular.module('app.directives', [])
           }
         };
 
-        var setupHandler = handler.bind(null, true);
-        var changeHandler = handler.bind(null, false);
+        let setupHandler = handler.bind(null, true);
+        let changeHandler = handler.bind(null, false);
 
         elem.on('change', function() {
           scope.$apply(changeHandler);
@@ -52,7 +52,7 @@ angular.module('app.directives', [])
       replace: false,
       transclude: false,
       link: function(scope, element, attrs) {
-        var href = attrs['hrefInappbrowser'];
+        let href = attrs['hrefInappbrowser'];
 
         attrs.$observe('hrefInappbrowser', function(val) {
           href = val;

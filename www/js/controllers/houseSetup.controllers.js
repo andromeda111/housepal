@@ -1,6 +1,6 @@
 angular.module('app.houseSetup.controllers', [])
 
-  .controller('houseSetupCtrl', ['$scope', '$stateParams', '$state', '$http', 'AuthService', function($scope, $stateParams, $state, $http, AuthService) {
+  .controller('houseSetupCtrl', ['$scope', '$stateParams', '$state', '$http', 'AuthService', 'API_URL', function($scope, $stateParams, $state, $http, AuthService, API_URL) {
 
       $scope.$on('$ionicView.enter', function(e) {
         console.log('on init');
@@ -18,7 +18,7 @@ angular.module('app.houseSetup.controllers', [])
       }
 
       $scope.joinFormSubmit = function (joinFormData) {
-        $http.post('http://localhost:9000/houses/join', joinFormData).then(result => {
+        $http.post(API_URL.url + `/houses/join`, joinFormData).then(result => {
           AuthService.storeUserCredentials(result.data.newToken);
           $state.go('tab.messageBoard')
         }).catch(err => {
@@ -27,7 +27,7 @@ angular.module('app.houseSetup.controllers', [])
       }
 
       $scope.createFormSubmit = function (createFormData) {
-        $http.post('http://localhost:9000/houses/create', createFormData).then(result => {
+        $http.post(API_URL.url + `/houses/create`, createFormData).then(result => {
           AuthService.storeUserCredentials(result.data.newToken);
           $state.go('tab.messageBoard')
         }).catch(err => {

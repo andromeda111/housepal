@@ -4,7 +4,7 @@ angular.module('app.constants', [])
     notAuthenticated: 'auth-not-authenticated'
   })
 
-  // This is used for Auth, and can be changed later to a more proper endpoint
-  .constant('API_ENDPOINT', {
-    url: 'http://localhost:9000/auth'
+  // This is used for Auth
+  .constant('API_URL', {
+    url: 'http://localhost:9000'
   });

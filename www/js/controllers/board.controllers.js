@@ -1,6 +1,6 @@
 angular.module('app.board.controllers', [])
 
-  .controller('messageBoardCtrl', ['$scope', '$state', '$stateParams', '$http', 'AuthService', 'API_ENDPOINT', 'moment', function($scope, $state, $stateParams, $http, AuthService, API_ENDPOINT, moment) {
+  .controller('messageBoardCtrl', ['$scope', '$state', '$stateParams', '$http', 'AuthService', 'API_URL', 'moment', function($scope, $state, $stateParams, $http, AuthService, API_URL, moment) {
 
     $scope.$on('$ionicView.enter', function(e) {
       $scope.allMessages = []
@@ -11,10 +11,10 @@ angular.module('app.board.controllers', [])
         test: 'A',
         test2: 'b'
       }
-      $http.get('http://localhost:9000/users/user').then(function(result) {
+      $http.get(API_URL.url + `/users/user`).then(function(result) {
         $scope.currentUser = {name: result.data[0].name, id: result.data[0].id}
       });
-      $http.get(`http://localhost:9000/users`).then(users => {
+      $http.get(API_URL.url + `/users`).then(users => {
         $scope.houseUsers = users.data
 
         $scope.houseUsers.forEach(user => {
@@ -24,7 +24,7 @@ angular.module('app.board.controllers', [])
         console.log($scope.housePushList);
 
       })
-      $http.get(`http://localhost:9000/messageboard`).then(messages => {
+      $http.get(API_URL.url + `/messageboard`).then(messages => {
         $scope.allMessages = messages.data
         $scope.allMessages.forEach(msg => {
           msg.postTime.postTime = moment(msg.postTime.postTime).format('dddd, MMMM do, YYYY h:mma')
@@ -35,7 +35,7 @@ angular.module('app.board.controllers', [])
     });
 
     $scope.$on('cloud:push:notification', function(event, data) {
-      var msg = data.message;
+      let msg = data.message;
       alert(msg.title + ': ' + msg.text);
     });
 
@@ -73,8 +73,8 @@ angular.module('app.board.controllers', [])
 
     $scope.postMessage = function (msgText) {
       let newMsg = {content: msgText, postTime: moment.utc()}
-      $http.post(`http://localhost:9000/messageboard`, newMsg).then(result => {
-        $http.get(`http://localhost:9000/messageboard`).then(messages => {
+      $http.post(API_URL.url + `/messageboard`, newMsg).then(result => {
+        $http.get(API_URL.url + `/messageboard`).then(messages => {
           $scope.allMessages = messages.data
           $scope.allMessages.forEach(msg => {
             msg.postTime.postTime = moment(msg.postTime.postTime).format('dddd, MMMM do, YYYY h:mma')
