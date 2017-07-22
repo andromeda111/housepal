@@ -8,7 +8,7 @@ $light:                           #fff !default;
 $stable:                          #f8f8f8 !default;
 $positive:                        #387ef5 !default;
 $calm:                            #11c1f3 !default;
-$balanced:                        #33cd5f !default;
+$balanced:                        #46C949 !default;
 $energized:                       #ffc900 !default;
 $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
@@ -17,6 +17,18 @@ $dark:                            #444 !default;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
+
+@font-face {
+  font-family: 'Lato-Regular';
+  src: url('../lib/ionic/fonts/Lato-Regular.ttf') format('truetype'),
+}
+$positive:                        #3A85BF !default;
+$balanced:                        #46C949 !default;
+
+ion-content {
+background: #F5F5F5 !important;
+}
+
 
 .due {
   background-color: lightYellow;
@@ -53,14 +65,14 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .msgSelf .messages {
   order: 1;
   border-bottom-right-radius: 0;
-  background: #A1D9FF;
+  background: #FFF;
 }
 
 .messages {
   background: #FBFFEF;
   padding: 10px;
   border-radius: 2px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.2);
   max-width: 90%;
 }
 .messages p {
