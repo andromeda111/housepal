@@ -106,41 +106,6 @@ MESSAGE BOARD
   left: 12px;
   font-size: 25px; }
 
-/***************
-CHORES
-****************/
-.header-white {
-  margin: 0;
-  padding: 0;
-  color: white; }
-
-.my-chores-header {
-  padding: 5px 10px;
-  color: white;
-  background: linear-gradient(to right, #2B618C, #3A85BF);
-  border-bottom: 1px solid white;
-  display: flex;
-  justify-content: space-between;
-  overflow: hidden; }
-
-.other-chores-header {
-  padding: 5px 10px;
-  color: white;
-  background: linear-gradient(to right, #2B618C, #3A85BF);
-  border-bottom: 1px solid white;
-  display: flex;
-  justify-content: space-between;
-  overflow: hidden; }
-
-.due {
-  background-color: lightYellow; }
-
-.late {
-  background-color: red; }
-
-.complete {
-  background-color: lightGreen; }
-
 #todo-input {
   display: inline;
   min-width: 200px;
@@ -262,6 +227,84 @@ CHORES
 
 .checklist-row {
   display: inline-block; }
+
+/***************
+SHOPPING LIST
+****************/
+.chores-top {
+  display: flex;
+  justify-content: space-between; }
+
+.chores-top > div {
+  visibility: hidden; }
+
+.my-chores-header {
+  height: 60px;
+  padding: 5px 15px;
+  color: white;
+  background: linear-gradient(to right, #2B618C, #3A85BF);
+  border-bottom: 1px solid white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.other-chores-header {
+  height: 60px;
+  padding: 5px 15px;
+  color: white;
+  background: linear-gradient(to right, #2B618C, #3A85BF);
+  border-bottom: 1px solid white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.my-chores-header-text {
+  width: 80%; }
+
+.header-white {
+  margin: 0;
+  padding: 0;
+  color: white; }
+
+.check-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #FFF;
+  transform: rotate(0deg);
+  transition: all 0.2s linear; }
+
+.check-circle-active {
+  transform: rotate(-180deg);
+  box-shadow: 0px 0px 15px #afe1ff; }
+
+.down-arrow {
+  color: #3A85BF;
+  position: relative;
+  top: 4px;
+  left: 7px;
+  font-size: 25px; }
+
+.chore-section {
+  padding: 0 10px;
+  max-height: 0;
+  transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+  overflow: hidden; }
+
+.chore-section-active {
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
+  height: auto;
+  max-height: 9999px; }
+
+.due {
+  background-color: lightYellow; }
+
+.late {
+  background-color: red; }
+
+.complete {
+  background-color: lightGreen; }
 
 .choreCard {
   border: 1px solid black;
