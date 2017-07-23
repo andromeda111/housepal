@@ -9,137 +9,77 @@
     </div>
 
   <!-- My Chores (DUE TODAY) -->
-  <div class="my-chores-header">
-    <!-- Text -->
-    <div class="my-chores-header-text">
-      <h4 class="header-white">My Chores</h4>
-      <ng-pluralize count="myChores.length"
-      when="{'0': '{{myChores.length}} chores',
-      '1': '{{myChores.length}} chore',
-      'other': '{{myChores.length}} chores'}">
-    </ng-pluralize>
+    <!-- Header -->
+    <div class="my-chores-header">
+      <div>
+        <h4 class="header-white">My Chores</h4>
+        <ng-pluralize count="myChores.length"
+          when="{'0': '{{myChores.length}} chores',
+              '1': '{{myChores.length}} chore',
+              'other': '{{myChores.length}} chores'}">
+      </ng-pluralize>
+      </div>
+      <!-- Dropdown Button -->
+      <div class="down-circle" ng-class="{'down-circle-active': clickedA}" ng-click="clickedA = !clickedA"><i class="icon ion-ios-arrow-down down-arrow"></i></div>
     </div>
-    <!-- Dropdown Button -->
-    <div class="check-circle" ng-class="{'check-circle-active': clickedA}" ng-click="clickedA = !clickedA"><i class="icon ion-ios-arrow-down down-arrow"></i></div>
-  </div>
-  <!-- Chores -->
-    <div ng-repeat="choreData in myChores" class="chore-section" ng-class="{'chore-section-active': clickedA}">
-      <!-- Due Today or Late -->
-      <div class="choreCard late" ng-if="choreData.dueToday === true && choreData.late === true && choreData.done === false">
-        <p>LATE</p>
-        <h5>{{choreData.chore}}</h5>
-        <p>Assigned To: {{findUserName(choreData.cycle.cycleList[choreData.currentAssigned])}}</p>
-        <p>Due: {{choreData.currentDueDay.currentDueDay}}</p>
-        <button type="button" name="button" ng-click="markDone(choreData)">Mark Done</button>
-        <button type="button" name="button" ng-click="editChore(choreData)">Edit Chore</button>
-        <button type="button" name="button" ng-click="deleteChore(choreData)">Delete Chore</button>
-      </div>
 
-      <div class="choreCard due" ng-if="choreData.dueToday === true && choreData.late === false && choreData.done === false">
-        <p>DUE TODAY</p>
-        <h5>{{choreData.chore}}</h5>
-        <p>Assigned To: {{findUserName(choreData.cycle.cycleList[choreData.currentAssigned])}}</p>
-        <p>Due: {{choreData.currentDueDay.currentDueDay}}</p>
-        <button type="button" name="button" ng-click="markDone(choreData)">Mark Done</button>
-        <button type="button" name="button" ng-click="editChore(choreData)">Edit Chore</button>
-        <button type="button" name="button" ng-click="deleteChore(choreData)">Delete Chore</button>
-      </div>
-
-      <div class="choreCard complete" ng-if="choreData.dueToday === true && choreData.late === false && choreData.done === true">
-        <p>COMPLETED</p>
-        <h5>{{choreData.chore}}</h5>
-        <p>Assigned To: {{findUserName(choreData.cycle.cycleList[choreData.currentAssigned])}}</p>
-        <p>Due: {{choreData.currentDueDay.currentDueDay}}</p>
-        <button type="button" name="button" ng-click="markDone(choreData)">Mark Done</button>
-        <button type="button" name="button" ng-click="editChore(choreData)">Edit Chore</button>
-        <button type="button" name="button" ng-click="deleteChore(choreData)">Delete Chore</button>
-      </div>
-
-      <!-- Not Due Today, Not Late -->
-      <div class="choreCard"  ng-if="choreData.dueToday === false && choreData.done === false && choreData.late === false">
-        <h5>{{choreData.chore}}</h5>
-        <p>Assigned To: {{findUserName(choreData.cycle.cycleList[choreData.currentAssigned])}}</p>
-        <p>Due: {{choreData.currentDueDay.currentDueDay}}</p>
-        <button type="button" name="button" ng-click="markDone(choreData)">Mark Done</button>
-        <button type="button" name="button" ng-click="editChore(choreData)">Edit Chore</button>
-        <button type="button" name="button" ng-click="deleteChore(choreData)">Delete Chore</button>
-      </div>
-
-      <div class="choreCard complete"  ng-if="choreData.dueToday === false && choreData.done === true && choreData.late === false">
-        <p>COMPLETED</p>
-        <h5>{{choreData.chore}}</h5>
-        <p>Assigned To: {{findUserName(choreData.cycle.cycleList[choreData.currentAssigned])}}</p>
-        <p>Due: {{choreData.currentDueDay.currentDueDay}}</p>
-        <button type="button" name="button" ng-click="markDone(choreData)">Mark Done</button>
-        <button type="button" name="button" ng-click="editChore(choreData)">Edit Chore</button>
-        <button type="button" name="button" ng-click="deleteChore(choreData)">Delete Chore</button>
-      </div>
+    <!-- Chores -->
+    <div class="chore-section" ng-class="{'chore-section-active': clickedA}" ng-repeat="choreData in myChores">
+      <ion-list can-swipe="true">
+        <ion-item class="choreCard">
+          <div class="chore-card-content">
+            <div class="chore-name">{{choreData.chore}}</div>
+            <div>{{findUserName(choreData.cycle.cycleList[choreData.currentAssigned])}}</div>
+            <div>{{choreData.currentDueDay.currentDueDay | amDateFormat:'ddd, MMMM Do'}}</div>
+          </div>
+          <!-- Chore Status -->
+          <div ng-if="choreData.done === false && choreData.dueToday === true && choreData.late === false" class="chore-due-today">Due Today</div>
+          <div ng-if="choreData.done === false && choreData.late === true" class="chore-late">Late</div>
+          <!-- Check Done Button -->
+          <div ng-if="choreData.done === false" class="btn-check" ng-click="markDone(choreData)"><i class="icon ion-android-done"></i></div>
+          <div class="btn-check-done" ng-if="choreData.done === true"><i class="icon ion-android-done"></i>Done!</div>
+            <!-- Slide Options -->
+            <ion-option-button class="button-assertive icon ion-android-delete" ng-click="deleteChore(choreData)"></ion-option-button>
+            <ion-option-button class="button-energized icon ion-gear-a" ng-click="editChore(choreData)"></ion-option-button>
+        </ion-item>
+      </ion-list>
     </div>
+
 
   <!-- Everyone's Chores (THIS WEEK) -->
-  <div class="other-chores-header">
-    <div class="my-chores-header-text">
-      <h4 class="header-white">Other Chores</h4>
-      <ng-pluralize count="otherChores.length"
-                     when="{'0': '{{otherChores.length}} chores',
-                         '1': '{{otherChores.length}} chore',
-                         'other': '{{otherChores.length}} chores'}">
-      </ng-pluralize>
-    </div>
-    <div class="check-circle" ng-class="{'check-circle-active': clickedB}" ng-click="clickedB = !clickedB"><i class="icon ion-ios-arrow-down down-arrow"></i></div>
-  </div>
-      <div ng-repeat="choreData in otherChores" class="chore-section" ng-class="{'chore-section-active': clickedB}">
-        <!-- Due Today or Late -->
-        <div class="choreCard late" ng-if="choreData.dueToday === true && choreData.late === true && choreData.done === false">
-          <p>LATE</p>
-          <h5>{{choreData.chore}}</h5>
-          <p>Assigned To: {{findUserName(choreData.cycle.cycleList[choreData.currentAssigned])}}</p>
-          <p>Due: {{choreData.currentDueDay.currentDueDay}}</p>
-          <button type="button" name="button" ng-click="markDone(choreData)">Mark Done</button>
-          <button type="button" name="button" ng-click="editChore(choreData)">Edit Chore</button>
-          <button type="button" name="button" ng-click="deleteChore(choreData)">Delete Chore</button>
-        </div>
-
-        <div class="choreCard due" ng-if="choreData.dueToday === true && choreData.late === false && choreData.done === false">
-          <p>DUE TODAY</p>
-          <h5>{{choreData.chore}}</h5>
-          <p>Assigned To: {{findUserName(choreData.cycle.cycleList[choreData.currentAssigned])}}</p>
-          <p>Due: {{choreData.currentDueDay.currentDueDay}}</p>
-          <button type="button" name="button" ng-click="markDone(choreData)">Mark Done</button>
-          <button type="button" name="button" ng-click="editChore(choreData)">Edit Chore</button>
-          <button type="button" name="button" ng-click="deleteChore(choreData)">Delete Chore</button>
-        </div>
-
-        <div class="choreCard complete" ng-if="choreData.dueToday === true && choreData.late === false && choreData.done === true">
-          <p>COMPLETED</p>
-          <h5>{{choreData.chore}}</h5>
-          <p>Assigned To: {{findUserName(choreData.cycle.cycleList[choreData.currentAssigned])}}</p>
-          <p>Due: {{choreData.currentDueDay.currentDueDay}}</p>
-          <button type="button" name="button" ng-click="markDone(choreData)">Mark Done</button>
-          <button type="button" name="button" ng-click="editChore(choreData)">Edit Chore</button>
-          <button type="button" name="button" ng-click="deleteChore(choreData)">Delete Chore</button>
-        </div>
-        <!-- Not Due Today, Not Late -->
-        <div class="choreCard"  ng-if="choreData.dueToday === false && choreData.done === false && choreData.late === false">
-          <h5>{{choreData.chore}}</h5>
-          <p>Assigned To: {{findUserName(choreData.cycle.cycleList[choreData.currentAssigned])}}</p>
-          <p>Due: {{choreData.currentDueDay.currentDueDay}}</p>
-          <button type="button" name="button" ng-click="markDone(choreData)">Mark Done</button>
-          <button type="button" name="button" ng-click="editChore(choreData)">Edit Chore</button>
-          <button type="button" name="button" ng-click="deleteChore(choreData)">Delete Chore</button>
-        </div>
-        <div class="choreCard complete"  ng-if="choreData.dueToday === false && choreData.done === true && choreData.late === false">
-          <p>COMPLETED</p>
-          <h5>{{choreData.chore}}</h5>
-          <p>Assigned To: {{findUserName(choreData.cycle.cycleList[choreData.currentAssigned])}}</p>
-          <p>Due: {{choreData.currentDueDay.currentDueDay}}</p>
-          <button type="button" name="button" ng-click="markDone(choreData)">Mark Done</button>
-          <button type="button" name="button" ng-click="editChore(choreData)">Edit Chore</button>
-          <button type="button" name="button" ng-click="deleteChore(choreData)">Delete Chore</button>
-        </div>
+    <!-- Header -->
+    <div class="other-chores-header">
+      <div>
+        <h4 class="header-white">Other Chores</h4>
+        <ng-pluralize count="otherChores.length"
+           when="{'0': '{{otherChores.length}} chores',
+               '1': '{{otherChores.length}} chore',
+               'other': '{{otherChores.length}} chores'}">
+        </ng-pluralize>
       </div>
-
-
+      <div class="down-circle" ng-class="{'down-circle-active': clickedB}" ng-click="clickedB = !clickedB"><i class="icon ion-ios-arrow-down down-arrow"></i></div>
+    </div>
+    <!-- Chores -->
+    <div class="chore-section" ng-class="{'chore-section-active': clickedB}" ng-repeat="choreData in otherChores">
+      <ion-list can-swipe="true">
+        <ion-item class="choreCard">
+          <div class="chore-card-content">
+            <div class="chore-name">{{choreData.chore}}</div>
+            <div>{{findUserName(choreData.cycle.cycleList[choreData.currentAssigned])}}</div>
+            <div>{{choreData.currentDueDay.currentDueDay | amDateFormat:'ddd, MMMM Do'}}</div>
+          </div>
+          <!-- Chore Status -->
+          <div ng-if="choreData.done === false && choreData.dueToday === true && choreData.late === false" class="chore-due-today">Due Today</div>
+          <div ng-if="choreData.done === false && choreData.late === true" class="chore-late">Late</div>
+          <!-- Check Done Button -->
+          <div ng-if="choreData.done === false" class="btn-check" ng-click="markDone(choreData)"><i class="icon ion-android-done"></i></div>
+          <div class="btn-check-done" ng-if="choreData.done === true"><i class="icon ion-android-done"></i>Done!</div>
+            <!-- Slide Options -->
+            <ion-option-button class="button-assertive icon ion-android-delete" ng-click="deleteChore(choreData)"></ion-option-button>
+            <ion-option-button class="button-energized icon ion-gear-a" ng-click="editChore(choreData)"></ion-option-button>
+        </ion-item>
+      </ion-list>
+    </div>
 
   </ion-content>
 </ion-view>

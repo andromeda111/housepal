@@ -30,7 +30,7 @@
             </li>
           </div>
         </ol>
-        
+
       </div>
   </ion-content>
 
@@ -39,7 +39,7 @@
       <label class="item item-input">
         <input class="postMessageInput" type="text" ng-model="msgText" placeholder="Post message"></input>
       </label>
-      <div class="send"><i class="icon ion-paper-airplane"></i></div>
+      <div ng-click="postMessage(msgText)" class="send"><i class="icon ion-paper-airplane"></i></div>
 
   </form>
   <!-- <form class="postMessageForm" ng-submit="postMessage(msgText)">
