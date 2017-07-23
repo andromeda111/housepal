@@ -31,7 +31,7 @@ angular.module('app.chores.controllers', [])
       })
 
 
-      $scope.currentTime = moment().add(1, 'day').format("dddd, MMMM Do")
+      $scope.currentTime = moment().add(1, 'day').format("dddd, MMMM Do, YYYY")
 
     });
 

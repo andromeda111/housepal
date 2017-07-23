@@ -22,7 +22,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   font-family: 'Lato-Regular';
   src: url('../lib/ionic/fonts/Lato-Regular.ttf') format('truetype'),
 }
-$positive:                        #3A85BF !default;
+$positive:                        #2B618C !default;
 $balanced:                        #46C949 !default;
 
 ion-content {
@@ -136,6 +136,9 @@ MESSAGE BOARD
   font-size: 25px;
 }
 
+/****************
+SHOPPING LIST
+****************/
 #todo-input {
   display: inline;
   min-width: 200px;
@@ -286,16 +289,41 @@ float: right;
 }
 
 /***************
-SHOPPING LIST
+CHORES
 ****************/
 
 .chores-top {
+  height: 60px;
+  padding: 5px 15px;
+  font-size: 1.2rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  color: white;
+  background-image: url('../img/water.jpg');
+  background-position: center;
+  border-bottom: 1px solid white;
 }
 
-.chores-top > div {
-  visibility: hidden;
+.btn-add-chore {
+  background: linear-gradient(to bottom right, #2B618C, #6EABC7);
+  border-radius: 3px;
+  padding: 5px;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(19, 44, 63, .7);
+}
+
+.btn-add-chore:active {
+  background: linear-gradient(to bottom right, #3A85BF, #B6DDFA);
+  box-shadow: 0 5px 15px rgba(43, 97, 140, .7);
+}
+
+.btn-add-chore > i {
+  font-size: 1.6rem !important;
+  padding-right: 10px;
 }
 
 .my-chores-header {
