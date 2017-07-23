@@ -3,13 +3,16 @@
 
       <h6 ng-if="!allMessages">No messages to display.</h6>
 
+
       <div class="messageContainer">
 
         <ol class="discussion" ng-if="allMessages" ng-repeat="message in allMessages | orderBy: 'created_at'">
           <div ng-if="message.posterId !== currentUser.id">
             <li class="msgOther">
               <div class="messages">
-                <h6>{{message.posterName}}</h6>
+                <div class="message-header-other">
+                  {{message.posterName}}
+                </div>
                 <p>{{message.content}}</p>
                 <span>{{message.postTime.postTime}}</span>
               </div>
@@ -18,16 +21,17 @@
           <div ng-if="message.posterId === currentUser.id">
             <li class="msgSelf">
               <div class="messages">
-                <h6>{{message.posterName}}</h6>
+                <div class="message-header-self">
+                  {{message.posterName}}
+                </div>
                 <p>{{message.content}}</p>
                 <span>{{message.postTime.postTime}}</span>
               </div>
             </li>
           </div>
         </ol>
-
+        
       </div>
-
   </ion-content>
 
   <form class="postMessageForm" ng-submit="postMessage(msgText)">

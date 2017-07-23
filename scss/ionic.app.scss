@@ -29,7 +29,6 @@ ion-content {
 background: #F5F5F5 !important;
 }
 
-
 .due {
   background-color: lightYellow;
 }
@@ -56,26 +55,46 @@ MESSAGE BOARD
 //   margin: 0;
 //   padding: 0;
 // }
+
 .discussion li {
   padding: 0.25rem;
   overflow: hidden;
   display: flex;
+
 }
 
 .messages {
-  background: #FBFFEF;
-  padding: 10px;
-  border-radius: 2px;
+  background: #FFF;
+  padding: 0 6px 6px 6px;
+  margin: 0;
   box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.2);
   max-width: 90%;
+  border-radius: 0 6px 6px 6px;
+  overflow: hidden;
+  border: 1px solid #46C949;
+  background: linear-gradient(to bottom right, #46C949, #FFF);
 }
+
+.message-header-other {
+  font-weight: bold;
+  border-bottom: 1px solid #B3F2B4;
+}
+
+.message-header-self {
+  font-weight: bold;
+  text-align: right;
+  border-bottom: 1px solid #B6DDFA;
+}
+
 .messages p {
-  font-size: 0.8rem;
-  margin: 0 0 0.2rem 0;
+  padding-top: 5px;
 }
 .messages span {
+  padding: 0;
+  margin-top: -5px;
+  float: right;
   font-size: 0.7rem;
-  color: #555;
+  color: #333;
 }
 
 .msgSelf {
@@ -84,20 +103,22 @@ MESSAGE BOARD
 }
 .msgSelf .messages {
   order: 1;
-  border-bottom-right-radius: 0;
-  background: #FFF;
+  border: 1px solid #3A85BF;
+    background: linear-gradient(to bottom right, white, #3A85BF);
+  border-radius: 6px 6px 0 6px;
 }
 
 .postMessageForm {
   position: absolute;
   bottom: 0;
   width: 100%;
-  background-color: #F5F5F5;
-  height: 60px;
+  background-color: #EFEFEF;
+  height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
+  box-shadow: 0px -2px 8px rgba(0, 0, 0, .2);
 }
 
 .postMessageForm label {
