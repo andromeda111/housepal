@@ -8,8 +8,7 @@ angular.module('app.chores.controllers', [])
       $scope.allChores = []
       $scope.myChores = []
       $scope.otherChores = []
-      $scope.currentDay = 'tuesday'
-      $scope.working = false
+      $scope.currentTime = moment().add(0, 'day').format("dddd, MMMM Do, YYYY")
 
       $http.get(API_URL.url + `/users/user`).then(function(result) {
         $scope.currentUser = {name: result.data[0].name, id: result.data[0].id}
@@ -23,15 +22,13 @@ angular.module('app.chores.controllers', [])
           $scope.otherChores = $scope.allChores.filter(chore => {
             return chore.cycle.cycleList[chore.currentAssigned] != $scope.currentUser.id
           })
+          $scope.clickedA = true
         })
       })
       $http.get(API_URL.url + `/users`).then(users => {
         $scope.houseUsers = users.data
         console.log('house users: ', $scope.houseUsers);
       })
-
-
-      $scope.currentTime = moment().add(1, 'day').format("dddd, MMMM Do, YYYY")
 
     });
 

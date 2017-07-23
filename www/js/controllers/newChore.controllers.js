@@ -42,25 +42,25 @@ angular.module('app.newChore.controllers', [])
 
           let actualDue;
           let actualIdx = 0
-            if (moment(moment().add(1, 'day')).isAfter(moment(moment().add(1, 'day')).day(daysDue[0], 'day')) && daysDue.length > 1) {
+            if (moment(moment().add(0, 'day')).isAfter(moment(moment().add(0, 'day')).day(daysDue[0], 'day')) && daysDue.length > 1) {
               let laterDay = daysDue.filter((day, idx) => {
-                  return moment(moment().add(1, 'day')).isBefore(moment(moment().add(1, 'day')).day(day, 'day'))
+                  return moment(moment().add(0, 'day')).isBefore(moment(moment().add(0, 'day')).day(day, 'day'))
                 })
               if (laterDay.length > 0) {
                 actualIdx = daysDue.indexOf(laterDay[0])
-                actualDue = moment().add(1, 'day').day(laterDay[0], 'day')
+                actualDue = moment().add(0, 'day').day(laterDay[0], 'day')
               } else {
                 actualDue = moment().add(1, 'weeks').weekday(daysDue[0]);
               }
-            } else if (moment(moment().add(1, 'day')).isSame(moment(moment().add(1, 'day')).day(daysDue[0], 'day')) && daysDue.length > 1) {
+            } else if (moment(moment().add(0, 'day')).isSame(moment(moment().add(0, 'day')).day(daysDue[0], 'day')) && daysDue.length > 1) {
               actualIdx = 1
-              actualDue = moment().add(1, 'day').day(daysDue[1], 'day')
-            } else if (moment(moment().add(1, 'day')).isAfter(moment(moment().add(1, 'day')).day(daysDue[0], 'day')) && daysDue.length == 1) {
+              actualDue = moment().add(0, 'day').day(daysDue[1], 'day')
+            } else if (moment(moment().add(0, 'day')).isAfter(moment(moment().add(0, 'day')).day(daysDue[0], 'day')) && daysDue.length == 1) {
               actualDue = moment().add(1, 'weeks').weekday(daysDue[0]);
-            } else if (moment(moment().add(1, 'day')).isSame(moment(moment().add(1, 'day')).day(daysDue[0], 'day')) && daysDue.length == 1) {
+            } else if (moment(moment().add(0, 'day')).isSame(moment(moment().add(0, 'day')).day(daysDue[0], 'day')) && daysDue.length == 1) {
               actualDue = moment().add(1, 'weeks').weekday(daysDue[0]);
             } else {
-              actualDue = moment().add(1, 'day').day(daysDue[0], 'day')
+              actualDue = moment().add(0, 'day').day(daysDue[0], 'day')
             }
 
           newChore = {
