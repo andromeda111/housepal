@@ -29,18 +29,6 @@ ion-content {
 background: #F5F5F5 !important;
 }
 
-.due {
-  background-color: lightYellow;
-}
-
-.late {
-  background-color: red;
-}
-
-.complete {
-  background-color: lightGreen;
-}
-
 /***************
 MESSAGE BOARD
 ****************/
@@ -145,10 +133,48 @@ MESSAGE BOARD
   position: relative;
   top: 12px;
   left: 12px;
-  // transform: rotate(45deg);
   font-size: 25px;
 }
-//
+
+/***************
+CHORES
+****************/
+.header-white {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+.my-chores-header {
+  padding: 5px 10px;
+  color: white;
+  background: linear-gradient(to right, #2B618C, #3A85BF);
+  border-bottom: 1px solid white;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.other-chores-header {
+  padding: 5px 10px;
+  color: white;
+  background: linear-gradient(to right, #2B618C, #3A85BF);
+  border-bottom: 1px solid white;
+  display: flex;
+  justify-content: space-between;
+    overflow: hidden;
+}
+
+.due {
+  background-color: lightYellow;
+}
+
+.late {
+  background-color: red;
+}
+
+.complete {
+  background-color: lightGreen;
+}
 
 #todo-input {
   display: inline;

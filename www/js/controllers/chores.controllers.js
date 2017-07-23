@@ -3,23 +3,33 @@ angular.module('app.chores.controllers', [])
   .controller('choresCtrl', ['$scope', '$state', '$stateParams', '$http', 'API_URL', 'moment', function($scope, $state, $stateParams, $http, API_URL, moment) {
 
     $scope.$on('$ionicView.enter', function(e) {
+      $scope.currentUser
+      $scope.houseUsers = []
       $scope.allChores = []
-      $scope.houseUsers = [];
+      $scope.myChores = []
+      $scope.otherChores = []
       $scope.currentDay = 'tuesday'
       $scope.working = false
-      $scope.currentUser;
 
       $http.get(API_URL.url + `/users/user`).then(function(result) {
         $scope.currentUser = {name: result.data[0].name, id: result.data[0].id}
-      });
+
+        $http.get(API_URL.url + `/chores/house`).then(result => {
+          $scope.allChores = result.data
+          $scope.oneChore = result.data[0]
+          $scope.myChores = $scope.allChores.filter(chore => {
+            return chore.cycle.cycleList[chore.currentAssigned] === $scope.currentUser.id
+          })
+          $scope.otherChores = $scope.allChores.filter(chore => {
+            return chore.cycle.cycleList[chore.currentAssigned] != $scope.currentUser.id
+          })
+        })
+      })
       $http.get(API_URL.url + `/users`).then(users => {
         $scope.houseUsers = users.data
         console.log('house users: ', $scope.houseUsers);
       })
-      $http.get(API_URL.url + `/chores/house`).then(result => {
-        $scope.allChores = result.data
-        $scope.oneChore = result.data[0]
-      })
+
 
       $scope.currentTime = moment().add(1, 'day').format("dddd, MMMM Do")
 
