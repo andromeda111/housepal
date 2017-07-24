@@ -427,6 +427,120 @@ CHORES
   background: linear-gradient(to bottom right, #3A85BF, #B6DDFA);
   box-shadow: 0 2px 8px rgba(43, 97, 140, 0.5); }
 
+.settings-header {
+  padding-top: 15px;
+  height: 150px;
+  background-image: url("../img/coffee.jpg");
+  background-position: center;
+  background-size: cover; }
+
+.settings-title {
+  color: white;
+  font-size: 2rem;
+  text-shadow: 2px 2px 5px #000;
+  text-align: center; }
+
+.settings-code {
+  color: black;
+  padding-top: 4px;
+  padding-left: 150px;
+  text-align: center; }
+
+.settings-section {
+  padding: 0 15px;
+  max-height: 0;
+  transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+  overflow: hidden; }
+
+.settings-section-active {
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
+  height: auto;
+  max-height: 9999px; }
+
+.settings-content {
+  background-color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.3);
+  border-left: 2px solid #3A85BF !important; }
+
+.settings-leave {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center; }
+
+.btn-leave {
+  color: #F8F8F8;
+  background: linear-gradient(to bottom right, #6F211B, #ef473a);
+  border-radius: 3px;
+  padding: 5px;
+  margin-left: 20px;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(51, 15, 13, 0.5); }
+
+.btn-leave:active {
+  background: linear-gradient(to bottom right, #ef473a, #F28B83);
+  box-shadow: 0 5px 15px rgba(51, 15, 13, 0.5); }
+
+.btn-leave > i {
+  color: #F8F8F8;
+  font-size: 1.6rem !important;
+  padding-right: 10px; }
+
+.settings-remove-form {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center; }
+
+.remove-housemate {
+  flex-grow: 1; }
+
+.btn-remove {
+  color: #F8F8F8;
+  background: linear-gradient(to bottom right, #BF9700, #ffc900);
+  border-radius: 3px;
+  padding: 5px;
+  margin-left: 20px;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(64, 50, 0, 0.5); }
+
+.btn-remove:active {
+  background: linear-gradient(to bottom right, #ffc900, #FFD94C);
+  box-shadow: 0 4px 12px rgba(64, 50, 0, 0.5); }
+
+.btn-remove > i {
+  color: #F8F8F8;
+  font-size: 1.6rem !important;
+  padding-right: 5px; }
+
+.settings-lower-section {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+
+.settings-spacer-sm {
+  height: 25px; }
+
+.settings-spacer-lg {
+  height: 100px; }
+
+.btn-logout {
+  width: 50%; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/

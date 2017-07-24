@@ -1,29 +1,65 @@
 <ion-view title="{{currentUser.name}}" cache-view="false" id="page4">
-  <ion-content padding="true" class="has-header">
+  <ion-content class="has-header">
 
-<div class="">
-  <h1>{{house.title}}</h1>
-  <h5>House Share Code: <br>{{house.code}}</h5>
-</div>
+    <div class="settings-header">
+      <p class="settings-title">{{house.title}}</p>
+      <p class="settings-code">House Share Code: <br>{{house.code}}</p>
+    </div>
 
-<div class="">
-  <button type="button" name="button" class="button button-positive" ng-click="leaveHouse()">Leave house</button>
-</div>
-
-<div class="">
-  <h4>Remove Housemates</h4>
-  <form class="remove-housemate" ng-submit="removeHousemate(person)">
-      <label for="">Remove:</label>
-      <select name="housemates" ng-model="person" ng-options="person as person.name for person in removeUserList | orderBy:'name'">
-        <option value="" selected disabled>Choose Name</option>
-      </select>
-      <div class="list-update">
-        <input class="button button-small button-balanced" type="submit" name="buyer" value="Update">
+    <div class="my-chores-header">
+      <div>
+        <h4 class="header-white">Settings</h4>
       </div>
-  </form>
-</div>
+      <!-- Dropdown Button -->
+      <div class="down-circle" ng-class="{'down-circle-active': clicked}" ng-click="clicked = !clicked"><i class="icon ion-ios-arrow-down down-arrow"></i></div>
+    </div>
+    <div class="settings-section" ng-class="{'settings-section-active': clicked}">
+      <div class="settings-content">
+        <div class="settings-leave">
+          <div>
+            <h4>Leave House</h4>
+            <p>Leave this house to join or create another.</p>
+          </div>
+          <div class="btn-leave" ng-click="leaveHouse()">
+            <i class="icon ion-android-exit"></i>
+            <span>Leave</span>
+          </div>
+        </div>
+        <div class="settings-remove">
+          <div>
+            <hr>
+            <h4>Remove Roommates</h4>
+            <p>Removing a roommate will also remove chores associated with that person.</p>
+            <div class="settings-remove-form">
+              <form class="remove-housemate">
+                <label for="housemates" class="item item-input item-select">
+            <div class="input-label">
+              Remove:
+            </div>
+            <select name="housemates" ng-model="person" ng-options="person as person.name for person in removeUserList | orderBy:'name'">
+              <option value="" selected disabled>Choose</option>
+            </select>
+          </label>
+              </form>
+              <div class="btn-remove" ng-click="removeHousemate(person)">
+                <i class="icon ion-minus-circled"></i>
+                <span>Remove</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<button id="menu-button4" ng-click="logout()" class="button button-positive button-block" data-componentid="button4">Log Out</button>
+    <!--  -->
+
+    <div class="settings-lower-section">
+      <h3>Welcome, {{currentUser.name}}!</h3>
+      <div class="settings-spacer-sm" ng-if="clicked"></div>
+      <div class="settings-spacer-lg" ng-if="!clicked"></div>
+      <button ng-click="logout()" class="button button-positive btn-logout">Log Out</button>
+    </div>
+
 
   </ion-content>
 </ion-view>
