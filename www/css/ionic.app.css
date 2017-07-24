@@ -23,6 +23,34 @@ ion-content {
   background: #F5F5F5 !important; }
 
 /***************
+Login, Signup
+****************/
+.login-section {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom right, #2B618C, #3A85BF, #1BBCB1); }
+
+.login-form {
+  color: white;
+  font-size: 1.75rem;
+  margin-top: 5px; }
+
+.logo {
+  font-size: 4rem;
+  color: white;
+  margin-bottom: 60px; }
+
+.p {
+  padding-right: 70px;
+  margin-bottom: -5px; }
+
+.p2 {
+  padding-left: 100px; }
+
+/***************
 MESSAGE BOARD
 ****************/
 .messageContainer {
@@ -427,6 +455,12 @@ CHORES
   background: linear-gradient(to bottom right, #3A85BF, #B6DDFA);
   box-shadow: 0 2px 8px rgba(43, 97, 140, 0.5); }
 
+.settings-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-flow: column; }
+
 .settings-header {
   padding-top: 15px;
   height: 150px;
@@ -528,9 +562,8 @@ CHORES
 .settings-lower-section {
   padding-top: 20px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center; }
+  justify-content: space-between; }
 
 .settings-spacer-sm {
   height: 25px; }

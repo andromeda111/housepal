@@ -1,6 +1,6 @@
 <ion-view title="{{currentUser.name}}" cache-view="false" id="page4">
   <ion-content class="has-header">
-
+<div class="settings-container">
     <div class="settings-header">
       <p class="settings-title">{{house.title}}</p>
       <p class="settings-code">House Share Code: <br>{{house.code}}</p>
@@ -54,12 +54,14 @@
     <!--  -->
 
     <div class="settings-lower-section">
-      <h3>Welcome, {{currentUser.name}}!</h3>
-      <div class="settings-spacer-sm" ng-if="clicked"></div>
-      <div class="settings-spacer-lg" ng-if="!clicked"></div>
-      <button ng-click="logout()" class="button button-positive btn-logout">Log Out</button>
+      <div class="zxcv">Welcome, {{currentUser.name}}!</div>
+      <!-- <div class="settings-spacer-sm" ng-if="clicked"></div>
+      <div class="settings-spacer-lg" ng-if="!clicked"></div> -->
+      <div class="qwer">
+        <button ng-click="logout()" class="button button-positive btn-logout">Log Out</button>
+      </div>
     </div>
 
-
+</div>
   </ion-content>
 </ion-view>
