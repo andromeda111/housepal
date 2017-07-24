@@ -1,30 +1,37 @@
 <ion-view title="Shopping List" cache-view="false">
-  <ion-content padding="true" class="has-header">
+  <ion-content class="has-header">
 
-  <div class="todolistdiv">
-      <div class="col-md-10 col-md-offset-1 text-center todo-section">
-          <div>
-              <form id="form-list" class="form form-inline" ng-submit="addItem(newItem)">
-                  <input id="todo-input" type="text" name="todo-item" value="" placeholder="Task..." ng-model="newItem">
-                  <input class="button button-stable" type="submit" name="" value="Add Task">
-              </form>
-          </div>
+  <div class="list-item-add-input">
+      <form class="list shop-list-input" ng-submit="addItem(newItem)">
+        <label class="item item-input">
+          <input type="text" name="new-item" value="" placeholder="Add item..." ng-model="newItem">
+        </label>
+      </form>
+      <div class="btn-add-chore" ng-click="addItem(newItem)">
+        <i class="icon ion-android-add"></i>
+        <span>Add</span>
       </div>
   </div>
   <div class="todo-list-master" ng-repeat="item in listItems | orderBy:'created_at'">
-      <div class="licontainer">
-            <button class="btn-check button button-stable" type="button" name="button" ng-click="purchasedItem(item)"><span class="check"></span></button>
-            <div class="list-title">
-              {{item.item}}
-            </div>
-            <div class="filler"></div>
-            <div class="buyer-show">
-              {{item.buyer}}
-            </div>
-            <div class="drop" ng-class="{'drop-active': clicked}" ng-click="clicked = !clicked">
-              <div class="arrow" ng-class="{'arrow-active': clicked}"></div>
-            </div>
+    <div class="list-item-row">
+      <!-- Check Done Button -->
+      <div class="list-item-content">
+        <div class="btn-check" ng-click="purchasedItem(item)"><i class="icon ion-android-done"></i></div>
+        <!-- <button class="btn-check button button-stable" type="button" name="button" ng-click="purchasedItem(item)"><span class="check"></span></button> -->
+        <div class="list-title">
+          {{item.item}}
+        </div>
+        <div class="filler"></div>
+        <div class="buyer-show">
+          {{item.buyer}}
+        </div>
+        <!-- Dropdown Button -->
+        <div class="down-circle" ng-class="{'down-circle-active': clicked}" ng-click="clicked = !clicked"><i class="icon ion-ios-arrow-down down-arrow"></i></div>
+        <!-- <div class="drop" ng-class="{'drop-active': clicked}" ng-click="clicked = !clicked">
+          <div class="arrow" ng-class="{'arrow-active': clicked}"></div>
+        </div> -->
       </div>
+    </div>
       <div class="li-info" ng-class="{'li-info-active': clicked}">
         <form class="form-buyer" ng-submit="updateItem(item, buyer)">
             <label for="">Who plans to buy?</label>

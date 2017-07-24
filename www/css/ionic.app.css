@@ -109,46 +109,60 @@ MESSAGE BOARD
 /****************
 SHOPPING LIST
 ****************/
-#todo-input {
-  display: inline;
-  min-width: 200px;
-  height: 48px;
-  border: 1px solid black; }
-
-.licontainer {
-  margin-top: 10px;
-  width: 100%;
+.list-item-add-input {
+  height: 60px;
+  color: white;
   display: flex;
-  justify-content: space-between; }
+  align-items: center;
+  justify-content: center;
+  text-align: center; }
+
+.shop-list-input {
+  margin-bottom: 0px !important;
+  margin-right: 20px; }
+
+.list-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid white; }
+
+.list-item-content {
+  color: white;
+  height: 60px;
+  flex-grow: 1;
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #2B618C, #3A85BF); }
 
 .filler {
   flex-grow: 1; }
 
 .shopitem {
-  padding-top: 10px;
   margin-left: 10px;
   border: 1px solid red; }
 
 .list-title {
-  line-height: 48px;
   padding-left: 10px;
   overflow: hidden; }
 
 .buyer-show {
-  color: #999;
-  margin-top: 14px;
+  color: white;
   margin-right: 20px;
   text-align: center; }
 
 .li-info {
+  margin: 0 15px;
+  background: white;
   height: 0px;
   transition: all 0.25s ease-in-out;
-  border: 1px solid white;
   overflow: hidden;
-  line-height: 60px; }
+  line-height: 60px;
+  border-left: 2px solid #2B618C; }
 
 .li-info-active {
-  border: 1px solid black;
   height: 60px;
   line-height: 60px; }
 
