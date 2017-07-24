@@ -252,31 +252,6 @@ float: right;
   background: linear-gradient(to bottom right, #46C949, #88D28A);
   box-shadow: 0 5px 15px rgba(27, 76, 28, .7);
 }
-// /* Checkbox Hack */
-//
-// .check-bubble {
-//     display: inline-block;
-//     border: 1px solid #11c1f3;
-//     padding: 10px;
-//     margin: 2px;
-//     cursor: pointer;
-//     border-radius: 45px;
-//     font-size: 10px;
-//     color: #11c1f3;
-//     font-weight: bold;
-// }
-//
-// .checkbox-hide {
-//   display: none;
-// }
-// .checkbox-hide:checked + .check-bubble {
-//   background-color: #11c1f3;
-//   color: white;
-// }
-//
-// .checklist-row {
-//   display: inline-block;
-// }
 
 /***************
 CHORES
@@ -292,10 +267,13 @@ CHORES
   color: white;
   background-image: url('../img/water.jpg');
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   border-bottom: 1px solid white;
 }
 
 .btn-add-chore {
+  color: #F8F8F8;
   background: linear-gradient(to bottom right, #2B618C, #6EABC7);
   border-radius: 3px;
   padding: 5px;
@@ -312,6 +290,7 @@ CHORES
 }
 
 .btn-add-chore > i {
+  color: #F8F8F8;
   font-size: 1.6rem !important;
   padding-right: 10px;
 }
@@ -447,6 +426,83 @@ text-shadow: 1px 2px 5px rgba(27, 76, 76, .2);
 .list-info-contents {
   margin-left: 15px;
   margin-right: 15px;
+}
+
+// LAUNDRY
+
+.washer-top {
+  height: 60px;
+  padding: 0px 15px;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-image: url('../img/water.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom: 1px solid white;
+}
+
+.dryer-top {
+  height: 60px;
+  padding: 0px 15px;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-image: url('../img/towels.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom: 1px solid white;
+}
+
+.laundry-content {
+  padding: 15px;
+  padding-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.laundry-icon-box {
+  width: 30%;
+}
+.laundry-icon {
+  max-width: 100%;
+}
+
+.laundry-details {
+width: 60%;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+}
+
+.btn-notify-laundry {
+  color: #F8F8F8;
+  margin: auto;
+  width: 180px;
+  background: linear-gradient(to bottom right, #2B618C, #6EABC7);
+  border-radius: 3px;
+  padding: 4px 6px;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(19, 44, 63, .5);
+}
+.btn-notify-laundry i {
+  color: #F8F8F8;
+  font-size: 1rem;
+}
+
+.btn-notify-laundry:active {
+  background: linear-gradient(to bottom right, #3A85BF, #B6DDFA);
+  box-shadow: 0 2px 8px rgba(43, 97, 140, .5);
 }
 
 // Include all of Ionic

@@ -1,37 +1,84 @@
-<ion-view title="Laundry" cache-view="false" id="page3">
-  <ion-content padding="true" class="has-header">
-
-
-
-  <div class="">
-    <h4>Washer</h4>
-    <label class="toggle">
-      <input type="checkbox" ng-checked="laundryData.washer_status" ng-if="laundryData.washer_status === false" ng-click="toggleWasherOn()">
-      <input type="checkbox" ng-checked="laundryData.washer_status" ng-if="laundryData.washer_status === true" ng-click="toggleWasherOff()">
-       <div class="track">
-         <div class="handle"></div>
-       </div>
-    </label>
-    <div class="" ng-if="laundryData.washer_status === true">
-      <h5>Currently in use by {{laundryData.washer_current_user.name}} as of {{washerTimeAgo}}</h5>
-      <button type="button" class="button button-positive" name="button" ng-click="notifyMeWasher()">Notify Me When Available</button>
+<ion-view title="Laundry" cache-view="false">
+  <ion-content class="has-header">
+    <!-- Washer -->
+    <div class="washer-top">
+      <div>Washer</div>
     </div>
-  </div>
-<hr>
-<div class="">
-  <h4>Dryer</h4>
-  <label class="toggle">
-    <input type="checkbox" ng-checked="laundryData.dryer_status" ng-if="laundryData.dryer_status === false" ng-click="toggleDryerOn()">
-    <input type="checkbox" ng-checked="laundryData.dryer_status" ng-if="laundryData.dryer_status === true" ng-click="toggleDryerOff()">
-    <div class="track">
-      <div class="handle"></div>
+    <div class="laundry-content">
+
+      <div class="laundry-icon-box">
+        <img ng-if="laundryData.washer_status === false" class="laundry-icon" src="../img/washer1.png" alt=""></img>
+        <img ng-if="laundryData.washer_status === true" class="laundry-icon" src="../img/washer-active.png" alt=""></img>
+      </div>
+
+      <!-- Details -->
+      <div class="laundry-details">
+        <div>
+          <li class="item item-toggle">
+            In Use:
+            <label class="toggle">
+              <input type="checkbox" ng-checked="laundryData.washer_status" ng-if="laundryData.washer_status === false" ng-click="toggleWasherOn()">
+              <input type="checkbox" ng-checked="laundryData.washer_status" ng-if="laundryData.washer_status === true" ng-click="toggleWasherOff()">
+              <div class="track">
+                <div class="handle"></div>
+              </div>
+            </label>
+          </li>
+
+          <div ng-if="laundryData.washer_status === false">
+            <h5>Available</h5>
+          </div>
+          <div ng-if="laundryData.washer_status === true">
+            <h5>Currently in use by {{laundryData.washer_current_user.name}} as of {{washerTimeAgo}}</h5>
+            <div class="btn-notify-laundry" ng-click="notifyMeWasher()">
+              <i class="icon ion-clock"></i>
+              <span>Notify Me When Available</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
-  </label>
-  <div class="" ng-if="laundryData.dryer_status === true">
-    <h5>Currently in use by {{laundryData.dryer_current_user.name}} as of {{dryerTimeAgo}}</h5>
-    <button type="button" class="button button-positive" name="button" ng-click="notifyMeDryer()">Notify Me When Available</button>
-  </div>
-</div>
+
+    <!-- Dryer -->
+    <div class="dryer-top">
+      <div>Dryer</div>
+    </div>
+    <div class="laundry-content">
+      <!-- Icon -->
+      <div class="laundry-icon-box">
+        <img ng-if="laundryData.dryer_status === false" class="laundry-icon" src="../img/dryer1.png" alt=""></img>
+        <img ng-if="laundryData.dryer_status === true" class="laundry-icon" src="../img/dryer-active.png" alt=""></img>
+      </div>
+
+      <!-- Details -->
+      <div class="laundry-details">
+        <div>
+          <li class="item item-toggle">
+            In Use:
+            <label class="toggle">
+              <input type="checkbox" ng-checked="laundryData.dryer_status" ng-if="laundryData.dryer_status === false" ng-click="toggleDryerOn()">
+              <input type="checkbox" ng-checked="laundryData.dryer_status" ng-if="laundryData.dryer_status === true" ng-click="toggleDryerOff()">
+              <div class="track">
+                <div class="handle"></div>
+              </div>
+            </label>
+          </li>
+
+          <div ng-if="laundryData.dryer_status === false">
+            <h5>Available</h5>
+          </div>
+          <div ng-if="laundryData.dryer_status === true">
+            <h5>Currently in use by {{laundryData.dryer_current_user.name}} as of {{dryerTimeAgo}}</h5>
+            <div class="btn-notify-laundry" ng-click="notifyMeDryer()">
+              <i class="icon ion-clock"></i>
+              <span>Notify Me When Available</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
 
   </ion-content>
 </ion-view>

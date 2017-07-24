@@ -119,7 +119,7 @@ SHOPPING LIST
   color: white;
   background-position: right;
   border-bottom: 1px solid white;
-  background-image: url("../img/dew.jpg\a   "); }
+  background-image: url("../img/dew.jpg"); }
 
 .shop-list-input {
   margin-bottom: 0px !important;
@@ -215,9 +215,12 @@ CHORES
   color: white;
   background-image: url("../img/water.jpg");
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   border-bottom: 1px solid white; }
 
 .btn-add-chore {
+  color: #F8F8F8;
   background: linear-gradient(to bottom right, #2B618C, #6EABC7);
   border-radius: 3px;
   padding: 5px;
@@ -232,6 +235,7 @@ CHORES
   box-shadow: 0 5px 15px rgba(43, 97, 140, 0.7); }
 
 .btn-add-chore > i {
+  color: #F8F8F8;
   font-size: 1.6rem !important;
   padding-right: 10px; }
 
@@ -346,6 +350,74 @@ CHORES
 .list-info-contents {
   margin-left: 15px;
   margin-right: 15px; }
+
+.washer-top {
+  height: 60px;
+  padding: 0px 15px;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-image: url("../img/water.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom: 1px solid white; }
+
+.dryer-top {
+  height: 60px;
+  padding: 0px 15px;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-image: url("../img/towels.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom: 1px solid white; }
+
+.laundry-content {
+  padding: 15px;
+  padding-top: 5px;
+  display: flex;
+  justify-content: space-between; }
+
+.laundry-icon-box {
+  width: 30%; }
+
+.laundry-icon {
+  max-width: 100%; }
+
+.laundry-details {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; }
+
+.btn-notify-laundry {
+  color: #F8F8F8;
+  margin: auto;
+  width: 180px;
+  background: linear-gradient(to bottom right, #2B618C, #6EABC7);
+  border-radius: 3px;
+  padding: 4px 6px;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(19, 44, 63, 0.5); }
+
+.btn-notify-laundry i {
+  color: #F8F8F8;
+  font-size: 1rem; }
+
+.btn-notify-laundry:active {
+  background: linear-gradient(to bottom right, #3A85BF, #B6DDFA);
+  box-shadow: 0 2px 8px rgba(43, 97, 140, 0.5); }
 
 /*!
   Ionicons, v2.0.1
