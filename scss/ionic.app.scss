@@ -65,7 +65,7 @@ MESSAGE BOARD
 
 .message-header-other {
   font-weight: bold;
-  border-bottom: 1px solid #88D28A;
+  border-bottom: 1px solid #9CFFA5;
 }
 
 .message-header-self {
@@ -100,13 +100,13 @@ MESSAGE BOARD
   position: absolute;
   bottom: 0;
   width: 100%;
-  background-color: #EFEFEF;
+  background-color: #CFCFCF;
   height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 10px 10px 10px;
-  box-shadow: 0px -2px 8px rgba(0, 0, 0, .2);
+  box-shadow: 0px -1px 6px rgba(0, 0, 0, .4);
 }
 
 .postMessageForm label {
@@ -460,11 +460,19 @@ text-shadow: 1px 2px 5px rgba(27, 76, 76, .2);
   border-bottom: 1px solid white;
 }
 
+.laundry-section {
+  padding: 0 15px;
+  margin-bottom: 5px;
+}
 .laundry-content {
+  background-color: white;
   padding: 15px;
-  padding-top: 5px;
+  min-height: 165px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.3);
+  border-left: 2px solid #3A85BF !important;
 }
 
 .laundry-icon-box {

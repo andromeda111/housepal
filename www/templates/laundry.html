@@ -4,38 +4,40 @@
     <div class="washer-top">
       <div>Washer</div>
     </div>
-    <div class="laundry-content">
+    <div class="laundry-section">
+      <div class="laundry-content">
 
-      <div class="laundry-icon-box">
-        <img ng-if="laundryData.washer_status === false" class="laundry-icon" src="../img/washer1.png" alt=""></img>
-        <img ng-if="laundryData.washer_status === true" class="laundry-icon" src="../img/washer-active.png" alt=""></img>
-      </div>
+        <div class="laundry-icon-box">
+          <img ng-if="laundryData.washer_status === false" class="laundry-icon" src="../img/washer1.png" alt=""></img>
+          <img ng-if="laundryData.washer_status === true" class="laundry-icon" src="../img/washer-active.png" alt=""></img>
+        </div>
 
-      <!-- Details -->
-      <div class="laundry-details">
-        <div>
-          <li class="item item-toggle">
-            In Use:
-            <label class="toggle">
-              <input type="checkbox" ng-checked="laundryData.washer_status" ng-if="laundryData.washer_status === false" ng-click="toggleWasherOn()">
-              <input type="checkbox" ng-checked="laundryData.washer_status" ng-if="laundryData.washer_status === true" ng-click="toggleWasherOff()">
-              <div class="track">
-                <div class="handle"></div>
-              </div>
-            </label>
-          </li>
+        <!-- Details -->
+        <div class="laundry-details">
+          <div>
+            <li class="item item-toggle">
+              In Use:
+              <label class="toggle">
+                <input type="checkbox" ng-checked="laundryData.washer_status" ng-if="laundryData.washer_status === false" ng-click="toggleWasherOn()">
+                <input type="checkbox" ng-checked="laundryData.washer_status" ng-if="laundryData.washer_status === true" ng-click="toggleWasherOff()">
+                <div class="track">
+                  <div class="handle"></div>
+                </div>
+              </label>
+            </li>
 
-          <div ng-if="laundryData.washer_status === false">
-            <h5>Available</h5>
-          </div>
-          <div ng-if="laundryData.washer_status === true">
-            <h5>Currently in use by {{laundryData.washer_current_user.name}} as of {{washerTimeAgo}}</h5>
-            <div class="btn-notify-laundry" ng-click="notifyMeWasher()">
-              <i class="icon ion-clock"></i>
-              <span>Notify Me When Available</span>
+            <div ng-if="laundryData.washer_status === false">
+              <h5>Available</h5>
             </div>
-          </div>
+            <div ng-if="laundryData.washer_status === true">
+              <h5>Currently in use by {{laundryData.washer_current_user.name}} as of {{washerTimeAgo}}</h5>
+              <div class="btn-notify-laundry" ng-click="notifyMeWasher()">
+                <i class="icon ion-clock"></i>
+                <span>Notify Me When Available</span>
+              </div>
+            </div>
 
+          </div>
         </div>
       </div>
     </div>
@@ -44,6 +46,7 @@
     <div class="dryer-top">
       <div>Dryer</div>
     </div>
+  <div class="laundry-section">
     <div class="laundry-content">
       <!-- Icon -->
       <div class="laundry-icon-box">
@@ -79,6 +82,7 @@
         </div>
       </div>
     </div>
+  </div>
 
   </ion-content>
 </ion-view>
