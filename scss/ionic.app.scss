@@ -142,11 +142,16 @@ SHOPPING LIST
 
 .list-item-add-input {
   height: 60px;
-  color: white;
+  padding: 0px 15px;
+  font-size: 1.2rem;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  text-align: center;
+  color: white;
+  background-position: right;
+  border-bottom: 1px solid white;
+  background-image: url('../img/dew.jpg
+  ');
 }
 
 .shop-list-input {
@@ -197,13 +202,13 @@ SHOPPING LIST
   background: white;
   height: 0px;
   transition: all 0.25s ease-in-out;
-  overflow: hidden;
-  line-height: 60px;
-  border-left: 2px solid #2B618C;
+  // overflow: hidden;
+  // line-height: 60px;
+  // border-left: 2px solid #2B618C;
 }
 .li-info-active {
-  height: 60px;
-  line-height: 60px;
+  height: 80px;
+  line-height: 80px;
 }
 
 .form-buyer {
@@ -226,31 +231,53 @@ float: right;
 
 }
 
-/* Checkbox Hack */
 
-.check-bubble {
-    display: inline-block;
-    border: 1px solid #11c1f3;
-    padding: 10px;
-    margin: 2px;
-    cursor: pointer;
-    border-radius: 45px;
-    font-size: 10px;
-    color: #11c1f3;
-    font-weight: bold;
+#buyer-select {
+  margin-top: 5px !important;
 }
 
-.checkbox-hide {
-  display: none;
-}
-.checkbox-hide:checked + .check-bubble {
-  background-color: #11c1f3;
+.btn-update-item {
   color: white;
+  background: linear-gradient(to bottom right, #246625, #46C949);
+  border-radius: 3px;
+  margin-right: 20px;
+  padding: 5px;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(27, 76, 28, .5);
 }
 
-.checklist-row {
-  display: inline-block;
+.btn-update-item:active {
+  background: linear-gradient(to bottom right, #46C949, #88D28A);
+  box-shadow: 0 5px 15px rgba(27, 76, 28, .7);
 }
+// /* Checkbox Hack */
+//
+// .check-bubble {
+//     display: inline-block;
+//     border: 1px solid #11c1f3;
+//     padding: 10px;
+//     margin: 2px;
+//     cursor: pointer;
+//     border-radius: 45px;
+//     font-size: 10px;
+//     color: #11c1f3;
+//     font-weight: bold;
+// }
+//
+// .checkbox-hide {
+//   display: none;
+// }
+// .checkbox-hide:checked + .check-bubble {
+//   background-color: #11c1f3;
+//   color: white;
+// }
+//
+// .checklist-row {
+//   display: inline-block;
+// }
 
 /***************
 CHORES
@@ -258,7 +285,7 @@ CHORES
 // Top Header and Add Button
 .chores-top {
   height: 60px;
-  padding: 5px 15px;
+  padding: 0px 15px;
   font-size: 1.2rem;
   display: flex;
   justify-content: space-between;
@@ -416,6 +443,11 @@ text-shadow: 1px 2px 5px rgba(27, 76, 76, .2);
 .chore-late {
 color: #ef473a;
 text-shadow: 1px 2px 5px rgba(27, 76, 76, .2);
+}
+
+.list-info-contents {
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 // Include all of Ionic

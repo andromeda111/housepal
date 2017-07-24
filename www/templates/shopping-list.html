@@ -1,7 +1,7 @@
 <ion-view title="Shopping List" cache-view="false">
   <ion-content class="has-header">
 
-  <div class="list-item-add-input">
+    <div class="list-item-add-input">
       <form class="list shop-list-input" ng-submit="addItem(newItem)">
         <label class="item item-input">
           <input type="text" name="new-item" value="" placeholder="Add item..." ng-model="newItem">
@@ -11,45 +11,43 @@
         <i class="icon ion-android-add"></i>
         <span>Add</span>
       </div>
-  </div>
-  <div class="todo-list-master" ng-repeat="item in listItems | orderBy:'created_at'">
-    <div class="list-item-row">
-      <!-- Check Done Button -->
-      <div class="list-item-content">
-        <div class="btn-check" ng-click="purchasedItem(item)"><i class="icon ion-android-done"></i></div>
-        <!-- <button class="btn-check button button-stable" type="button" name="button" ng-click="purchasedItem(item)"><span class="check"></span></button> -->
-        <div class="list-title">
-          {{item.item}}
-        </div>
-        <div class="filler"></div>
-        <div class="buyer-show">
-          {{item.buyer}}
-        </div>
-        <!-- Dropdown Button -->
-        <div class="down-circle" ng-class="{'down-circle-active': clicked}" ng-click="clicked = !clicked"><i class="icon ion-ios-arrow-down down-arrow"></i></div>
-        <!-- <div class="drop" ng-class="{'drop-active': clicked}" ng-click="clicked = !clicked">
-          <div class="arrow" ng-class="{'arrow-active': clicked}"></div>
-        </div> -->
-      </div>
     </div>
-      <div class="li-info" ng-class="{'li-info-active': clicked}">
-        <form class="form-buyer" ng-submit="updateItem(item, buyer)">
-            <label for="">Who plans to buy?</label>
-            <select name="buyerselect" ng-model="buyer" ng-options="person as person.name for person in houseUsers | orderBy:'name'">
-              <option value="" selected>Anyone</option>
-            </select>
-            <div class="list-update">
-              <input class="button button-small button-balanced" type="submit" name="buyer" value="Update">
+    <div class="todo-list-master" ng-repeat="item in listItems | orderBy:'created_at'">
+      
+      <div class="list-item-row">
+        <!-- Check Done Button -->
+        <div class="list-item-content">
+          <div class="btn-check" ng-click="purchasedItem(item)"><i class="icon ion-android-done"></i></div>
+          <div class="list-title">
+            {{item.item}}
+          </div>
+          <div class="filler"></div>
+          <div class="buyer-show">
+            {{item.buyer}}
+          </div>
+          <!-- Dropdown Button -->
+          <div class="down-circle" ng-class="{'down-circle-active': clicked}" ng-click="clicked = !clicked"><i class="icon ion-ios-arrow-down down-arrow"></i></div>
+        </div>
+      </div>
+
+      <!-- Item Information, Edit Section -->
+      <div class="chore-section" ng-class="{'chore-section-active': clicked}">
+        <ion-list can-swipe="true">
+          <ion-item class="choreCard list-item-info">
+            <div class="list-info-contents chore-card-content">
+              <label class="buyer-select" for="buyer-select">Who plans to buy?</label>
+              <select id="buyer-select" class="item item-input item-select" name="buyer-select" ng-model="buyer" ng-options="person as person.name for person in houseUsers | orderBy:'name'">
+                <option value="" selected>Anyone</option>
+              </select>
             </div>
-        </form>
-        <div class="list-delete">
-          <button class="button button-small button-assertive" type="button" name="button" ng-click="deleteItem(item)">Delete</button>
-        </div>
+            <div class="btn-update-item" ng-click="updateItem(item, buyer)"><i class="icon ion-arrow-up-c"></i>&nbsp;Update</div>
+            <!-- Slide Options - DELETE -->
+            <ion-option-button class="button-assertive icon ion-android-delete" ng-click="deleteItem(item)"></ion-option-button>
+          </ion-item>
+        </ion-list>
       </div>
 
     </div>
-  </div>
-
 
   </ion-content>
 </ion-view>
