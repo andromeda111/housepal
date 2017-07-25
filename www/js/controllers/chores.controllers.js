@@ -43,6 +43,7 @@ angular.module('app.chores.controllers', [])
         console.log(result);
       })
       $scope.postSysMsgComplete(chore)
+      $state.go($state.current, {}, {reload: true});
     }
 
     $scope.editChore = function (chore) {
@@ -55,6 +56,7 @@ angular.module('app.chores.controllers', [])
       $http.delete(API_URL.url + `/chores/delete/${chore.id}`).then(result => {
         console.log(result);
       })
+      $state.go($state.current, {}, {reload: true});
     }
 
     $scope.postSysMsgComplete = function (chore) {

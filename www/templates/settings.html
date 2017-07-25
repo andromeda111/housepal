@@ -1,32 +1,31 @@
 <ion-view title="{{currentUser.name}}" cache-view="false" id="page4">
   <ion-content class="has-header">
-<div class="settings-container">
-    <div class="settings-header">
-      <p class="settings-title">{{house.title}}</p>
-      <p class="settings-code">House Share Code: <br>{{house.code}}</p>
-    </div>
-
-    <div class="my-chores-header">
-      <div>
-        <h4 class="header-white">Settings</h4>
+    <div class="settings-container">
+      <div class="settings-header">
+        <p class="settings-title">{{house.title}}</p>
+        <p class="settings-code">House Share Code: <br>{{house.code}}</p>
       </div>
-      <!-- Dropdown Button -->
-      <div class="down-circle" ng-class="{'down-circle-active': clicked}" ng-click="clicked = !clicked"><i class="icon ion-ios-arrow-down down-arrow"></i></div>
-    </div>
-    <div class="settings-section" ng-class="{'settings-section-active': clicked}">
-      <div class="settings-content">
-        <div class="settings-leave">
-          <div>
-            <h4>Leave House</h4>
-            <p>Leave this house to join or create another.</p>
-          </div>
-          <div class="btn-leave" ng-click="leaveHouse()">
-            <i class="icon ion-android-exit"></i>
-            <span>Leave</span>
-          </div>
+
+      <div class="my-chores-header">
+        <div>
+          <h4 class="header-white">Settings</h4>
         </div>
-        <div class="settings-remove">
-          <div>
+        <!-- Dropdown Button -->
+        <div class="down-circle" ng-class="{'down-circle-active': clicked}" ng-click="clicked = !clicked"><i class="icon ion-ios-arrow-down down-arrow"></i></div>
+      </div>
+      <div class="settings-section" ng-class="{'settings-section-active': clicked}">
+        <div class="settings-content">
+          <div class="settings-leave">
+            <div>
+              <h4>Leave House</h4>
+              <p>Leave this house to join or create another.</p>
+            </div>
+            <div class="btn-leave" ng-click="leaveHouse()">
+              <i class="icon ion-android-exit"></i>
+              <span>Leave</span>
+            </div>
+          </div>
+          <div class="settings-remove">
             <hr>
             <h4>Remove Roommates</h4>
             <p>Removing a roommate will also remove chores associated with that person.</p>
@@ -49,19 +48,18 @@
           </div>
         </div>
       </div>
-    </div>
 
-    <!--  -->
+      <!--  -->
 
-    <div class="settings-lower-section">
-      <div class="zxcv">Welcome, {{currentUser.name}}!</div>
-      <!-- <div class="settings-spacer-sm" ng-if="clicked"></div>
-      <div class="settings-spacer-lg" ng-if="!clicked"></div> -->
-      <div class="qwer">
-        <button ng-click="logout()" class="button button-positive btn-logout">Log Out</button>
+      <div class="settings-lower-section">
+        <div class="settings-width-full">Welcome, {{currentUser.name}}!</div>
+        <div class="settings-spacer-sm" ng-if="clicked"></div>
+        <div class="settings-spacer-lg" ng-if="!clicked"></div>
+        <div class="settings-width-full">
+          <button ng-click="logout()" class="button button-positive btn-logout">Log Out</button>
+        </div>
       </div>
-    </div>
 
-</div>
+    </div>
   </ion-content>
 </ion-view>

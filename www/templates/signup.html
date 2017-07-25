@@ -1,30 +1,29 @@
 <ion-view title="Signup" hide-nav-bar="true" cache-view="false" nav-transition="none" id="page6">
-  <ion-content  scroll="false">
+  <ion-content scroll="false">
 
     <div class="login-section">
       <div class="logo">
-        <div class="p">Pad</div>
-        <div class="p2">Pal</div>
+        <img src="../img/housepal-logo.png" alt="">
       </div>
-    <form class="login-form">
-      <p>Sign Up</p>
-      <ion-list>
-        <label class="item item-input">
+      <form class="login-form">
+        <p>Sign Up</p>
+        <ion-list>
+          <label class="item item-input">
           <span class="input-label">Name</span>
           <input type="text" placeholder="" ng-model="signupFormData.name">
         </label>
-        <label class="item item-input">
+          <label class="item item-input">
           <span class="input-label">Email</span>
           <input type="email" placeholder=""  ng-model="signupFormData.email">
         </label>
-        <label class="item item-input">
+          <label class="item item-input">
           <span class="input-label">Password</span>
           <input type="text" placeholder="" ng-model="signupFormData.password">
         </label>
-      </ion-list>
-      <button class="button button-positive button-block" ng-click="signup()">Sign Up</button>
-      <a ui-sref="login()" class="button button-light button-block button-outline">Already have an account?</a>
-    </form>
-        </div>
+        </ion-list>
+        <button class="button button-positive button-block" ng-click="signup()">Sign Up</button>
+        <a ui-sref="login()" class="button button-light button-block button-outline">Already have an account?</a>
+      </form>
+    </div>
   </ion-content>
 </ion-view>

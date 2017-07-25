@@ -61,7 +61,7 @@
     </div>
     <!-- Chores -->
     <div class="chore-section" ng-class="{'chore-section-active': clickedB}" ng-repeat="choreData in otherChores">
-      <ion-list can-swipe="true">
+      <ion-list can-swipe="true" ng-if="!choreDeleted">
         <ion-item class="choreCard">
           <div class="chore-card-content">
             <div class="chore-name">{{choreData.chore}}</div>

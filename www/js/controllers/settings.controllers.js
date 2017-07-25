@@ -33,6 +33,7 @@ angular.module('app.settings.controllers', [])
 
     $scope.leaveHouse = function () {
       $http.put(API_URL.url + `/users/leave/${$scope.currentUser.id}`)
+      $state.go('houseSetup')
     }
 
     $scope.postMessage = function (msgText) {

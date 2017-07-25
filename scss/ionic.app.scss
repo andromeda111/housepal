@@ -29,6 +29,10 @@ ion-content {
 background: #F5F5F5 !important;
 }
 
+h3 {
+  color: white !important;
+}
+
 /***************
 Login, Signup
 ****************/
@@ -50,17 +54,36 @@ Login, Signup
 }
 
 .logo {
+  max-width: 75%;
   font-size: 4rem;
   color: white;
   margin-bottom: 60px;
 }
-.p {
-  padding-right: 70px;
-    margin-bottom: -5px;
-}
-.p2 {
-  padding-left: 100px;
 
+.logo img {
+  max-width: 100%;
+
+}
+
+/***************
+CREATE - JOIN HOUSE
+****************/
+
+.new-user-landing {
+  width: 75%;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.new-user-landing img {
+  width: 60%;
+  margin-bottom: 20px;
+}
+
+.error-text {
+  color: red;
+  font-size: 1rem;
 }
 /***************
 MESSAGE BOARD
@@ -70,18 +93,10 @@ MESSAGE BOARD
   padding-bottom: 80px;
 }
 
-// .discussion {
-//   list-style: none;
-//   // background: #eee;
-//   margin: 0;
-//   padding: 0;
-// }
-
 .discussion li {
   padding: 0.25rem;
   overflow: hidden;
   display: flex;
-
 }
 
 .messages {
@@ -169,6 +184,33 @@ MESSAGE BOARD
   font-size: 25px;
 }
 
+
+/* Checkbox Hack */
+
+.check-bubble {
+    display: inline-block;
+    border: 1px solid #3A85BF;
+    padding: 10px;
+    margin: 2px;
+    cursor: pointer;
+    border-radius: 45px;
+    font-size: 10px;
+    color: #3A85BF;
+    font-weight: bold;
+}
+
+.checkbox-hide {
+  display: none;
+}
+.checkbox-hide:checked + .check-bubble {
+  background-color: #3A85BF;
+  color: white;
+}
+
+.checklist-row {
+  display: inline-block;
+}
+
 /****************
 SHOPPING LIST
 ****************/
@@ -181,12 +223,14 @@ SHOPPING LIST
   justify-content: space-between;
   align-items: center;
   color: white;
-  background-position: right;
+  background-position: center;
+  background-size: cover;
   border-bottom: 1px solid white;
-  background-image: url('../img/dew.jpg');
+  background-image: url('../img/bag.jpg');
 }
 
 .shop-list-input {
+  min-width: 50%;
   margin-bottom: 0px !important;
   margin-right: 20px;
 }
@@ -285,6 +329,11 @@ float: right;
   background: linear-gradient(to bottom right, #46C949, #88D28A);
   box-shadow: 0 5px 15px rgba(27, 76, 28, .7);
 }
+.btn-update-item > i {
+  color: #F8F8F8;
+  font-size: 1.2rem !important;
+  padding-right: 5px;
+}
 
 /***************
 CHORES
@@ -298,7 +347,7 @@ CHORES
   justify-content: space-between;
   align-items: center;
   color: white;
-  background-image: url('../img/water.jpg');
+  background-image: url('../img/mop3.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -550,9 +599,6 @@ text-align: center;
 
 .settings-container {
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-flow: column;
 }
 .settings-header {
   padding-top: 15px;
@@ -602,6 +648,7 @@ text-align: center;
 }
 
 .settings-leave {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -614,7 +661,7 @@ text-align: center;
   border-radius: 3px;
   padding: 5px;
   margin-left: 20px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -628,15 +675,19 @@ text-align: center;
 
 .btn-leave > i {
   color: #F8F8F8;
-  font-size: 1.6rem !important;
+  font-size: 1.2rem !important;
   padding-right: 10px;
 }
 
+.settings-remove {
+  width: 100%;
+}
 .settings-remove-form {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
+
 }
 .remove-housemate {
   flex-grow: 1;
@@ -648,7 +699,7 @@ text-align: center;
   border-radius: 3px;
   padding: 5px;
   margin-left: 20px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -662,28 +713,39 @@ text-align: center;
 
 .btn-remove > i {
   color: #F8F8F8;
-  font-size: 1.6rem !important;
+  font-size: 1.2rem !important;
   padding-right: 5px;
 }
 
 .settings-lower-section {
   padding-top: 20px;
   display: flex;
-  // flex-direction: column;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between
+  justify-content: space-between;
+  text-align: center;
+  width: 100%;
 }
 
 .settings-spacer-sm {
-  height: 25px;
+  height: 20px;
 }
 .settings-spacer-lg {
-  height: 100px;
+  height: 175px;
 }
 
 .btn-logout {
-
   width: 50%;
+}
+
+.settings-width-full {
+  margin-top: 10px;
+  font-size: 1.75rem;
+  width: 100%;
+}
+
+.item-input {
+  padding: 2px 0 2px 5px !important;
 }
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";

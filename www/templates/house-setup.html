@@ -1,18 +1,26 @@
 <ion-view title="House Setup" hide-nav-bar="true" cache-view="false" nav-transition="none" id="page6">
-  <ion-content padding="true" scroll="false">
+  <ion-content scroll="false">
+
+  <div class="login-section">
 
   <!-- Landing -->
-  <div class="" ng-if="hideIntro">
-    <h2>Not currently part of a house group</h2>
+  <div class="new-user-landing" ng-if="hideIntro">
+    <img src="../img/housepal-logo.png" alt="">
+    <div class="">
+      <h3>Welcome!</h3>
+        <p>You are currently not part of a house group. Would you like to join an existing house, or start your own house group?</p>
+    </div>
 
-    <button ng-click="joinButton()" class="button button-calm button-block button-outline">Join Existing House</button>
-    <button ng-click="createButton()"class="button button-calm button-block button-outline">Create New House</button>
+    <button ng-click="joinButton()" class="button button-positive button-block">Join Existing House</button>
+    <button ng-click="createButton()"class="button button-balanced button-block">Create New House</button>
   </div>
-  <!-- Join form -->
-  <div class="" ng-if="showJoinContainer">
-    <h2>Enter house code:</h2>
 
-    <form class="list">
+  <!-- Join form -->
+  <div class="new-user-landing" ng-if="showJoinContainer">
+    <img src="../img/housepal-logo.png" alt="">
+    <h3>Join Existing House</h3>
+
+    <form class="login-form">
       <ion-list>
         <label class="item item-input">
           <span class="input-label">House Name</span>
@@ -23,16 +31,18 @@
           <input type="text" placeholder="Code" ng-model="joinFormData.code">
         </label>
       </ion-list>
-      <div class="spacer" style="height: 40px;"></div>
-      <h4 class="" style="color: red">{{joinError.text}}</h4><span style="color: red">{{joinError.msg}}</span>
-      <button ng-click="joinFormSubmit(joinFormData)" class="button button-stable button-block">Join House</button>
+      <div class="spacer" style="height: 10px;"></div>
+      <p class="error-text">{{joinError.text}}</p>
+      <button ng-click="joinFormSubmit(joinFormData)" class="button button-positive button-block">Join House</button>
+      <button ng-click="backButton()" class="button button-light button-block button-outline">Go Back</button>
     </form>
   </div>
   <!-- Create form -->
-  <div class="" ng-if="showCreateContainer">
-    <h2>Create a New House Group:</h2>
+  <div class="new-user-landing" ng-if="showCreateContainer">
+    <img src="../img/housepal-logo.png" alt="">
+    <h3>Create New House</h3>
 
-    <form class="list">
+    <form class="login-form">
       <ion-list>
         <label class="item item-input">
           <span class="input-label">House Name</span>
@@ -43,13 +53,15 @@
           <input type="text" placeholder="Code" ng-model="createFormData.code">
         </label>
       </ion-list>
-      <div class="spacer" style="height: 40px;"></div>
-      <h4 class="" style="color: red">{{createError.text}}</h4><span style="color: red">{{createError.msg}}</span><span style="color: red">{{createError.err}}</span>
-      <button ng-click="createFormSubmit(createFormData)" class="button button-stable button-block">Create House</button>
+      <div class="spacer" style="height: 10px;"></div>
+      <p class="error-text">{{createError.text}}</p>
+      <button ng-click="createFormSubmit(createFormData)" class="button button-balanced button-block">Create House</button>
+      <button ng-click="backButton()" class="button button-light button-block button-outline">Go Back</button>
     </form>
   </div>
 
 
+  </div>
 
   </ion-content>
 </ion-view>
