@@ -425,6 +425,10 @@ CHORES
   margin-left: 15px;
   margin-right: 15px; }
 
+.chore-cycle-order {
+  margin-top: 5px;
+  text-align: center; }
+
 .washer-top {
   height: 60px;
   padding: 0px 15px;

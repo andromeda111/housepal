@@ -42,7 +42,7 @@
             <input type='checkbox' class="checkbox-hide" id="choreUser{{person.id}}" value="{{person.id}}" name="choreUser{{person.id}}" check-list='checked_housemates' cycle-list='cycleList' house-list="houseUsers">
             <label for="choreUser{{person.id}}" class="check-bubble">{{person.name}}</label>
           </div>
-          <div style="color: gray">Cycle Order: <span style="color: gray" ng-repeat="name in checked_housemates">{{name}} </span></div>
+          <div class="chore-cycle-order">Cycle Order:<br> <span ng-repeat="name in checked_housemates">{{name}} </span></div>
 
         </div>
 
