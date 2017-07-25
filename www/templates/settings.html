@@ -52,9 +52,14 @@
       <!--  -->
 
       <div class="settings-lower-section">
-        <div class="settings-width-full">Welcome, {{currentUser.name}}!</div>
-        <div class="settings-spacer-sm" ng-if="clicked"></div>
-        <div class="settings-spacer-lg" ng-if="!clicked"></div>
+        <div class="settings-width-full settings-welcome">Welcome, {{currentUser.name}}!</div>
+        <div class="settings-rm-list">
+          <p>Roommates</p>
+          <ul>
+            <li ng-repeat="person in removeUserList" class="rm-list">{{person.name}}</li>
+          </ul>
+        </div>
+        <div class="settings-spacer"></div>
         <div class="settings-width-full">
           <button ng-click="logout()" class="button button-positive btn-logout">Log Out</button>
         </div>

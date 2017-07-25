@@ -23,7 +23,6 @@ angular.module('app.settings.controllers', [])
           return user.id != $scope.currentUser.id
         })
       })
-
     });
 
     $scope.removeHousemate = function (person) {

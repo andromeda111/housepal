@@ -79,7 +79,7 @@ angular.module('app.board.controllers', [])
         $http.get(API_URL.url + `/messageboard`).then(messages => {
           $scope.allMessages = messages.data
           $scope.allMessages.forEach(msg => {
-            msg.postTime.postTime = moment(msg.postTime.postTime).format('dddd, MMMM do, YYYY h:mma')
+            msg.postTime.postTime = moment(msg.postTime.postTime).format('MMMM Do, YYYY - h:mma')
             $ionicScrollDelegate.scrollBottom()
             return msg.postTime.postTime
           })

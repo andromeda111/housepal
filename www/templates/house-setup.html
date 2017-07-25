@@ -41,18 +41,19 @@
   <div class="new-user-landing" ng-if="showCreateContainer">
     <img src="../img/housepal-logo.png" alt="">
     <h3>Create New House</h3>
-
+    <p>The House Name and Share Code will be used by others to join your house.</p>
     <form class="login-form">
       <ion-list>
         <label class="item item-input">
           <span class="input-label">House Name</span>
-          <input type="text" placeholder="House Name" ng-model="createFormData.title">
+          <input type="text" placeholder="ex. The Bat Cave" ng-model="createFormData.title">
         </label>
         <label class="item item-input">
           <span class="input-label">House Code</span>
-          <input type="text" placeholder="Code" ng-model="createFormData.code">
+          <input type="text" placeholder="ex. icecream5" ng-model="createFormData.code">
         </label>
       </ion-list>
+
       <div class="spacer" style="height: 10px;"></div>
       <p class="error-text">{{createError.text}}</p>
       <button ng-click="createFormSubmit(createFormData)" class="button button-balanced button-block">Create House</button>

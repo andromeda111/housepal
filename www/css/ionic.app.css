@@ -615,22 +615,28 @@ CHORES
   text-align: center;
   width: 100%; }
 
-.settings-spacer-sm {
-  height: 20px; }
-
-.settings-spacer-lg {
-  height: 175px; }
+.settings-spacer {
+  height: 25px; }
 
 .btn-logout {
   width: 50%; }
 
 .settings-width-full {
-  margin-top: 10px;
   font-size: 1.75rem;
   width: 100%; }
 
+.settings-welcome {
+  margin: 10px 0 40px 0; }
+
 .item-input {
   padding: 2px 0 2px 5px !important; }
+
+.rm-list {
+  list-style: none; }
+
+.settings-rm-list p {
+  font-size: 1.1rem;
+  text-decoration: underline; }
 
 /*!
   Ionicons, v2.0.1
