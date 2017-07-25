@@ -6,5 +6,5 @@ angular.module('app.constants', [])
 
   // This is used for Auth
   .constant('API_URL', {
-    url: 'http://localhost:9000'
+    url: 'https://housepal.herokuapp.com'
   });

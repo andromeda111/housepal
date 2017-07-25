@@ -184,11 +184,11 @@ angular.module('app.laundry.controllers', [])
            url: 'https://api.ionic.io/push/notifications',
            headers: {
              'Content-Type': 'application/json',
-             'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJiNjVlYzE2YS04N2VmLTQ3YjQtOGJlYy1mY2ZmZWJmMjc0ZTQifQ.aqtWe4lI7BmoSqAZCl0VD-H3Ceo1BVAOFgtpLhHD8OM'
+             'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI0NDIwMDgzOS1iM2VhLTRiMzctOTY3Zi0zMWQyYmRlMWVhOTkifQ.RatHfDaE0PbgPHqxLONRpAg7f5EZ95R5mJu4jn5cbnk'
            },
            data: {
               "tokens": washerNotifyList,
-              "profile": "capstone",
+              "profile": "housepal",
               "notification": {
                 "android": {
                   "title": "Washer Available",
@@ -210,11 +210,11 @@ angular.module('app.laundry.controllers', [])
            url: 'https://api.ionic.io/push/notifications',
            headers: {
              'Content-Type': 'application/json',
-             'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJiNjVlYzE2YS04N2VmLTQ3YjQtOGJlYy1mY2ZmZWJmMjc0ZTQifQ.aqtWe4lI7BmoSqAZCl0VD-H3Ceo1BVAOFgtpLhHD8OM'
+             'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI0NDIwMDgzOS1iM2VhLTRiMzctOTY3Zi0zMWQyYmRlMWVhOTkifQ.RatHfDaE0PbgPHqxLONRpAg7f5EZ95R5mJu4jn5cbnk'
            },
            data: {
               "tokens": dryerNotifyList,
-              "profile": "capstone",
+              "profile": "housepal",
               "notification": {
                 "android": {
                   "title": "Dryer Available",

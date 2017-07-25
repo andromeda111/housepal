@@ -1,8 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MyApp</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+<widget id="io.ionic.housepal" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>HousePal</name>
+    <description>HousePal is a mobile app designed for to make communal living easier for people living with roommates and in shared/communal houses. Chore cycles, communal shopping list, and laundry tracker - all in one place.
+</description>
+    <author email="jmseymour111@gmail.com" href="https://github.com/andromeda111">John Seymour - Full-stack Web Developer. Seattle, WA USA.</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
@@ -85,6 +86,6 @@
     <plugin name="cordova-plugin-splashscreen" spec="~4.0.1" />
     <engine name="android" spec="~6.2.3" />
     <plugin name="phonegap-plugin-push" spec="^1.10.5">
-        <variable name="SENDER_ID" value="770128073589" />
+        <variable name="SENDER_ID" value="879269429683" />
     </plugin>
 </widget>

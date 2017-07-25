@@ -10,10 +10,10 @@ angular.module('app', ['ionic', 'ionic.cloud', 'app.auth.controllers', 'app.hous
 .config(function($ionicCloudProvider, $ionicConfigProvider) {
   $ionicCloudProvider.init({
     "core": {
-      "app_id": "80989ab2"
+      "app_id": "af5b2177"
     },
     "push": {
-    "sender_id": "770128073589",
+    "sender_id": "879269429683",
     "pluginConfig": {
       "ios": {
         "badge": true,
