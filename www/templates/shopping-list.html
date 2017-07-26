@@ -2,7 +2,7 @@
   <ion-content class="has-header">
 
     <div class="list-item-add-input">
-      <form class="list shop-list-input" ng-submit="addItem(newItem)">
+      <form name="shoppingListForm" class="list shop-list-input" ng-submit="addItem(newItem)">
         <label class="item item-input">
           <input type="text" name="new-item" value="" placeholder="Add item..." ng-model="newItem">
         </label>
@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="todo-list-master" ng-repeat="item in listItems | orderBy:'created_at'">
-      
+
       <div class="list-item-row">
         <!-- Check Done Button -->
         <div class="list-item-content">

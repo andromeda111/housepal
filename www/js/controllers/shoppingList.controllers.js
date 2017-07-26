@@ -35,6 +35,9 @@ angular.module('app.shoppingList.controllers', [])
       })
       $scope.postSysMsgAdd(newItem)
       $scope.pushMsgNotifyAdd(newItem)
+      this.newItem = '';
+      // $scope.shoppingListForm.$setUntouched();
+      // $scope.shoppingListForm.$setPristine();
     }
 
     $scope.updateItem = function(item, buyer) {

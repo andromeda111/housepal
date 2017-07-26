@@ -85,6 +85,9 @@ angular.module('app.board.controllers', [])
           })
         })
       })
+      this.msgText = '';
+      $scope.boardPostForm.$setUntouched();
+      $scope.boardPostForm.$setPristine();
     }
 
   }])
