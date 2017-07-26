@@ -25,6 +25,9 @@ ion-content {
 h3 {
   color: white !important; }
 
+.popup-title {
+  color: black !important; }
+
 /***************
 Login, Signup
 ****************/

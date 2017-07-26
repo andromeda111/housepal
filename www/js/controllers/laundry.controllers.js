@@ -1,6 +1,6 @@
 angular.module('app.laundry.controllers', [])
 
-  .controller('laundryCtrl', ['$scope', '$stateParams', '$http', 'moment', 'API_URL', function($scope, $stateParams, $http, moment, API_URL) {
+  .controller('laundryCtrl', ['$scope', '$stateParams', '$http', 'moment', 'API_URL', '$ionicPopup', function($scope, $stateParams, $http, moment, API_URL, $ionicPopup) {
 
     $scope.$on('$ionicView.enter', function(e) {
       console.log('on init');
@@ -97,6 +97,10 @@ angular.module('app.laundry.controllers', [])
             console.log(result);
           })
         }
+        let alertPopup = $ionicPopup.alert({
+          title: 'Washer',
+          template: 'You will be notified when the washing machine is available again.'
+        });
       });
 
 
@@ -169,7 +173,10 @@ angular.module('app.laundry.controllers', [])
           })
         }
       });
-
+      let alertPopup = $ionicPopup.alert({
+        title: 'Dryer',
+        template: 'You will be notified when the dryer is available again.'
+      });
 
     }
 

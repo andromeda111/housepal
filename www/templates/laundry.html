@@ -30,8 +30,8 @@
               <h5>Available</h5>
             </div>
             <div ng-if="laundryData.washer_status === true">
-              <h5>Currently in use by {{laundryData.washer_current_user.name}} as of {{washerTimeAgo}}</h5>
-              <div class="btn-notify-laundry" ng-click="notifyMeWasher()">
+              <h5>Currently in use by <span ng-show="laundryData.washer_current_user.id === currentUser.id" class="ng-hide">you</span><span ng-show="laundryData.washer_current_user.id !== currentUser.id">{{laundryData.washer_current_user.name}}</span> as of {{washerTimeAgo}}</h5>
+              <div class="btn-notify-laundry" ng-click="notifyMeWasher()" ng-if="laundryData.washer_status === true && laundryData.washer_current_user.id !== currentUser.id">
                 <i class="icon ion-clock"></i>
                 <span>Notify Me When Available</span>
               </div>
@@ -72,8 +72,8 @@
             <h5>Available</h5>
           </div>
           <div ng-if="laundryData.dryer_status === true">
-            <h5>Currently in use by {{laundryData.dryer_current_user.name}} as of {{dryerTimeAgo}}</h5>
-            <div class="btn-notify-laundry" ng-click="notifyMeDryer()">
+            <h5>Currently in use by <span ng-show="laundryData.dryer_current_user.id === currentUser.id" class="ng-hide">you</span><span ng-show="laundryData.dryer_current_user.id !== currentUser.id">{{laundryData.dryer_current_user.name}}</span> as of {{dryerTimeAgo}}</h5>
+            <div class="btn-notify-laundry" ng-click="notifyMeDryer()" ng-if="laundryData.dryer_status === true && laundryData.dryer_current_user.id !== currentUser.id">
               <i class="icon ion-clock"></i>
               <span>Notify Me When Available</span>
             </div>
