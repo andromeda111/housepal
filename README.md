@@ -3,7 +3,7 @@ HousePal
 
 HousePal is a mobile app developed for Android designed to make communal living easier for people living with roommates and in shared/communal houses. It has a chore cycle, communal shopping list, and laundry tracker - all in one place.
 
-HousePal is a mobile app developed for Android with Ionic framework. | July 2017
+HousePal is a mobile app developed for Android | July 2017
 
 
 ## Features
@@ -22,8 +22,6 @@ HousePal is a mobile app developed for Android with Ionic framework. | July 2017
 
 
 ## Installation
-HousePal (front-end):
-https://github.com/andromeda111/housepal-api
 
 The repository can be downloaded and run as a web application for development/testing:
 
@@ -36,7 +34,7 @@ $ ionic serve
 
 Native mobile downloads of the app (for Android) are currently only available with beta test versions in the Google Play store.
 
-## API Backend
+## API Back-end
 
 HousePal API (back-end):
 -https://github.com/andromeda111/housepal-api
@@ -48,6 +46,8 @@ AngularJS, Ionic v1, Cordova, JavaScript, HTML5/CSS3/Sass
 Server and Database:
 Node.js, ExpressJS, PostgreSQL, Knex.js, Passport
 
+Services:
+Google Firebase Cloud Messaging, Heroku
 
 ## Developed By | July 2017:
 
