@@ -1,25 +1,26 @@
 HousePal
 =====================
 
+*I am currently in progress cleaning up and refactoring the code for this project*
 HousePal is a mobile app developed for Android designed to make communal living easier for people living with roommates and in shared/communal houses. It has a chore cycle, communal shopping list, and laundry tracker - all in one place.
 
 HousePal is a mobile app developed for Android | July 2017
 
 
 ## Features
-
+<img src="docs/housepal-demo-login.png"> | <img src="docs/housepal-demo-dash.png">
 
 #### Chore Cycle
-
+<img src="docs/housepal-demo-chores.png">
 
 #### Communal Shopping List
-
+<img src="docs/housepal-demo-list.png">
 
 #### Laundry Tracker
-
+<img src="docs/housepal-demo-laundry.png">
 
 #### Message Board
-
+<img src="docs/housepal-demo-board.png">
 
 ## Installation
 
